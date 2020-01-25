@@ -3,8 +3,7 @@ FROM node:12.13 as build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
-RUN npm install -g npm && \
-    npm cache clean --force && \
+RUN npm cache clean --force && \
     npm install --no-optional --verbose
 
 COPY . ./
