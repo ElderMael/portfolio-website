@@ -5,13 +5,13 @@ ENV CI=true
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
-RUN npm config set color false && \
-    npm cache clean --force && \
-    npm install --no-optional --verbose
+RUN npm --no-color config set color false && \
+    npm --no-color cache clean --force && \
+    npm --no-color install --no-optional --verbose
 
 COPY . ./
 
-RUN npm run build
+RUN npm --no-color run build
 
 FROM nginx:1.17.8-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
