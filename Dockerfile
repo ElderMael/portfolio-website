@@ -1,5 +1,7 @@
 FROM node:lts as build
 
+ENV CI=true
+
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install

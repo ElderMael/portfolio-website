@@ -4,8 +4,9 @@ stages:
       - runScriptConfig:
           image: node:lts
           shellScript: |
+            export CI=true
             npm install --no-optional
-            CI=true npm run test --watchAll=false
+            npm run test --watchAll=false
             npm run build
   - name: Publish Image
     steps:
