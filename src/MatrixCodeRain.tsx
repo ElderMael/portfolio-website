@@ -4,7 +4,7 @@ const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 
 export class MatrixCodeRain extends React.Component<{}, {}> {
 
-  private canvas: React.RefObject<HTMLCanvasElement>;
+  private readonly canvas: React.RefObject<HTMLCanvasElement>;
   private intervalId?: NodeJS.Timeout;
 
   constructor(props: {}) {

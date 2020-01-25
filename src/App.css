@@ -4,8 +4,51 @@ body {
 
 .matrix-rain {
   position: fixed;
+  z-index: -1;
 }
 
 .App {
 
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+.blast-root h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: chartreuse;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .8em solid chartreuse; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+
+  animation:
+      typing 3.5s steps(16, end),
+      blink-caret .75s step-end infinite;
+}
+
+@media (min-width:1000px) {
+  .blast-root h1 {
+    font-size: 40px;
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 45% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: chartreuse; }
 }
