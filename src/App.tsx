@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%".split("");
+const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 
 class MatrixCodeRain extends React.Component<{}, {}> {
 
@@ -33,22 +33,18 @@ class MatrixCodeRain extends React.Component<{}, {}> {
 
       context.fillStyle = "#0F0"; //green text
       context.font = fontSize + "px arial";
-      //looping over drops
+
       for (let i = 0; i < drops.length; i++) {
-        //a random chinese character to print
+
         const text = matrix[Math.floor(Math.random() * matrix.length)];
-        //x = i*font_size, y = value of drops[i]*font_size
         context.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        //sending the drop back to the top randomly after it has crossed the screen
-        //adding a randomness to the reset to make the drops scattered on the Y axis
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
           drops[i] = 0;
 
-        //incrementing Y coordinate
         drops[i]++;
       }
-    }, 35)
+    }, 55)
   }
 
   componentWillUnmount(): void {
@@ -59,7 +55,9 @@ class MatrixCodeRain extends React.Component<{}, {}> {
 
   render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
     return (
-        <canvas ref={this.canvas}/>
+        <div>
+          <canvas ref={this.canvas} className="matrix-rain"/>
+        </div>
     );
   }
 

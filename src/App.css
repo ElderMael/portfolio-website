@@ -2,6 +2,10 @@ body {
   background-color: black;
 }
 
+.matrix-rain {
+  position: fixed;
+}
+
 .App {
 
 }
