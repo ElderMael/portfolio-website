@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: portfolio-website
-          image: docker-registry/eldermael/portfolio-website:latest
+          image: ${CICD_IMAGE}:latest
           ports:
             - containerPort: 80
               name: http
