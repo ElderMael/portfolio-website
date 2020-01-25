@@ -1,9 +1,0 @@
-import React from 'react';
-import {render} from '@testing-library/react';
-import App from './App';
-
-test('renders learn react link', () => {
-  const {baseElement} = render(<App/>);
-  const canvas = baseElement.getElementsByTagName('canvas');
-  expect(canvas.length).toBe(1);
-});
