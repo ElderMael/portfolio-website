@@ -15,7 +15,7 @@ stages:
           buildContext: .
           tag: eldermael/portfolio-website:latest
           pushRemote: true
-          registry: hub.docker.com
+          registry: registry.hub.docker.com
   - name: Deploy
     steps:
       - applyYamlConfig:
