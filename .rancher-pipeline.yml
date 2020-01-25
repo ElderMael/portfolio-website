@@ -2,7 +2,7 @@ stages:
   - name: Build Application
     steps:
       - runScriptConfig:
-          image: statflodevelopment/reactjs
+          image: node:lts
           shellScript: |
             npm install --no-optional
             npm run test
