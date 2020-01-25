@@ -1,5 +1,3 @@
-RUN npm --no-color run build
-
 FROM nginx:1.17.8-alpine
 COPY ./build /usr/share/nginx/html
 
