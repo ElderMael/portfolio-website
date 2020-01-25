@@ -13,7 +13,7 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: eldermael/portfolio-website:latest
+          tag: eldermael/portfolio-website:${CICD_EXECUTION_SEQUENCE}
   - name: Deploy
     steps:
       - applyYamlConfig:
