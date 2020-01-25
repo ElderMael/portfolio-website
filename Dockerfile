@@ -1,4 +1,4 @@
-FROM node:12 as build
+FROM node:lts as build
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
