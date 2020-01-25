@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: portfolio-website
-          image: eldermael/portfolio-website:latest
+          image: pipeline-docker-registry/eldermael/portfolio-website:latest
           ports:
             - containerPort: 80
           resources:
