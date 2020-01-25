@@ -4,7 +4,7 @@ ENV CI=true
 
 WORKDIR /usr/src/app
 COPY . ./
-RUN npm install --no-optional
+RUN npm install --no-optional --verbose
 RUN npm run build
 
 FROM nginx:1.17.8-alpine
