@@ -6,7 +6,7 @@ stages:
           shellScript: |
             export CI=true
             npm install --no-optional
-            npm run test --watchAll=false
+            npm run test --watchAll=false --passWithNoTests
             npm run build
   - name: Publish Image
     steps:
