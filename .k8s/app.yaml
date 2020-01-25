@@ -19,6 +19,7 @@ spec:
           image: pipeline-docker-registry/eldermael/portfolio-website:latest
           ports:
             - containerPort: 80
+              name: http
           resources:
             limits:
               cpu: 300m
