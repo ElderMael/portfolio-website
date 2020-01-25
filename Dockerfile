@@ -5,7 +5,8 @@ ENV CI=true
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
-RUN npm cache clean --force && \
+RUN npm config set color false && \
+    npm cache clean --force && \
     npm install --no-optional --verbose
 
 COPY . ./
