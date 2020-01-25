@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: portfolio-website
-          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          image: eldermael/portfolio-website:latest
           ports:
             - containerPort: 80
               name: http
