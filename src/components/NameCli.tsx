@@ -2,10 +2,6 @@ import React from "react";
 import './NameCli.css'
 
 export class NameCli extends React.Component {
-
-  componentDidMount(): void {
-  }
-
   render() {
     return (
         <div className="container-fluid blast-root justify-content-center vertical-center">
