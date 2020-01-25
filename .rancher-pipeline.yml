@@ -13,7 +13,7 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: eldermael/portfolio-website:latest
+          tag: eldermael/portfolio-website:${CICD_EXECUTION_SEQUENCE}
           pushRemote: true
           registry: registry.hub.docker.com
   - name: Deploy

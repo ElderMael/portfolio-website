@@ -6,6 +6,7 @@ metadata:
     app: portfolio-website
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: portfolio-website
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: portfolio-website
-          image: eldermael/portfolio-website:latest
+          image: eldermael/portfolio-website:${CICD_EXECUTION_SEQUENCE}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
