@@ -2,7 +2,7 @@ stages:
   - name: Build Application
     steps:
       - runScriptConfig:
-          image: node:lts
+          image: node:12.13
           shellScript: |
             export CI=true
             npm install --no-optional
