@@ -3,8 +3,9 @@ FROM node:lts as build
 ENV CI=true
 
 WORKDIR /usr/src/app
-COPY . ./
+COPY package.json package-lock.json ./
 RUN npm install --no-optional --verbose
+COPY . ./
 RUN npm run build
 
 FROM nginx:1.17.8-alpine
