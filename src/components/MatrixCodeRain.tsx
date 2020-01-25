@@ -1,5 +1,5 @@
 import React from "react";
-
+import './MatrixCodeRain.css';
 const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 
 export class MatrixCodeRain extends React.Component<{}, {}> {
@@ -43,7 +43,7 @@ export class MatrixCodeRain extends React.Component<{}, {}> {
 
         drops[i]++;
       }
-    }, 55)
+    }, 70)
   }
 
   componentWillUnmount(): void {
@@ -54,9 +54,7 @@ export class MatrixCodeRain extends React.Component<{}, {}> {
 
   render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
     return (
-        <div>
-          <canvas ref={this.canvas} className="matrix-rain"/>
-        </div>
+        <canvas ref={this.canvas} className="matrix-rain"/>
     );
   }
 
