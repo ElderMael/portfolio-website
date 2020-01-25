@@ -17,6 +17,7 @@ spec:
       containers:
         - name: portfolio-website
           image: eldermael/portfolio-website:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
               name: http
