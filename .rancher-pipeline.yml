@@ -1,0 +1,19 @@
+stages:
+  - name: Build something
+    steps:
+      - runScriptConfig:
+          image: node:13.6.0-alpine
+          shellScript: |
+            npm install
+            npm run test
+            npm run build
+  - name: Publish Image
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: eldermael/portfolio-website:latest
+  - name: Deploy
+    steps:
+      - applyYamlConfig:
+          path: ./.k8s/app.yaml
