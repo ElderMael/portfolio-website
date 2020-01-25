@@ -4,7 +4,7 @@ stages:
       - runScriptConfig:
           image: node:13.6.0-alpine
           shellScript: |
-            npm install
+            npm install --no-optional
             npm run test
             npm run build
   - name: Publish Image
