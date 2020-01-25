@@ -5,7 +5,7 @@ stages:
           image: node:lts
           shellScript: |
             npm install --no-optional
-            npm run test
+            npm run test --watchAll=false
             npm run build
   - name: Publish Image
     steps:
