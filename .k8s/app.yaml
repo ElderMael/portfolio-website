@@ -10,6 +10,9 @@ spec:
     matchLabels:
       app: portfolio-website
   template:
+    metadata:
+      labels:
+        app: portfolio-website
     spec:
       containers:
         - name: portfolio-website
