@@ -2,9 +2,8 @@ stages:
   - name: Build Application
     steps:
       - runScriptConfig:
-          image: node:12-alpine
+          image: statflodevelopment/reactjs
           shellScript: |
-            apk add --no-cache 'python3=3.7.6-r0'
             npm install --no-optional
             npm run test
             npm run build
