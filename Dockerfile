@@ -2,7 +2,8 @@ FROM node:lts as build
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
-RUN npm install --no-optional --verbose
+RUN npm cache clean && \
+    npm install --no-optional --verbose
 COPY . ./
 RUN npm run build
 
