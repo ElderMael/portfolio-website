@@ -1,4 +1,6 @@
-FROM node:12.13 as build
+FROM node:12.0 as build
+
+ENV CI=true
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
