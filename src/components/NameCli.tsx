@@ -7,7 +7,7 @@ export class NameCli extends React.Component {
         <div className="vertical-center">
           <div className="row blast-root">
             <h1>
-              Hi, I am Miguel.
+              Hi, I am Miguel
             </h1>
           </div>
         </div>
