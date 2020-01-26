@@ -1,5 +1,6 @@
 import React from "react";
 import './MatrixCodeRain.css';
+
 const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 
 export class MatrixCodeRain extends React.Component<{}, {}> {
