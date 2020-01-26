@@ -5,22 +5,15 @@ import {NameCli} from "./NameCli";
 import {Navigation} from "./Navigation";
 
 class App extends React.Component<{}, { components: any[] }> {
-
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     return (
         <div>
           <MatrixCodeRain/>
-          <div className="vertical-center">
-            <NameCli/>
-          </div>
+          <NameCli/>
+          <Navigation/>
         </div>
     );
   }
-
 }
 
 export default App;
