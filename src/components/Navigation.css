@@ -1,0 +1,26 @@
+@media (min-width: 1000px) {
+  .navigation {
+    padding-top: 2%;
+  }
+}
+
+.navigation .btn.btn-pill {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1em;
+}
+
+.navigation .btn.btn-pill:before {
+  padding-right: 2px;
+}
+
+.navigation .btn.btn-success.btn-pill span {
+  padding-left: 5px;
+}
+
+a > span.icon-nav.fas.fa-2x {
+  padding-right: 7px;
+}
+
+a > span.icon-nav.fab.fa-2x {
+  padding-right: 7px;
+}
