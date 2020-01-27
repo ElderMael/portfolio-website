@@ -1,0 +1,13 @@
+@media (min-width: 700px) {
+  .about-me.card {
+    height: 40%;
+    margin-top: 7%;
+  }
+}
+
+.about-me.card > div {
+  background: #000000;
+  color: #17b06b;
+  border-color: #17b06b;
+  padding: 0;
+}

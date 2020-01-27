@@ -20,7 +20,7 @@ export class Navigation extends React.Component<{}, {}> {
   render() {
 
     return (
-        <nav className="navigation navbar navbar-dark fixed-top animated fadeIn slow delay-5s">
+        <nav className="navigation navbar navbar-dark animated fadeIn slow delay-5s">
           <a className="btn btn-success btn-pill col-lg-2 col-sm-1"
              href="/" onClick={this.showHome}>
             <span className="icon-nav fas fa-2x fa-home"/>

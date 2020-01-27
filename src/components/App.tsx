@@ -3,14 +3,18 @@ import './App.css';
 import {MatrixCodeRain} from "./MatrixCodeRain";
 import {NameCli} from "./NameCli";
 import {Navigation} from "./Navigation";
+import {AboutMe} from "./AboutMe";
 
 class App extends React.Component<{}, { components: any[] }> {
   render() {
     return (
-        <div>
+        <div className="container-fluid">
           <MatrixCodeRain/>
-          <NameCli/>
           <Navigation/>
+          <div className="row">
+            <NameCli/>
+            <AboutMe/>
+          </div>
         </div>
     );
   }
