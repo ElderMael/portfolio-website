@@ -27,22 +27,22 @@ export class Navigation extends React.Component<{}, {}> {
             <span>Home</span>
           </a>
           <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
-             target="_blank" href="https://github.com/ElderMael/">
+             target="_blank" rel="noopener noreferrer" href="https://github.com/ElderMael/">
             <span className="icon-nav fas fa-2x fa-code"/>
             <span>Code</span>
           </a>
           <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
-             target="_blank" href="https://www.linkedin.com/in/miguelangelenriquez/">
+             target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/miguelangelenriquez/">
             <span className="icon-nav fab fa-2x fa-linkedin"/>
             <span>Resume</span>
           </a>
           <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
-             target="_blank" href="https://blog.eldermael.io/">
+             target="_blank" rel="noopener noreferrer" href="https://blog.eldermael.io/">
             <span className="icon-nav fab fa-2x fa-medium"/>
             <span>Blog</span>
           </a>
           <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
-             target="_blank" href="https://twitter.com/eldermael">
+             target="_blank" rel="noopener noreferrer" href="https://twitter.com/eldermael">
             <span className="icon-nav fab fa-2x fa-twitter"/>
             <span>Social Media</span>
           </a>
