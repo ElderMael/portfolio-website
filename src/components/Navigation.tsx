@@ -21,8 +21,7 @@ export class Navigation extends React.Component<{}, {}> {
 
     return (
         <nav className="navigation navbar navbar-dark animated fadeIn slow delay-5s">
-          <a className="btn btn-success btn-pill col-lg-2 col-sm-1"
-             href="#" onClick={this.showHome}>
+          <a href="#" className="btn btn-success btn-pill col-lg-2 col-sm-1" onClick={this.showHome}>
             <span className="icon-nav fas fa-2x fa-home"/>
             <span>Home</span>
           </a>
@@ -46,8 +45,7 @@ export class Navigation extends React.Component<{}, {}> {
             <span className="icon-nav fab fa-2x fa-twitter"/>
             <span>Social Media</span>
           </a>
-          <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
-             href="#" onClick={this.showAbout}>
+          <a href="#" className="btn btn-outline-success btn-pill col-lg-2 col-sm-1" onClick={this.showAbout}>
             <span className="icon-nav fas fa-2x fa-address-card"/>
             <span>About</span>
           </a>
