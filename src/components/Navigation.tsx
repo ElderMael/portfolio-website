@@ -1,5 +1,6 @@
 import React, {SyntheticEvent} from "react";
 import './Navigation.css'
+import useWindowDimensions from "../useWindowDimensions";
 
 export class Navigation extends React.Component<{}, {}> {
 
@@ -18,10 +19,13 @@ export class Navigation extends React.Component<{}, {}> {
     }
 
     render() {
+        const {width} = useWindowDimensions();
+
+        const isWide = width > 3000;
 
         return (
             <nav
-                className={(window.innerWidth > 3000 ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
+                className={ isWide ? "container" : " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
                 <a href="#home" className="btn btn-success btn-pill col-lg-2 col-sm-1" onClick={this.showHome}>
                     <span className="icon-nav fas fa-2x fa-home"/>
                     <span>Home</span>
