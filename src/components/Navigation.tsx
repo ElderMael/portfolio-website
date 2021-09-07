@@ -21,7 +21,7 @@ export class Navigation extends React.Component<{}, {}> {
 
         return (
             <nav
-                className="navigation navbar navbar-dark animated fadeIn slow delay-5s">
+                className={(window.innerWidth > 3000 ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
                 <a href="#home" className="btn btn-success btn-pill col-lg-2 col-sm-1" onClick={this.showHome}>
                     <span className="icon-nav fas fa-2x fa-home"/>
                     <span>Home</span>
