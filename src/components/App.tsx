@@ -8,7 +8,7 @@ import {AboutMe} from "./AboutMe";
 class App extends React.Component<{}, { components: any[] }> {
   render() {
     return (
-        <div className="container">
+        <div className="container-fluid">
           <MatrixCodeRain/>
           <Navigation/>
           <div className="row">
