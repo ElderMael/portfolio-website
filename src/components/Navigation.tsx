@@ -1,6 +1,5 @@
 import React, {SyntheticEvent} from "react";
 import './Navigation.css'
-import useWindowDimensions from "../useWindowDimensions";
 
 export class Navigation extends React.Component<{}, {}> {
 
