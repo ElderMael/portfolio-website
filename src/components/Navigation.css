@@ -9,6 +9,11 @@
   font-size: 0.7em;
 }
 
+.container.navigation .btn.btn-pill {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7em;
+}
+
 .navigation .btn.btn-pill:before {
   padding-right: 2px;
 }
