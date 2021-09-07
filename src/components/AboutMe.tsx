@@ -23,8 +23,8 @@ export function AboutMe() {
                         companies on sectors such as insurance, government, energy and financial.
                     </p>
                     <p>
-                        Miguel is also host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>, a podcast
-                        about software development in general.
+                        Miguel is also host of <a className="nav-link" href="https://piratedevradio.tech/">PirateDevRadio</a>,
+                        a podcast about software development in general.
                     </p>
                 </p>
             </div>

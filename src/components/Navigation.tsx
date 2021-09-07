@@ -47,7 +47,7 @@ export class Navigation extends React.Component<{}, {}> {
           </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.tech">
-                <span className="icon-nav fab fa-2x fa-twitter"/>
+                <span className="icon-nav fab fa-2x fa-microphone"/>
                 <span>Podcast</span>
             </a>
         </nav>

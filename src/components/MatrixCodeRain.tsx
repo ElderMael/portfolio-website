@@ -20,7 +20,7 @@ export class MatrixCodeRain extends React.Component<{}, {}> {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const fontSize = 10;
+    const fontSize = 14;
     const columns = canvas.width / fontSize;
 
     const drops: Array<number> = [];
