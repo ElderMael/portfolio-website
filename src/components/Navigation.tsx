@@ -37,7 +37,7 @@ export function Navigation(props: any) {
             <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
                target="_blank" rel="noopener noreferrer" href="https://twitter.com/eldermael">
                 <span className="icon-nav fab fa-2x fa-twitter"/>
-                <span>Social Media</span>
+                <span>Social</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-sm-1"
                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.tech">
