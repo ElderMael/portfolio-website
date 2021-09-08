@@ -5,10 +5,10 @@ export function AboutMe() {
     return (
         <div className="about-me card col-sm-5 col-lg-5 text-center animated fadeIn delay-5s">
             <div className="card-header">
-                About Me
+                About Me - Miguel Enriquez
             </div>
             <div className="card-body">
-                <h4 className="card-title">Miguel Enriquez</h4>
+                <h4 className="card-title">Summary</h4>
                 <p className="card-text">
                     <p>
                         Miguel Enriquez is a software engineer with 10 years of professional experience in
@@ -29,7 +29,7 @@ export function AboutMe() {
                 </p>
             </div>
             <div className="card-footer text-muted">
-                <a className="btn btn-outline-success" href="mailto:sftwr.mael@gmail.com">Contact Me!</a>
+                <a className="btn btn-outline-success" href="https://blog.eldermael.io/contact/">Contact Me!</a>
             </div>
         </div>
     );
