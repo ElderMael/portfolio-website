@@ -6,18 +6,20 @@ import {Navigation} from "./Navigation";
 import {AboutMe} from "./AboutMe";
 
 class App extends React.Component<{}, { components: any[] }> {
-  render() {
-    return (
-        <div className="container-fluid">
-          <MatrixCodeRain/>
-          <Navigation/>
-          <div className="row">
-            <NameCli/>
-            <AboutMe/>
-          </div>
-        </div>
-    );
-  }
+    render() {
+        return (
+            <div className="container-fluid">
+                <MatrixCodeRain/>
+                <Navigation/>
+                <main className="row">
+                    <NameCli/>
+                </main>
+                <footer className="row">
+                    <AboutMe/>
+                </footer>
+            </div>
+        );
+    }
 }
 
 export default App;

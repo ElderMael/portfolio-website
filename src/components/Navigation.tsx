@@ -14,7 +14,7 @@ export function Navigation(props: any) {
 
     return (
         <nav
-            className={ (isWide ? "container" : "" ) + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
+            className={(isWide ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
             <a href="#home" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2" onClick={showHome}>
                 <span className="icon-nav fas fa-2x fa-home"/>
                 <span>Home</span>
