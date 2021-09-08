@@ -13,10 +13,8 @@ class App extends React.Component<{}, { components: any[] }> {
                 <Navigation/>
                 <main className="row">
                     <AboutMe/>
-                </main>
-                <footer className="row">
                     <NameCli/>
-                </footer>
+                </main>
             </div>
         );
     }

@@ -3,7 +3,7 @@ import './AboutMe.css'
 
 export function AboutMe() {
     return (
-        <div className="about-me card col-sm-5 col-lg-5 text-center animated fadeIn delay-5s">
+        <div className="about-me card text-center animated fadeIn delay-5s col">
             <div className="card-header">
                 About Me - Miguel Enriquez
             </div>
