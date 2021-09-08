@@ -12,8 +12,8 @@ class App extends React.Component<{}, { components: any[] }> {
                 <MatrixCodeRain/>
                 <Navigation/>
                 <main className="row">
-                    <AboutMe/>
                     <NameCli/>
+                    <AboutMe/>
                 </main>
             </div>
         );
