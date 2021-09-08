@@ -10,7 +10,7 @@ export function Navigation(props: any) {
 
     const {width} = useWindowDimensions();
 
-    const isWide = width > 3000;
+    const isWide = width > 2500;
 
     return (
         <nav
