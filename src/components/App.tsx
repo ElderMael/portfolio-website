@@ -12,10 +12,10 @@ class App extends React.Component<{}, { components: any[] }> {
                 <MatrixCodeRain/>
                 <Navigation/>
                 <main className="row">
-                    <NameCli/>
+                    <AboutMe/>
                 </main>
                 <footer className="row">
-                    <AboutMe/>
+                    <NameCli/>
                 </footer>
             </div>
         );
