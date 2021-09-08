@@ -7,15 +7,18 @@ const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 export function MatrixCodeRain() {
 
     const canvas: React.RefObject<HTMLCanvasElement> = React.createRef();
-    let {width, height} = useWindowDimensions();
+
+
+    let {height, width} = useWindowDimensions();
+
 
     useEffect(() => {
-
         let canvasRef = canvas.current!;
-        const context = canvasRef.getContext('2d')!;
 
         canvasRef.height = height;
         canvasRef.width = width;
+
+        const context = canvasRef.getContext('2d')!;
 
         const fontSize = 14;
         const columns = canvasRef.width / fontSize;
@@ -42,7 +45,7 @@ export function MatrixCodeRain() {
                 drops[i]++;
             }
         }, 70);
-    }, [])
+    }, []);
 
     return (
         <canvas ref={canvas} className="matrix-rain"/>
