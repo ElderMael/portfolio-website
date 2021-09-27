@@ -1,13 +1,30 @@
 @media (min-width: 700px) {
-  .about-me.card {
-    height: 40%;
-    margin-top: 7%;
-  }
+    .about-me.card {
+        height: 40%;
+        margin-top: 7%;
+    }
+}
+
+.card-header {
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.card-footer {
+    font-family: 'Gemun Libre', sans-serif;
+}
+
+.contact-me  {
+    font-family: 'Gemun Libre', sans-serif;
 }
 
 .about-me.card > div {
-  background: #000000;
-  color: #17b06b;
-  border-color: #17b06b;
-  padding: 0;
+    background: #000000;
+    color: #17b06b;
+    border-color: #17b06b;
+    padding: 0;
+}
+
+.resume-summary > p {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: larger;
 }
