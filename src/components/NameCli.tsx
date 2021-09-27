@@ -6,7 +6,7 @@ export function NameCli() {
         <div className="vertical-center col">
             <div className="row blast-root">
                 <h1>
-                    Hi, I am Miguel
+                    Wake up... I am Miguel
                 </h1>
             </div>
         </div>
