@@ -13,15 +13,23 @@
     font-family: 'Gemunu Libre', sans-serif;
 }
 
-a.contact-me  {
+a.contact-me {
     font-family: 'Gemunu Libre', sans-serif;
 }
 
-.about-me.card > div {
+.about-me.card {
     background: #000000;
     color: #17b06b;
     border-color: #17b06b;
     padding: 0;
+}
+
+.card-header {
+    background: #193f1b;
+}
+
+.card-footer {
+    background: #193f1b;
 }
 
 .resume-summary > p {
