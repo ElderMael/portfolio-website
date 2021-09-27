@@ -9,7 +9,7 @@ export function AboutMe() {
             </div>
             <div className="card-body">
                 <h4 className="card-title">Summary</h4>
-                <p className="card-text">
+                <div className="card-text">
                     <p>
                         Miguel Enriquez is a software engineer with 10 years of professional experience in
                         several areas of software development. He has worked on the backend using several
@@ -26,7 +26,7 @@ export function AboutMe() {
                         Miguel is also host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>,
                         a podcast about software development in general.
                     </p>
-                </p>
+                </div>
             </div>
             <div className="card-footer text-muted">
                 <a className="btn btn-outline-success" href="https://blog.eldermael.io/contact/">Contact Me!</a>
