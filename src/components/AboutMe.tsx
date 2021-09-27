@@ -11,9 +11,9 @@ export function AboutMe() {
                 <h4 className="card-title">Miguel Enriquez</h4>
                 <div className="card-text">
                     <p>
-                        I am an experienced engineer on the area of platform development and digital transformations
-                        using his skills on the area of infrastructure development and DevOps practices. I improve
-                        velocity of time to market, R&D and developer productivity.
+                        I am an experienced engineer on the area of Platform Development and Digital Transformations.
+                        I have been using my skills on the area of infrastructure and DevOps practices. I help teams
+                        to improve Time to Market, Developer Productivity, and R&D.
                     </p>
                     <p>
                         With several years of professional experience in several areas of software development. I have
