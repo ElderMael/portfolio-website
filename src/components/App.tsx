@@ -8,17 +8,32 @@ import useWindowDimensions from "../useWindowDimensions";
 
 export default function App() {
 
-    const {width} = useWindowDimensions();
+    const {height, width} = useWindowDimensions();
 
     const isWide = width > 2500;
+
+    const isHigh = height > 1000;
+
+    if (isHigh) {
+        return (
+            <div className="container-fluid">
+                <MatrixCodeRain/>
+                <Navigation/>
+                <main className={isWide ? "container" : "row"}>
+                    <AboutMe/>
+                    <NameCli/>
+                </main>
+            </div>
+        );
+    }
 
     return (
         <div className="container-fluid">
             <MatrixCodeRain/>
             <Navigation/>
             <main className={isWide ? "container" : "row"}>
-                <AboutMe/>
                 <NameCli/>
+                <AboutMe/>
             </main>
         </div>
     );
