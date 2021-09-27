@@ -12,7 +12,7 @@ export default function App() {
 
     const isWide = width > 2500;
 
-    const isHigh = height > 1000;
+    const isHigh = height > 812;
 
     if (isHigh) {
         return (

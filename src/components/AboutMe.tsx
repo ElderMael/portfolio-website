@@ -4,27 +4,28 @@ import './AboutMe.css'
 export function AboutMe() {
     return (
         <div className="about-me card text-center animated fadeIn delay-5s col">
-            <div className="card-header">
-                About Me - Miguel Enriquez
-            </div>
+            <h3 className="card-header">
+                About Me
+            </h3>
             <div className="card-body">
-                <h4 className="card-title">Summary</h4>
+                <h4 className="card-title">Miguel Enriquez</h4>
                 <div className="card-text">
                     <p>
-                        Miguel Enriquez is a software engineer with 10 years of professional experience in
-                        several areas of software development. He has worked on the backend using several
-                        technologies and frameworks related to the JVM. He also has experience on the
-                        front-end side using Angular and React. Finally, Miguel also has worked on roles
+                        I am an experienced engineer on the area of platform development and digital transformations
+                        using his skills on the area of infrastructure development and DevOps practices. I improve
+                        velocity of time to market, R&D and developer productivity.
+                    </p>
+                    <p>
+                        With several years of professional experience in several areas of software development. I have
+                        worked on the backend using several technologies and frameworks related to the JVM. I also have
+                        experience on the front-end side using Angular and React. Finally, I have worked on roles
                         pertaining Infrastructure Development, applying DevOps practices and Site
                         Reliability Engineering.
                     </p>
                     <p>
-                        He has worked as a freelance developer and consultant delivering value on various
-                        companies on sectors such as insurance, government, energy and financial.
-                    </p>
-                    <p>
-                        Miguel is also host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>,
-                        a podcast about software development in general.
+                        I am the host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>,
+                        a podcast about software development in general. I am a mentor of
+                        <a href="http://twitter.com/devzcommunity">Devz Community</a>.
                     </p>
                 </div>
             </div>
