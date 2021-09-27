@@ -27,7 +27,7 @@ export function MatrixCodeRain() {
         for (let x = 0; x < columns; x++)
             drops[x] = 1;
 
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             context.fillStyle = "rgba(0, 0, 0, 0.04)";
             context.fillRect(0, 0, canvasRef.width, canvasRef.height);
 
@@ -45,6 +45,11 @@ export function MatrixCodeRain() {
                 drops[i]++;
             }
         }, 70);
+
+        return () => {
+            clearInterval(intervalId);
+        }
+
     });
 
     return (
