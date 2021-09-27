@@ -45,7 +45,7 @@ export function MatrixCodeRain() {
                 drops[i]++;
             }
         }, 70);
-    }, []);
+    });
 
     return (
         <canvas ref={canvas} className="matrix-rain"/>
