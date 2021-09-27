@@ -10,11 +10,11 @@
 }
 
 .card-footer {
-    font-family: 'Gemun Libre', sans-serif;
+    font-family: 'Gemunu Libre', sans-serif;
 }
 
-.contact-me  {
-    font-family: 'Gemun Libre', sans-serif;
+a.contact-me  {
+    font-family: 'Gemunu Libre', sans-serif;
 }
 
 .about-me.card > div {
