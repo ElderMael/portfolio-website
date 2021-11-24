@@ -25,7 +25,7 @@ export function Navigation(props: any) {
                 <span>Code</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/miguelangelenriquez/">
+               target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
                 <span className="icon-nav fab fa-2x fa-linkedin"/>
                 <span>Resume</span>
             </a>
