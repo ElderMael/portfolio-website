@@ -38,6 +38,6 @@
     ]
   },
   "devDependencies": {
-    "canvas": "^2.6.1"
+    "canvas": "^2.8.0"
   }
 }
