@@ -24,8 +24,7 @@ export function AboutMe() {
                     </p>
                     <p>
                         I am the host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>,
-                        a podcast about software development in general. I am a mentor of &nbsp;
-                        <a href="http://twitter.com/devzcommunity">Devz Community</a>.
+                        a podcast about software development in general.
                     </p>
                 </div>
             </div>
