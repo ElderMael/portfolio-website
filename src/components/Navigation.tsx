@@ -30,6 +30,12 @@ export function Navigation(props: any) {
                 <span>Resume</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
+               target="_blank" rel="noopener noreferrer"
+               href="http://docs.google.com/document/d/1P7vTs5donwj0rEd7Cz5QV-knapdMUEVzlaJM0I5PJb4/export?format=pdf">
+                <span className="icon-nav fab fa-2x  fa-file-pdf-o"/>
+                <span>Resume - PDF</span>
+            </a>
+            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://blog.eldermael.io/">
                 <span className="icon-nav fab fa-2x fa-medium"/>
                 <span>Blog</span>
