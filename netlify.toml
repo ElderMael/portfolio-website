@@ -1,3 +1,8 @@
 [[redirects]]
+from = "/social"
+to = "/social"
+
+
+[[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/"
