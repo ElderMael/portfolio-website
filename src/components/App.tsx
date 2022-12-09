@@ -11,7 +11,7 @@ import {solid} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- impo
 
 
 function Home() {
-    const {height, width} = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
     const isWide = width > 2500;
 
@@ -28,7 +28,7 @@ function Home() {
 }
 
 function Social() {
-    const {height, width} = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
     const isWide = width > 2500;
 
