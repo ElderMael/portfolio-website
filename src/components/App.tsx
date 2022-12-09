@@ -5,14 +5,16 @@ import {NameCli} from "./NameCli";
 import {Navigation} from "./Navigation";
 import {AboutMe} from "./AboutMe";
 import useWindowDimensions from "../useWindowDimensions";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-export default function App() {
 
+function Home() {
     const {height, width} = useWindowDimensions();
 
     const isWide = width > 2500;
 
     const isHigh = height > 812;
+
 
     if (isHigh) {
         return (
@@ -37,5 +39,19 @@ export default function App() {
             </main>
         </div>
     );
+}
+
+export default function App() {
+
+    return <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home/>}>
+                <Route index element={<Home/>}/>
+                <Route path="*" element={<Home/>}/>
+            </Route>
+        </Routes>
+    </BrowserRouter>
+
+
 }
 
