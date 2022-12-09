@@ -35,7 +35,7 @@ export function Navigation(props: any) {
                 <span>Blog</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://twitter.com/eldermael">
+               rel="noopener noreferrer" target="_blank" href="https://eldermael.io/social">
                 <span className="icon-nav fab fa-2x fa-twitter"/>
                 <span>Social</span>
             </a>
