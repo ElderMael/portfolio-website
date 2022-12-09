@@ -7,7 +7,7 @@ import {AboutMe} from "./AboutMe";
 import useWindowDimensions from "../useWindowDimensions";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {solid, regular, brands, icon} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 
 
 function Home() {
