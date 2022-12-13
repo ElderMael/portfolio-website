@@ -40,7 +40,7 @@ function Social() {
             <main className={isWide ? "container" : "row"}>
                 <div className="about-me card text-center animated fadeIn delay-5s col">
                     <h3 className="card-header">
-                        About Me
+                        My Social Networks
                     </h3>
                     <div className="card-body">
                         <h4 className="card-title">Social Networks</h4>
