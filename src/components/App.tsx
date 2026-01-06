@@ -7,7 +7,7 @@ import {AboutMe} from "./AboutMe";
 import useWindowDimensions from "../useWindowDimensions";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {solid} from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { faMicrophone, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 
 
 function Home() {
@@ -54,7 +54,7 @@ function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://ko-fi.com/eldermael">
-                                <FontAwesomeIcon className="icon-nav fab fa-2x" icon={solid('money-bill')}/>
+                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faMoneyBill}/>
                                 <span>ko-fi.com</span>
                             </a>
                         </div>
@@ -112,7 +112,7 @@ function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://anchor.fm/pirate-dev-radio">
-                                <FontAwesomeIcon className="icon-nav fab fa-2x" icon={solid('microphone')}/>
+                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faMicrophone}/>
                                 <span>AnchorFM</span>
                             </a>
                         </div>
@@ -143,4 +143,3 @@ export default function App() {
         </BrowserRouter>
     );
 }
-

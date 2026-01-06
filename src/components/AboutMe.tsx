@@ -11,20 +11,22 @@ export function AboutMe() {
                 <h4 className="card-title">Miguel Enriquez</h4>
                 <div className="card-text resume-summary">
                     <p>
-                        I am an experienced engineer on the area of Platform Development and Digital Transformations.
-                        I have been using my skills on the area of infrastructure and DevOps practices. I help teams
-                        to improve Time to Market, Developer Productivity, and R&D.
+                        Experienced engineer specializing in <strong>AI Development</strong>, <strong>Data Engineering</strong>, and <strong>Platform Development</strong>.
+                        I help teams accelerate digital transformations, improve Time to Market, and boost developer productivity through automation and intelligent systems.
                     </p>
+
+                    <h5>Core Expertise</h5>
+                    <ul>
+                        <li><strong>AI & Mentoring Engineering:</strong> AI-driven and assisted code, mentoring new devs to be more productive.</li>
+                        <li><strong>Data Engineering:</strong> Building robust Data Platforms and scalable data architectures.</li>
+                        <li><strong>Infrastructure & DevOps:</strong> Platform development, SRE, and modern DevOps practices.</li>
+                        <li><strong>Full-stack:</strong> JVM-based backends, and frontend development with React.</li>
+                    </ul>
+
+                    <h5>Community & Outreach</h5>
                     <p>
-                        With several years of professional experience in several areas of software development. I have
-                        worked on the backend using several technologies and frameworks related to the JVM. I also have
-                        experience on the front-end side using Angular and React. Finally, I have worked on roles
-                        pertaining Infrastructure Development, applying DevOps practices and Site
-                        Reliability Engineering.
-                    </p>
-                    <p>
-                        I am the host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>,
-                        a podcast about software development in general.
+                        Host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>, a podcast covering software development, AI, and engineering culture.
+                        Subscribe to my newsletter: <a href="https://piratedevradio.substack.com/">piratedevradio.substack.com</a>.
                     </p>
                 </div>
             </div>

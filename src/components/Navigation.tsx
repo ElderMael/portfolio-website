@@ -41,7 +41,7 @@ export function Navigation(props: any) {
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.tech">
-                <span className="icon-nav fab fas fa-2x fa-microphone"/>
+                <span className="icon-nav fas fa-2x fa-microphone"/>
                 <span>Podcast</span>
             </a>
         </nav>
