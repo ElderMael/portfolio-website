@@ -6,8 +6,7 @@ const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
 
 export function MatrixCodeRain() {
 
-    const canvas: React.RefObject<HTMLCanvasElement> = React.createRef();
-
+    const canvas: React.RefObject<HTMLCanvasElement | null> = React.createRef();
 
     let {height, width} = useWindowDimensions();
 
