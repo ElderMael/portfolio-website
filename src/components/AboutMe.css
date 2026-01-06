@@ -15,6 +15,12 @@
 
 a.contact-me {
     font-family: 'Gemunu Libre', sans-serif;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+a.contact-me:hover {
+    background-color: #17b06b;
+    color: #000000;
 }
 
 .about-me.card {
@@ -50,4 +56,8 @@ a.contact-me {
 
 .resume-summary li {
     margin-bottom: 0.5rem;
+}
+
+.icon-nav {
+    margin-right: 10px;
 }
