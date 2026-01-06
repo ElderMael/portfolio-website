@@ -30,9 +30,9 @@ export function Navigation(props: any) {
                 <span>Resume</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://blog.eldermael.io/">
+               target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
                 <span className="icon-nav fab fa-2x fa-medium"/>
-                <span>Blog</span>
+                <span>Substack</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                rel="noopener noreferrer" target="_blank" href="https://eldermael.io/social">

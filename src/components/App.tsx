@@ -118,7 +118,7 @@ function Social() {
                         </div>
                     </div>
                     <div className="card-footer text-muted">
-                        <a className="contact-me btn btn-outline-success" href="https://blog.eldermael.io/contact/">
+                        <a className="contact-me btn btn-outline-success" href="https://piratedevradio.substack.com/">
                             Contact Me!
                         </a>
                     </div>

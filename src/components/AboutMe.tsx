@@ -20,7 +20,7 @@ export function AboutMe() {
                         <li><strong>AI & Mentoring Engineering:</strong> AI-driven and assisted code, mentoring new devs to be more productive.</li>
                         <li><strong>Data Engineering:</strong> Building robust Data Platforms and scalable data architectures.</li>
                         <li><strong>Infrastructure & DevOps:</strong> Platform development, SRE, and modern DevOps practices.</li>
-                        <li><strong>Full-stack:</strong> JVM-based backends, and frontend development with React.</li>
+                        <li><strong>Full-stack:</strong> JVM-based & Rust backends, and frontend development with React.</li>
                     </ul>
 
                     <h5>Community & Outreach</h5>
@@ -31,7 +31,7 @@ export function AboutMe() {
                 </div>
             </div>
             <div className="card-footer text-muted">
-                <a className="contact-me btn btn-outline-success" href="https://blog.eldermael.io/contact/">Contact Me!</a>
+                <a className="contact-me btn btn-outline-success" href="https://piratedevradio.substack.com/">Contact Me!</a>
             </div>
         </div>
     );
