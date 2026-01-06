@@ -1,6 +1,8 @@
 import React, {SyntheticEvent} from "react";
 import './Navigation.css'
 import useWindowDimensions from "../useWindowDimensions";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faNewspaper, faShareNodes} from "@fortawesome/free-solid-svg-icons";
 
 export function Navigation(props: any) {
 
@@ -31,12 +33,12 @@ export function Navigation(props: any) {
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
-                <span className="icon-nav fab fa-2x fa-medium"/>
+                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faNewspaper}/>
                 <span>Substack</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                rel="noopener noreferrer" target="_blank" href="https://eldermael.io/social">
-                <span className="icon-nav fab fa-2x fa-twitter"/>
+                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faShareNodes}/>
                 <span>Social</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
