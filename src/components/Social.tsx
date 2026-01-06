@@ -3,7 +3,7 @@ import {MatrixCodeRain} from "./MatrixCodeRain";
 import {Navigation} from "./Navigation";
 import useWindowDimensions from "../useWindowDimensions";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faMicrophone, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import {faMicrophone, faMoneyBill, faNewspaper} from "@fortawesome/free-solid-svg-icons";
 
 export function Social() {
     const {width} = useWindowDimensions();
@@ -36,7 +36,8 @@ export function Social() {
                                 <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faMoneyBill}/>
                                 <span>Ko-fi</span>
                             </a>
-                            <span className="social-description">Fuel my work with a quick coffee—no strings attached.</span>
+                            <span
+                                className="social-description">Fuel my work with a quick coffee—no strings attached.</span>
                         </div>
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
@@ -44,7 +45,8 @@ export function Social() {
                                 <span className="icon-nav fab fa-2x fa-youtube"/>
                                 <span>YouTube</span>
                             </a>
-                            <span className="social-description">Deep dives into tech, AI, and engineering culture.</span>
+                            <span
+                                className="social-description">Deep dives into tech, AI, and engineering culture.</span>
                         </div>
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
@@ -56,12 +58,21 @@ export function Social() {
                         </div>
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
+                               target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
+                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faNewspaper}/>
+                                <span>Substack</span>
+                            </a>
+                            <span className="social-description">Deep dives into tech, AI, and engineering culture via my newsletter.</span>
+                        </div>
+                        <div className="card-text resume-summary">
+                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer"
                                href="https://www.facebook.com/profile.php?id=100088523016127">
                                 <span className="icon-nav fab fa-2x fa-facebook"/>
                                 <span>Facebook</span>
                             </a>
-                            <span className="social-description">Updates and community discussions on the big blue.</span>
+                            <span
+                                className="social-description">Updates and community discussions on the big blue.</span>
                         </div>
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
