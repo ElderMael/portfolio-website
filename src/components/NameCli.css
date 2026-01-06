@@ -15,6 +15,21 @@
       blink-caret .50s step-end infinite;
 }
 
+.glitch-cursor.type-0 {
+    border-right-color: #fff !important;
+    text-shadow: 2px 0 #ff00ea, -2px 0 #00f2ff;
+}
+
+.glitch-cursor.type-1 {
+    border-right-color: #ff3131 !important;
+    transform: skewX(10deg);
+}
+
+.glitch-cursor.type-2 {
+    opacity: 0.5;
+    letter-spacing: 2px;
+}
+
 @media (min-width:1000px) {
   .blast-root h1 {
     font-size: 40px;
