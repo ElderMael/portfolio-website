@@ -12,28 +12,36 @@
 }
 
 .contact-me-card .card-header {
-    background: #193f1b;
+    background: #1b4d1e;
+    color: #20ce7d;
+    font-weight: bold;
     font-family: 'Gemunu Libre', sans-serif;
 }
 
 .contact-me-card .card-footer {
-    background: #193f1b;
+    background: #1b4d1e;
     font-family: 'Gemunu Libre', sans-serif;
 }
 
 .contact-me-card .form-group label {
     font-family: 'Gemunu Libre', sans-serif;
-    color: #17b06b;
+    color: #20ce7d;
     display: block;
     text-align: left;
     margin-top: 1rem;
+    font-weight: bold;
 }
 
 .contact-me-card .form-control {
     background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid #17b06b;
-    color: #17b06b;
+    color: #20ce7d;
     font-family: 'Gemunu Libre', sans-serif;
+}
+
+.contact-me-card .form-control::placeholder {
+    color: #17b06b;
+    opacity: 0.7;
 }
 
 .contact-me-card .form-control:focus {
