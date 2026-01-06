@@ -1,0 +1,56 @@
+@media (min-width: 700px) {
+    .contact-me-card.card {
+        margin-top: 7%;
+    }
+}
+
+.contact-me-card.card {
+    background: #000000;
+    color: #17b06b;
+    border-color: #17b06b;
+    padding: 0;
+}
+
+.contact-me-card .card-header {
+    background: #193f1b;
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.contact-me-card .card-footer {
+    background: #193f1b;
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.contact-me-card .form-group label {
+    font-family: 'Gemunu Libre', sans-serif;
+    color: #17b06b;
+    display: block;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.contact-me-card .form-control {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #17b06b;
+    color: #17b06b;
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.contact-me-card .form-control:focus {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: #20ce7d;
+    color: #20ce7d;
+    box-shadow: 0 0 10px #17b06b;
+}
+
+.contact-me-card .btn-outline-success {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 2rem;
+}
+
+.contact-me-card .btn-outline-success:hover {
+    background-color: #17b06b;
+    color: #000000;
+}

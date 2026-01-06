@@ -25,7 +25,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/eldermael">
-                                <span className="icon-nav fab fa-2x fa-patreon"/>
+                                <span className="icon-nav fab fa-2x fa-patreon icon-community"/>
                                 <span>Patreon</span>
                             </a>
                             <span className="social-description">Support my creative journey—no strings attached.</span>
@@ -33,7 +33,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://ko-fi.com/eldermael">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faMoneyBill}/>
+                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-community" icon={faMoneyBill}/>
                                 <span>Ko-fi</span>
                             </a>
                             <span
@@ -42,7 +42,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@piratedevradio">
-                                <span className="icon-nav fab fa-2x fa-youtube"/>
+                                <span className="icon-nav fab fa-2x fa-youtube icon-media"/>
                                 <span>YouTube</span>
                             </a>
                             <span
@@ -51,7 +51,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.twitch.tv/eldermael">
-                                <span className="icon-nav fab fa-2x fa-twitch"/>
+                                <span className="icon-nav fab fa-2x fa-twitch icon-media"/>
                                 <span>Twitch</span>
                             </a>
                             <span className="social-description">Live coding, gaming, and real-time tech talks.</span>
@@ -59,7 +59,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faNewspaper}/>
+                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-contact" icon={faNewspaper}/>
                                 <span>Substack</span>
                             </a>
                             <span className="social-description">Deep dives into tech, AI, and engineering culture via my newsletter.</span>
@@ -68,7 +68,7 @@ export function Social() {
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer"
                                href="https://www.facebook.com/profile.php?id=100088523016127">
-                                <span className="icon-nav fab fa-2x fa-facebook"/>
+                                <span className="icon-nav fab fa-2x fa-facebook icon-community"/>
                                 <span>Facebook</span>
                             </a>
                             <span
@@ -77,7 +77,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@eldermael">
-                                <span className="icon-nav fab fa-2x fa-tiktok"/>
+                                <span className="icon-nav fab fa-2x fa-tiktok icon-media"/>
                                 <span>TikTok</span>
                             </a>
                             <span className="social-description">Bite-sized tech tips and behind-the-scenes fun.</span>
@@ -85,7 +85,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
-                                <span className="icon-nav fab fa-2x fa-linkedin"/>
+                                <span className="icon-nav fab fa-2x fa-linkedin icon-community"/>
                                 <span>LinkedIn</span>
                             </a>
                             <span className="social-description">Professional milestones and industry networking.</span>
@@ -94,7 +94,7 @@ export function Social() {
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer"
                                href="https://www.instagram.com/piratedevradio/">
-                                <span className="icon-nav fab fa-2x fa-instagram"/>
+                                <span className="icon-nav fab fa-2x fa-instagram icon-community"/>
                                 <span>Instagram</span>
                             </a>
                             <span className="social-description">Visual highlights of my daily life and projects.</span>
@@ -102,14 +102,14 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://anchor.fm/pirate-dev-radio">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x" icon={faMicrophone}/>
+                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-media" icon={faMicrophone}/>
                                 <span>AnchorFM</span>
                             </a>
                             <span className="social-description">Catch the audio version of my podcast on the go.</span>
                         </div>
                     </div>
                     <div className="card-footer text-muted">
-                        <a className="contact-me btn btn-outline-success" href="https://piratedevradio.substack.com/">
+                        <a className="contact-me btn btn-outline-success" href="/contact-me">
                             Contact Me!
                         </a>
                     </div>

@@ -2,6 +2,16 @@ body {
   background-color: black;
 }
 
+a:not(.btn) {
+  color: #17b06b;
+  text-decoration: underline;
+}
+
+a:not(.btn):hover {
+  color: #20ce7d;
+  text-decoration: none;
+}
+
 .vertical-center {
   min-height: 100%;
   display: flex;
@@ -11,3 +21,13 @@ body {
 .App {
 
 }
+
+/* Icon Highlight Colors */
+.icon-ai { color: #00f2ff !important; }      /* Cyan */
+.icon-data { color: #ff9d00 !important; }    /* Orange */
+.icon-infra { color: #00a2ff !important; }   /* Sky Blue */
+.icon-code { color: #39ff14 !important; }    /* Neon Green */
+.icon-community { color: #ff00ea !important; } /* Pink/Magenta */
+.icon-media { color: #ff3131 !important; }    /* Bright Red */
+.icon-contact { color: #ffff00 !important; }  /* Yellow */
+.icon-user { color: #ffffff !important; }     /* White */

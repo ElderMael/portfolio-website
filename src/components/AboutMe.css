@@ -58,6 +58,16 @@ a.contact-me:hover {
     margin-bottom: 0.5rem;
 }
 
+.resume-summary a:not(.btn) {
+    color: #20ce7d;
+    text-decoration: underline;
+}
+
+.resume-summary a:not(.btn):hover {
+    color: #17b06b;
+    text-decoration: none;
+}
+
 .icon-nav {
     margin-right: 10px;
 }
