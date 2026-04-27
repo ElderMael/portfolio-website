@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "homepage": "https://eldermael.io",
   "scripts": {
@@ -36,11 +36,11 @@
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.2.4",
-    "@types/node": "^18.9.1",
+    "@types/node": "^24.0.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-macros": "^3.1.0",
-    "canvas": "^2.10.2",
+    "canvas": "^3.2.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-scripts": "^5.0.1",
