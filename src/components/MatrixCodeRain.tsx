@@ -9,11 +9,11 @@ export function MatrixCodeRain() {
 
     const canvas: React.RefObject<HTMLCanvasElement | null> = React.createRef();
 
-    let {height, width} = useWindowDimensions();
+    const {height, width} = useWindowDimensions();
 
 
     useEffect(() => {
-        let canvasRef = canvas.current!;
+        const canvasRef = canvas.current!;
 
         canvasRef.height = height;
         canvasRef.width = width;

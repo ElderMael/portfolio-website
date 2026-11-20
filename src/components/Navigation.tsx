@@ -1,14 +1,10 @@
-import React, {SyntheticEvent} from "react";
+import React from "react";
 import './Navigation.css'
 import useWindowDimensions from "../useWindowDimensions";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faNewspaper, faShareNodes} from "@fortawesome/free-solid-svg-icons";
 
-export function Navigation(props: any) {
-
-    function showHome(event: SyntheticEvent): void {
-    }
-
+export function Navigation() {
     const {width} = useWindowDimensions();
 
     const isWide = width > 2500;
@@ -16,7 +12,7 @@ export function Navigation(props: any) {
     return (
         <nav
             className={(isWide ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
-            <a href="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2" onClick={showHome}>
+            <a href="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2">
                 <span className="icon-nav fas fa-2x fa-home icon-user"/>
                 <span>Home</span>
             </a>

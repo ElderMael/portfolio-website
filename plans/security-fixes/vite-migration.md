@@ -87,35 +87,39 @@ breaks the existing build or deployment.
 
 ### Task 2: Migrate the build and test toolchain
 
-- [ ] In one deployable change, replace `react-scripts` with compatible,
-      maintained Vite, React plugin, Vitest, and DOM environment versions. Check
-      their Node 24 and TypeScript compatibility; upgrade TypeScript if needed.
-      Update and commit `package-lock.json` and move `react-router-dom` to
-      runtime dependencies.
-- [ ] Move `public/index.html` to the project root, add the module entry for
-      `src/index.tsx`, and replace `%PUBLIC_URL%` references with root-relative
-      asset paths. Preserve existing metadata and external resources; leave SRI
-      and external-resource hardening to the security plan.
-- [ ] Configure the React plugin, root base path, port 3000, and `build/`
-      output. Keep `npm start`; replace CRA build/test scripts, remove `eject`,
-      and add a local production preview script. Ensure the build runs `tsc`
-      as well as Vite. Select and document a browser target after comparing the
-      baseline with Vite's defaults; address any required polyfills explicitly.
-- [ ] Replace CRA type references with Vite client types and adjust TypeScript
-      configuration as needed without relaxing strict checks. Migrate test
-      setup to Vitest and Testing Library, and add meaningful route/component
-      smoke tests. Make `npm test` fail if no tests are collected.
-- [ ] Preserve service-worker unregistration on startup and avoid registering a
-      new worker. Remove or adapt unused CRA registration code so it does not
-      depend on `process.env`; test the cleanup behavior with a mock.
-- [ ] Review CRA-specific Babel/macros, Jest, ESLint, and other dependencies and
-      configuration. Remove only items confirmed unused; retain or replace any
-      behavior the application actually needs. CRA's build-time linting does
-      not carry over automatically: provide an explicit equivalent lint check
-      or document any intentional gap and follow-up.
-- [ ] Verify `npm ci`, the one-shot test suite, type checking, linting, and a
-      clean production build. Confirm `build/` contains the expected assets and
-      no unresolved CRA placeholders. Commit code, lockfile, tests, and results.
+- [x] Replace `react-scripts` with Vite 6.4.6, React plugin 5.2, Vitest 4.1.12,
+      and jsdom 26.1. These support Node 24.9. TypeScript upgraded to 5.9.3;
+      `react-router-dom` moved to runtime dependencies. Lockfile regenerated.
+- [x] Move `public/index.html` to root, add `/src/index.tsx` module entry, and
+      replace CRA placeholders with root-relative asset paths. Metadata and
+      third-party resources retained unchanged.
+- [x] Configure React plugin, root base, port 3000, `build/` output. `npm start`
+      runs Vite, `npm run build` runs `tsc --noEmit && vite build`, `npm test`
+      is one-shot, `npm run preview` serves production output. Removed eject.
+      Selected Vite's modern `es2020` target (matching current Vite browser
+      baseline); this narrows CRA's `>0.2%, not dead, not op_mini all` support
+      envelope. User explicitly approved this choice on 2026-11-20. No additional
+      polyfills are configured.
+- [x] Replaced CRA types with Vite client types; TypeScript strict remains on.
+      Vitest + Testing Library tests cover home/social/contact/fallback routes
+      and service-worker cleanup (4 tests across 2 files); `npm test` fails on no
+      collected tests (`vitest run`).
+- [x] Preserved service-worker cleanup (`unregister` existing registrations)
+      and removed unused CRA registration paths / all `process.env` references.
+      Mocked cleanup test passes; no new registration code exists.
+- [x] Removed unused CRA Babel/macros config and dependency. Added ESLint 9,
+      TypeScript ESLint, React and hooks checks; `npm run lint` is explicit.
+      Lint surfaced and corrected existing unused `Navigation` props/handler
+      and `prefer-const` issues in MatrixCodeRain.
+- [x] Verification (Node v24.9.0, 2026-11-20): `npm ci`, `npm test` (4 tests),
+      `npm run build` (includes tsc), and `npm run lint` all pass. Output
+      includes index, hashed JS/CSS, favicon, icons, manifest, neon.css,
+      resume-mael.pdf and robots.txt. No `%PUBLIC_URL%` placeholders. `npm ls
+      react-scripts --depth=0` shows empty.
+      Audit after migration: 3 moderate, 0 high, 0 critical (all transitive or
+      direct react-router packages; no runtime-critical findings). Full details
+      and comparison with baseline are scheduled for Task 3. Browser visuals
+      cannot yet be verified; see Task 3 blockers.
 
 ### Task 3: Verify deployment and regressions
 
