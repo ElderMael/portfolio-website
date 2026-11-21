@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 export function Home() {
     return (
-        <main className="home-page">
+        <main className="home-page" id="main-content" tabIndex={-1}>
             <section className="home-hero" aria-labelledby="home-title">
                 <div className="home-hero-copy paper-panel">
                     <p className="home-eyebrow">Miguel Enriquez · AI &amp; systems engineering</p>
@@ -14,7 +15,7 @@ export function Home() {
                         useful, dependable systems.
                     </p>
                     <div className="home-actions">
-                        <a className="home-button home-button-primary" href="/contact-me">Get in touch</a>
+                        <Link className="home-button home-button-primary" to="/contact-me">Get in touch</Link>
                         <a className="home-button" href="https://www.linkedin.com/in/eldermael/"
                            target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                     </div>
@@ -102,7 +103,7 @@ export function Home() {
                     <div>
                         <h2 id="community-title">Good engineering grows when we share it.</h2>
                         <p>I value mentorship and making space for people to learn together.</p>
-                        <p><a href="/contact-me">Contact me about mentorship <span aria-hidden="true">↗</span></a></p>
+                        <p><Link to="/contact-me">Contact me about mentorship <span aria-hidden="true">↗</span></Link></p>
                     </div>
                 </div>
                 <article className="home-card home-radio">
@@ -117,7 +118,7 @@ export function Home() {
                 <p className="home-eyebrow">04 / Get in touch</p>
                 <h2 id="contact-title">Let’s start a conversation.</h2>
                 <p>Reach out about engineering work, collaboration, or mentorship.</p>
-                <a className="home-button home-button-primary" href="/contact-me">Contact me</a>
+                <Link className="home-button home-button-primary" to="/contact-me">Contact me</Link>
             </section>
         </main>
     );

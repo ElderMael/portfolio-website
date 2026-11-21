@@ -1,10 +1,11 @@
 import { render, screen, within } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { Home } from './Home';
 
 describe('home experience panels', () => {
   it('keeps the approved experience copy and links accessible', () => {
-    render(<Home />);
+    render(<MemoryRouter><Home /></MemoryRouter>);
 
     const experience = screen.getByRole('region', {
       name: 'Professional experience, and contributions in the open.',

@@ -1,4 +1,5 @@
 import {cleanup, render, screen, within} from '@testing-library/react';
+import {MemoryRouter} from 'react-router-dom';
 import {afterEach, describe, expect, it} from 'vitest';
 import {Social} from './Social';
 
@@ -6,7 +7,7 @@ afterEach(() => cleanup());
 
 describe('Social page', () => {
     it('prioritizes the professional profile and approved primary destinations', () => {
-        render(<Social />);
+        render(<MemoryRouter><Social /></MemoryRouter>);
 
         expect(screen.getByRole('heading', {name: 'My Social Networks'})).toBeInTheDocument();
         const professionalSection = screen.getByRole('region', {name: 'Connect and explore my work.'});
@@ -25,7 +26,7 @@ describe('Social page', () => {
     });
 
     it('keeps verified secondary links and excludes retired or unverified destinations', () => {
-        render(<Social />);
+        render(<MemoryRouter><Social /></MemoryRouter>);
 
         const secondarySection = screen.getByRole('region', {name: 'More ways to connect.'});
         expect(within(secondarySection).getAllByRole('link').map(link => link.getAttribute('href'))).toEqual([
@@ -40,7 +41,7 @@ describe('Social page', () => {
     });
 
     it('gives external links an accessible name and safe new-tab behavior', () => {
-        render(<Social />);
+        render(<MemoryRouter><Social /></MemoryRouter>);
 
         const links = screen.getAllByRole('link').filter(link => link.hasAttribute('target'));
         expect(links).toHaveLength(10);

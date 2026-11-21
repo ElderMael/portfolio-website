@@ -3,12 +3,33 @@ import './App.css';
 import { Social } from "./Social";
 import { Home } from "./Home";
 import { ContactMe } from "./ContactMe";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import { Navigation } from "./Navigation";
 import { MatrixCodeRain } from "./MatrixCodeRain";
 
 const THEME_KEY = 'portfolio-theme';
 type Theme = 'dark' | 'lighter';
+
+const routeTitles: Record<string, string> = {
+    '/': 'Miguel Enriquez | AI & Systems Engineering',
+    '/contact-me': 'Contact Miguel Enriquez | Portfolio',
+    '/social': 'Social & Community | Miguel Enriquez',
+};
+
+function RouteDocumentTitle() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const routePath = pathname.replace(/\/+$/, '') || '/';
+        document.title = routeTitles[routePath] ?? routeTitles['/'];
+    }, [pathname]);
+
+    return null;
+}
+
+function focusMainContent() {
+    document.getElementById('main-content')?.focus();
+}
 
 function storedTheme(): Theme {
     try {
@@ -33,10 +54,14 @@ export default function App() {
 
     return (
         <BrowserRouter>
+            <RouteDocumentTitle />
             <div className="site-shell" data-theme={theme} data-motion-paused={paused}>
+                <a className="skip-link" href="#main-content" onClick={focusMainContent}>
+                    Skip to main content
+                </a>
                 <MatrixCodeRain paused={paused} />
                 <header className="site-header">
-                    <a className="site-brand" href="/" aria-label="Miguel Enriquez home">MIGUEL <span>/</span> ENRIQUEZ</a>
+                    <Link className="site-brand" to="/" aria-label="Miguel Enriquez home">MIGUEL <span>/</span> ENRIQUEZ</Link>
                     <Navigation />
                     <button className="theme-toggle" type="button" aria-pressed={theme === 'lighter'}
                             onClick={() => setTheme(theme === 'dark' ? 'lighter' : 'dark')}>

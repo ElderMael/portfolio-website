@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
 describe('application routes', () => {
@@ -14,6 +15,61 @@ describe('application routes', () => {
     vi.restoreAllMocks();
     Reflect.deleteProperty(window, 'matchMedia');
     window.history.replaceState({}, '', '/');
+  });
+
+  it('provides a first-focusable skip link that moves keyboard focus to main content', async () => {
+    window.history.replaceState({}, '', '/');
+    render(<App />);
+
+    const skipLink = screen.getByRole('link', { name: 'Skip to main content' });
+    const firstFocusable = document.querySelector(
+      '.site-shell a, .site-shell button, .site-shell input, .site-shell select, .site-shell textarea, .site-shell [tabindex]:not([tabindex="-1"])',
+    );
+    expect(firstFocusable).toBe(skipLink);
+
+    const user = userEvent.setup();
+    await user.tab();
+    expect(skipLink).toHaveFocus();
+    await user.keyboard('{Enter}');
+
+    expect(document.getElementById('main-content')).toHaveFocus();
+    expect(window.location.hash).toBe('#main-content');
+  });
+
+  it('sets descriptive titles for direct routes and the home fallback', () => {
+    const routeTitles = [
+      ['/', 'Miguel Enriquez | AI & Systems Engineering'],
+      ['/contact-me', 'Contact Miguel Enriquez | Portfolio'],
+      ['/social', 'Social & Community | Miguel Enriquez'],
+      ['/unknown', 'Miguel Enriquez | AI & Systems Engineering'],
+    ];
+
+    routeTitles.forEach(([path, title]) => {
+      window.history.replaceState({}, '', path);
+      const { unmount } = render(<App />);
+      expect(document.title).toBe(title);
+      expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content');
+      expect(screen.getByRole('main')).toHaveAttribute('tabindex', '-1');
+      unmount();
+    });
+  });
+
+  it('updates the page title after client-side route navigation', async () => {
+    window.history.replaceState({}, '', '/');
+    render(<App />);
+    const user = userEvent.setup();
+
+    await user.click(screen.getByRole('link', { name: 'Social' }));
+    expect(window.location.pathname).toBe('/social');
+    expect(document.title).toBe('Social & Community | Miguel Enriquez');
+
+    await user.click(screen.getByRole('link', { name: 'Contact me' }));
+    expect(window.location.pathname).toBe('/contact-me');
+    expect(document.title).toBe('Contact Miguel Enriquez | Portfolio');
+
+    await user.click(screen.getByRole('link', { name: 'Miguel Enriquez home' }));
+    expect(window.location.pathname).toBe('/');
+    expect(document.title).toBe('Miguel Enriquez | AI & Systems Engineering');
   });
 
   it('renders the home route and its navigation', () => {

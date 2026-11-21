@@ -13,7 +13,7 @@ export function ContactMe() {
     };
 
     return (
-        <main className="contact-page" aria-labelledby="contact-title">
+        <main className="contact-page" id="main-content" tabIndex={-1} aria-labelledby="contact-title">
             <section className="contact-intro paper-panel" aria-labelledby="contact-title">
                 <p className="contact-eyebrow">Open a channel</p>
                 <h1 id="contact-title">Contact me.</h1>

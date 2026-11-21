@@ -38,7 +38,7 @@ export function AboutMe() {
 
                     <h5><FontAwesomeIcon icon={faGlobe} className="icon-nav icon-community"/> Community & Outreach</h5>
                     <p>
-                        <FontAwesomeIcon icon={faMicrophone} className="icon-nav icon-media"/> Host of <a href="https://piratedevradio.tech/">PirateDevRadio</a>, a podcast covering software development, AI, and engineering culture.
+                        <FontAwesomeIcon icon={faMicrophone} className="icon-nav icon-media"/> Host of <a href="https://www.youtube.com/@piratedevradio">PirateDevRadio</a>, a podcast covering software development, AI, and engineering culture.
                         <br/>
                         <FontAwesomeIcon icon={faEnvelope} className="icon-nav icon-contact"/> Subscribe to my newsletter: <a href="https://piratedevradio.substack.com/">piratedevradio.substack.com</a>.
                     </p>

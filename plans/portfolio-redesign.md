@@ -314,6 +314,13 @@ checks remain outstanding before release.
 
 ### Task 7: Verify and hand off
 
+Two read-only release reviews examined revision `58739e5`. Their accessibility
+findings prompted a skip link, route-specific titles, and stronger social-link
+cues. The integration review identified the stale unused podcast URL and an
+outdated Docker README, both corrected afterward. Miguel supplied the X URL in
+follow-up; it was verified and added. The reviews did not test a deployed site,
+real form delivery, assistive technology, or physical-device performance.
+
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.
 - [ ] Check desktop and mobile layouts, keyboard navigation, contrast, reduced

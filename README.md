@@ -18,8 +18,10 @@ home, social, contact, and fallback routes, plus service-worker cleanup.
 
 Vite emits the production site to `build/`, preserving the existing deploy
 contract. Netlify builds with Node 24, publishes `build/`, and applies the SPA
-fallback in `netlify.toml`. Docker copies the prebuilt `build/` directory into
-nginx; it does not build the app and has no SPA fallback for direct deep links.
+fallback in `netlify.toml`. Docker copies the prebuilt `build/` directory and
+`nginx.conf` into nginx; it does not build the app. The nginx configuration
+includes an SPA fallback, although direct deep links in a running container
+still need verification.
 
 The service worker remains unregistered. Startup only cleans up an existing
 registration left by an older version. Production output targets modern browsers
@@ -27,8 +29,8 @@ registration left by an older version. Production output targets modern browsers
 
 ## Security
 
-The site self-hosts its display fonts, bundles icons locally, and uses SRI for
-remaining CDN stylesheets. Netlify sends baseline security headers and a
+The site loads the redesign fonts from Google Fonts, bundles icons locally,
+and uses SRI for remaining CDN stylesheets. Netlify sends baseline security headers and a
 report-only CSP. Docker runs nginx as a non-root user; the Kubernetes manifest
 adds read-only root filesystem, dropped capabilities, probes, and resource
 limits. The contact form includes a honeypot field.

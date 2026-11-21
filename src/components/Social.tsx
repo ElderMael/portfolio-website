@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type {IconDefinition} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCoffee, faNewspaper} from '@fortawesome/free-solid-svg-icons';
@@ -118,7 +119,7 @@ function ProfileCard({link, featured = false}: {link: SocialLink; featured?: boo
 
 export function Social() {
     return (
-        <main className="social-page">
+        <main className="social-page" id="main-content" tabIndex={-1}>
             <header className="social-intro social-panel">
                 <p className="social-eyebrow">02 / Social and community</p>
                 <h1 id="social-title">My Social Networks</h1>
@@ -174,7 +175,7 @@ export function Social() {
             </section>
 
             <p className="social-contact social-panel">
-                Looking to get in touch? <a href="/contact-me">Contact me <span aria-hidden="true">↗</span></a>
+                Looking to get in touch? <Link to="/contact-me">Contact me <span aria-hidden="true">↗</span></Link>
             </p>
         </main>
     );
