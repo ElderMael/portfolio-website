@@ -330,7 +330,9 @@ the production build, and `git diff --check`. After pushing `5445b62`, public
 routes `/`, `/social`, `/contact-me`, and `/unknown` returned the current app
 bundle. Headless Chrome rendered the expected titles and headings on the three
 main routes, and top-of-page desktop and mobile captures were inspected. This
-was not a full-page, physical-device, or assistive-technology audit.
+was not a full-page or assistive-technology audit. Miguel subsequently
+reported the live site looks and works well on a physical mobile device; the
+device model and detailed test coverage were not recorded.
 
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.
