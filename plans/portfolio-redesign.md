@@ -220,7 +220,8 @@ unavailable checks rather than claiming unperformed visual verification.
   Instagram, Patreon, Ko-fi, Substack, and X pages. Patreon redirects to its
   canonical path. Miguel confirmed `twitch.tv/eldermael` and
   `tiktok.com/@eldermael`; extracted page content could not independently
-  verify their profiles, so check them in a browser before release.
+  verify their profiles. Miguel later confirmed both links lead to his intended
+  profiles; search results also show matching handles.
 - The contact form's action and fields were inspected in source and the
   honeypot is covered by a test; actual Formspree delivery was not tested.
 - The updated concept was captured in headless Chrome at 390 × 844; the top
@@ -290,8 +291,9 @@ real form delivery successfully.
 
 Miguel approved the responsive social redesign. Facebook and the old Anchor
 link are omitted. Miguel supplied [his X profile](https://x.com/eldermael),
-which was verified and added as a secondary link. Twitch and TikTok profile
-checks remain outstanding before release.
+which was verified and added as a secondary link. He confirmed the Twitch and
+TikTok links lead to his intended profiles; search results also match the
+handles, although automated page extraction could not fully inspect them.
 
 - [x] Reorganize links around the approved priorities for professional work,
       PirateDevRadio, and community.
