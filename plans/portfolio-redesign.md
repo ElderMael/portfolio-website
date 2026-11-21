@@ -247,11 +247,11 @@ still need a real-browser review.
 
 ### Task 3: Redesign the primary introduction
 
-- [ ] Create the approved introduction, audience-appropriate calls to action,
+- [x] Create the approved introduction, audience-appropriate calls to action,
       and concise expertise sections; use Miguel's own positioning and voice.
-- [ ] Add balanced, verified experience and selected-work content. If material
-      is not ready, use a truthful existing profile link and record the gap;
-      do not publish invented examples or empty case-study cards.
+- [x] Add experience and selected-work content based on the discovery review,
+      without invented outcomes or empty case-study cards. Miguel's final review
+      of the exact Nextdata and neo-pokepet-pi wording remains outstanding.
 - [ ] Add imagery inspired by the reference site's editorial use of images,
       using Miguel-approved portraits or project visuals rather than copying
       the reference. Confirm permissions and select assets with Miguel; provide
@@ -259,8 +259,14 @@ still need a real-browser review.
 - [ ] Polish the approved layered-paper and cyberpunk visual treatment after
       the page structure is in place. Review details with Miguel at desktop and
       mobile widths without compromising legibility or accessibility.
-- [ ] Integrate the approved continuous background without delaying content.
-      Verify responsiveness, motion preferences, navigation, and primary actions.
+- [x] Use the shared continuous background without delaying home content;
+      check the desktop and mobile layouts and primary actions. Full browser,
+      keyboard, motion, and contrast audits remain release requirements.
+
+The initial home slice includes the approved content structure and retains
+imagery and further visual polish as follow-up work. Headless Chrome captures
+were taken at 1440 × 1000 and 390 × 844; font loading, interactions, and the
+complete design still need review in a real browser.
 
 ## Phase 3: Contact page (`/contact-me`)
 

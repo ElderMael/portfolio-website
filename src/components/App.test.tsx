@@ -19,8 +19,18 @@ describe('application routes', () => {
   it('renders the home route and its navigation', () => {
     window.history.replaceState({}, '', '/');
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'About Me' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Building systems that help people build.' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /social/i })).toHaveAttribute('href', '/social');
+    expect(screen.getByRole('heading', { name: 'Nextdata' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Helm chart webhook fix/i })).toHaveAttribute(
+      'href', 'https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391');
+    expect(screen.getByRole('link', { name: /ClickHouse exporter DDL documentation/i })).toHaveAttribute(
+      'href', 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903');
+    expect(screen.getByRole('link', { name: /neo-pokepet-pi/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /PirateDevRadio on YouTube/i })).toHaveAttribute(
+      'href', 'https://www.youtube.com/@piratedevradio');
+    expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', '/contact-me');
+    expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
   });
 
   it('renders social and contact routes', () => {
@@ -83,6 +93,6 @@ describe('application routes', () => {
   it('falls back to home for an unknown route', () => {
     window.history.replaceState({}, '', '/unknown');
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'About Me' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Building systems that help people build.' })).toBeInTheDocument();
   });
 });
