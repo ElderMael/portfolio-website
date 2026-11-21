@@ -1,124 +1,176 @@
 import React from 'react';
-import useWindowDimensions from "../useWindowDimensions";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMicrophone, faMoneyBill, faNewspaper} from "@fortawesome/free-solid-svg-icons";
+import type {IconDefinition} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCoffee, faNewspaper} from '@fortawesome/free-solid-svg-icons';
 import {
-    faFacebook,
+    faGithub,
     faInstagram,
     faLinkedin,
     faPatreon,
     faTiktok,
     faTwitch,
     faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
+import './Social.css';
+
+const primaryLinks = [
+    {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/eldermael/',
+        description: 'Professional profile',
+        icon: faLinkedin,
+        style: 'linkedin',
+    },
+    {
+        name: 'GitHub',
+        href: 'https://github.com/ElderMael/',
+        description: 'Code and open source',
+        icon: faGithub,
+        style: 'github',
+    },
+];
+
+const communityLinks = [
+    {
+        name: 'PirateDevRadio on YouTube',
+        href: 'https://www.youtube.com/@piratedevradio',
+        description: 'Podcast channel',
+        icon: faYoutube,
+        style: 'youtube',
+    },
+    {
+        name: 'Twitch',
+        href: 'https://www.twitch.tv/eldermael',
+        description: 'Follow on Twitch',
+        icon: faTwitch,
+        style: 'twitch',
+    },
+    {
+        name: 'TikTok',
+        href: 'https://www.tiktok.com/@eldermael',
+        description: 'Follow on TikTok',
+        icon: faTiktok,
+        style: 'tiktok',
+    },
+    {
+        name: 'Instagram',
+        href: 'https://www.instagram.com/piratedevradio/',
+        description: 'Follow on Instagram',
+        icon: faInstagram,
+        style: 'instagram',
+    },
+];
+
+const secondaryLinks = [
+    {
+        name: 'Patreon',
+        href: 'https://www.patreon.com/eldermael',
+        icon: faPatreon,
+        style: 'patreon',
+    },
+    {
+        name: 'Ko-fi',
+        href: 'https://ko-fi.com/eldermael',
+        icon: faCoffee,
+        style: 'kofi',
+    },
+    {
+        name: 'Substack',
+        href: 'https://piratedevradio.substack.com/',
+        icon: faNewspaper,
+        style: 'substack',
+    },
+];
+
+type SocialLink = {
+    name: string;
+    href: string;
+    description?: string;
+    icon: IconDefinition;
+    style: string;
+};
+
+function ProfileCard({link, featured = false}: {link: SocialLink; featured?: boolean}) {
+    return (
+        <a
+            className={`social-link-card social-link-card--${link.style}${featured ? ' social-link-card--featured' : ''}`}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${link.name} (opens in a new tab)`}
+        >
+            <span className="social-link-icon" aria-hidden="true">
+                <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />
+            </span>
+            <span className="social-link-copy">
+                <span className="social-link-name">{link.name}</span>
+                {link.description && <span className="social-link-description">{link.description}</span>}
+            </span>
+            <span className="social-link-arrow" aria-hidden="true">↗</span>
+        </a>
+    );
+}
 
 export function Social() {
-    const {width} = useWindowDimensions();
-
-    const isWide = width > 2500;
-
     return (
-        <div className="container-fluid">
-            <main className={isWide ? "container" : "row"}>
-                <div className="about-me card text-center animated fadeIn delay-5s col">
-                    <h3 className="card-header">
-                        My Social Networks
-                    </h3>
-                    <div className="card-body">
-                        <h4 className="card-title">Social Networks</h4>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/eldermael">
-                                <FontAwesomeIcon className="icon-nav icon-community" icon={faPatreon} size="2x"/>
-                                <span>Patreon</span>
-                            </a>
-                            <span className="social-description">Support my creative journey—no strings attached.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://ko-fi.com/eldermael">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-community" icon={faMoneyBill}/>
-                                <span>Ko-fi</span>
-                            </a>
-                            <span
-                                className="social-description">Fuel my work with a quick coffee—no strings attached.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@piratedevradio">
-                                <FontAwesomeIcon className="icon-nav icon-media" icon={faYoutube} size="2x"/>
-                                <span>YouTube</span>
-                            </a>
-                            <span
-                                className="social-description">Deep dives into tech, AI, and engineering culture.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://www.twitch.tv/eldermael">
-                                <FontAwesomeIcon className="icon-nav icon-media" icon={faTwitch} size="2x"/>
-                                <span>Twitch</span>
-                            </a>
-                            <span className="social-description">Live coding, gaming, and real-time tech talks.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-contact" icon={faNewspaper}/>
-                                <span>Substack</span>
-                            </a>
-                            <span className="social-description">Deep dives into tech, AI, and engineering culture via my newsletter.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer"
-                               href="https://www.facebook.com/profile.php?id=100088523016127">
-                                <FontAwesomeIcon className="icon-nav icon-community" icon={faFacebook} size="2x"/>
-                                <span>Facebook</span>
-                            </a>
-                            <span
-                                className="social-description">Updates and community discussions on the big blue.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@eldermael">
-                                <FontAwesomeIcon className="icon-nav icon-media" icon={faTiktok} size="2x"/>
-                                <span>TikTok</span>
-                            </a>
-                            <span className="social-description">Bite-sized tech tips and behind-the-scenes fun.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
-                                <FontAwesomeIcon className="icon-nav icon-community" icon={faLinkedin} size="2x"/>
-                                <span>LinkedIn</span>
-                            </a>
-                            <span className="social-description">Professional milestones and industry networking.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer"
-                               href="https://www.instagram.com/piratedevradio/">
-                                <FontAwesomeIcon className="icon-nav icon-community" icon={faInstagram} size="2x"/>
-                                <span>Instagram</span>
-                            </a>
-                            <span className="social-description">Visual highlights of my daily life and projects.</span>
-                        </div>
-                        <div className="card-text resume-summary">
-                            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-                               target="_blank" rel="noopener noreferrer" href="https://anchor.fm/pirate-dev-radio">
-                                <FontAwesomeIcon className="icon-nav fas fa-2x icon-media" icon={faMicrophone}/>
-                                <span>AnchorFM</span>
-                            </a>
-                            <span className="social-description">Catch the audio version of my podcast on the go.</span>
-                        </div>
-                    </div>
-                    <div className="card-footer text-muted">
-                        <a className="contact-me btn btn-outline-success" href="/contact-me">
-                            Contact Me!
-                        </a>
-                    </div>
+        <main className="social-page">
+            <header className="social-intro social-panel">
+                <p className="social-eyebrow">02 / Social and community</p>
+                <h1 id="social-title">My Social Networks</h1>
+                <p>Find me online: professional work, open source, and PirateDevRadio.</p>
+            </header>
+
+            <section className="social-section" aria-labelledby="social-professional-title">
+                <div className="social-section-heading">
+                    <p className="social-eyebrow">01 / Professional</p>
+                    <h2 id="social-professional-title">Connect and explore my work.</h2>
                 </div>
-            </main>
-        </div>
+                <div className="social-primary-grid">
+                    {primaryLinks.map((link, index) => <ProfileCard key={link.name} link={link} featured={index === 0} />)}
+                </div>
+            </section>
+
+            <section className="social-section" aria-labelledby="social-community-title">
+                <div className="social-section-heading">
+                    <p className="social-eyebrow">02 / Community</p>
+                    <h2 id="social-community-title">PirateDevRadio and more.</h2>
+                </div>
+                <div className="social-community-grid">
+                    {communityLinks.map(link => <ProfileCard key={link.name} link={link} />)}
+                </div>
+            </section>
+
+            <section className="social-section social-secondary" aria-labelledby="social-secondary-title">
+                <div className="social-panel social-secondary-panel">
+                    <div className="social-section-heading">
+                        <p className="social-eyebrow">03 / More</p>
+                        <h2 id="social-secondary-title">Support and newsletter.</h2>
+                    </div>
+                    <ul className="social-secondary-list">
+                        {secondaryLinks.map(link => (
+                            <li key={link.name}>
+                                <a
+                                    className={`social-secondary-link social-link-card--${link.style}`}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`${link.name} (opens in a new tab)`}
+                                >
+                                    <span className="social-link-icon" aria-hidden="true">
+                                        <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />
+                                    </span>
+                                    <span>{link.name}</span>
+                                    <span className="social-link-arrow" aria-hidden="true">↗</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            <p className="social-contact social-panel">
+                Looking to get in touch? <a href="/contact-me">Contact me <span aria-hidden="true">↗</span></a>
+            </p>
+        </main>
     );
 }
