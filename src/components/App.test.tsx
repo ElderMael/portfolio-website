@@ -166,7 +166,7 @@ describe('application routes', () => {
     window.history.replaceState({}, '', '/');
     render(<App />);
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
-    const themeButton = screen.getByRole('button', { name: 'THEME: Enable Low Light' });
+    const themeButton = screen.getByRole('button', { name: 'Theme: Low Light' });
     expect(themeButton).toHaveAttribute('aria-pressed', 'false');
     expect(within(themeButton).getByText('THEME')).toBeInTheDocument();
     expect(within(themeButton).getByText('NIGHT')).toHaveClass('is-selected');
@@ -175,6 +175,7 @@ describe('application routes', () => {
     expect(document.documentElement).toHaveAttribute('data-theme', 'lighter');
     expect(window.localStorage.getItem('portfolio-theme')).toBe('lighter');
     expect(themeButton).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Theme: Low Light' })).toBe(themeButton);
     expect(within(themeButton).getByText('NIGHT')).not.toHaveClass('is-selected');
     expect(within(themeButton).getByText('LOW LIGHT')).toHaveClass('is-selected');
     fireEvent.click(themeButton);
@@ -207,7 +208,7 @@ describe('application routes', () => {
     window.history.replaceState({}, '', '/');
     render(<App />);
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
-    fireEvent.click(screen.getByRole('button', { name: 'THEME: Enable Low Light' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Theme: Low Light' }));
     expect(document.documentElement).toHaveAttribute('data-theme', 'lighter');
   });
 
