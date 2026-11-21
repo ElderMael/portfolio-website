@@ -44,19 +44,25 @@ keyboard, and assistive technology and can identify headings and evidence links.
 - **Demo:** Pending. At feature-ready, demonstrate the home journey at desktop
   and mobile widths and show the evidence destinations. Environment, widths,
   and screenshots are Pending; caller judges the demo.
-- **Code checks:** Focused home tests, lint, and build passed for reviewed
-  T1/T2 work at the relevant landed revisions. The full `npm test` suite
-  remains Pending for T3. Tests preserve neo-pokepet-pi as a small existing
-  project note with explicit fork, upstream, and sprite credits; it is not
-  promoted to a full case study without supported context. T2 review found
-  focus overlap; final review was clear after the accepted focus fix in
+- **Code checks:** At pinned revision
+  `68e985e882f0834884c913543fa68372c7d0c868`, focused home tests passed
+  (1 file, 3 tests), full `npm test` passed (7 files, 23 tests), lint passed,
+  and build passed (`tsc --noEmit` and Vite production build). Tests preserve
+  neo-pokepet-pi as a small existing project note with explicit fork, upstream,
+  and sprite credits; it is not promoted to a full case study without
+  supported context. T2 review found focus overlap; final review was clear
+  after the accepted focus fix in
   `99afc8f73186fba73675959212e739e9e123ad04`. Retain pinned review evidence
   with the final acceptance packet.
-- **Integration / end-to-end:** Browser checks passed at 390px and 1440px for
-  the reviewed T1/T2 work, including the featured-work presentation and focus
-  styling. The full T3 check remains Pending: verify the home route, evidence
-  destinations, keyboard access, semantic headings, and narrow-screen
-  overflow; retain environment and visual evidence for caller judgment.
+- **Integration / end-to-end:** Chrome 158.0.8127.36 headless browser checks
+  passed on the local Vite app at 390px and 1440px at the pinned revision
+  above. Evidence records semantic h2/h3 headings, no horizontal overflow,
+  side-by-side desktop cards and stacked mobile cards, link names and exact
+  hrefs for Nextdata and two OpenTelemetry PRs, and keyboard Tab navigation
+  from the Nextdata link to the Helm chart PR link with `:focus-visible` and
+  a solid 3px outline; screenshots were captured. GitHub destination rendering
+  was not verified. Screen-reader testing and physical-device/mobile-browser
+  testing were not performed.
 - **Human pair/mob:** Pending; record actual participation and findings or
   state that it did not occur. Do not imply participation.
 - **Specialist review:** Request `change_review` on all marked story commits at
@@ -125,17 +131,21 @@ All tasks touch the home experience and may share `Home.tsx`, `Home.css`, and
   T3: Add/update regression tests for supported content, existing evidence
   URLs, semantic access, and avoidance of unsupported claims. Run focused tests,
   full `npm test`, lint, build, and desktop/mobile checks; result is an
-  evidenced functional and responsive presentation. Focused checks, lint,
-  build, and 390px/1440px browser checks passed for T1/T2. T3 is ready but
-  pending; full-suite run and final integrated acceptance checks remain open.
-  Status: ready/pending; ordered commits: Pending.
-- Checkpoint: Partial evidence at pinned HEAD
-  `99afc8f73186fba73675959212e739e9e123ad04`: T1 and T2 commits and accepted
-  fix are landed; focused checks, lint, build, and browser checks at 390px and
-  1440px passed. T2's final review was clear after the accepted focus fix at
-  the pinned HEAD. T3, full test suite, and final acceptance remain Pending.
-  At feature-ready, attach cumulative evidence for J1 and J2,
-  keyboard/accessibility observations, remaining risks, and caller decision.
+  evidenced functional and responsive presentation. Focused tests (1 file,
+  3 tests), full `npm test` (7 files, 23 tests), lint, build, and Chrome browser
+  checks at 390px/1440px passed at
+  `68e985e882f0834884c913543fa68372c7d0c868`. Screen-reader and
+  physical-device/mobile-browser checks were not performed; external GitHub
+  rendering was not verified. Status: complete; ordered commits:
+  `68e985e882f0834884c913543fa68372c7d0c868`.
+- Checkpoint: T1/T2 and their accepted fix are landed; T3 checks passed at
+  pinned revision `68e985e882f0834884c913543fa68372c7d0c868`. Evidence includes
+  the full test suite, lint, build, and Chrome checks at 390px and 1440px.
+  T2's final review was clear after the accepted focus fix. Human pair/mob
+  participation was not recorded; screen-reader, physical-device/mobile-browser,
+  and external GitHub rendering checks were not performed. Human product
+  acceptance and release remain Pending. The caller judges the cumulative J1/J2
+  evidence, remaining risks, and acceptance decision.
 
 ## Glossary and decisions
 
@@ -153,14 +163,19 @@ All tasks touch the home experience and may share `Home.tsx`, `Home.css`, and
 
 ## Progress and open questions
 
-- Status: T1 and T2 complete; T3 ready/pending. Feature acceptance and release
-  are not complete.
+- Status: T1, T2, and T3 complete. Human feature acceptance and release are
+  not complete.
 - Base SHA: `11833aed72b95f8b8370a20b2c847ad4627150ad`.
-- Pinned progress revision: `99afc8f73186fba73675959212e739e9e123ad04`.
+- Pinned T3 evidence revision:
+  `68e985e882f0834884c913543fa68372c7d0c868`.
 - Task states: T1 complete (`f393c138c8c62aedf33f18675b8bf51a8a16b0f8`);
   T2 complete (`fa29e3a9232a20353486188eac68fd4963667073`,
-  `99afc8f73186fba73675959212e739e9e123ad04`); T3 ready/pending.
-- Focused tests, lint, build, and browser checks at 390px and 1440px passed
-  for T1/T2. T2 final review was clear after the accepted focus fix at HEAD.
-  Full `npm test` and final acceptance evidence remain Pending.
+  `99afc8f73186fba73675959212e739e9e123ad04`); T3 complete
+  (`68e985e882f0834884c913543fa68372c7d0c868`).
+- Focused tests (1 file, 3 tests), full `npm test` (7 files, 23 tests), lint,
+  build, and Chrome checks at 390px/1440px passed at the pinned T3 evidence
+  revision. T2 final review was clear after the accepted focus fix. No
+  screen-reader or physical-device/mobile-browser testing was performed, and
+  external GitHub rendering was not verified. Human pair/mob was not recorded;
+  human feature acceptance and release remain Pending.
 - No domain-language, scope, or approval question currently blocks planning.
