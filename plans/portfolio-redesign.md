@@ -55,9 +55,9 @@ existing routes working while the information architecture evolves.
   pages. The resume PDF in `public/` is shared directly with recruiters; the
   public site should link to LinkedIn instead.
 - React, TypeScript, and Vite are already in place. Netlify and the nginx
-  configuration copied into Docker specify SPA fallbacks; direct navigation
-  in a running Docker container remains unverified. Preserve service-worker
-  unregister behavior.
+  configuration copied into Docker specify SPA fallbacks. A subsequent
+  network-isolated container check returned the app shell for all routes.
+  Preserve service-worker unregister behavior.
 - The existing site supplies capability descriptions, but not detailed project
   case studies or verified outcome metrics. Do not fabricate claims, client
   names, testimonials, results, or permissions.
@@ -322,7 +322,11 @@ cues. The integration review identified the stale unused podcast URL and an
 outdated Docker README, both corrected afterward. Miguel supplied the X URL in
 follow-up; it was verified and added. The reviews did not test a deployed site,
 assistive technology, or physical-device performance. After the reviews,
-Miguel reported a successful real contact-form delivery test.
+Miguel reported a successful real contact-form delivery test. A
+network-isolated Docker container returned the app shell for `/`, `/social`,
+`/contact-me`, and `/unknown`; this does not verify browser rendering or a
+public deployment. The latest release-fix verification passed 18 tests, lint,
+the production build, and `git diff --check`.
 
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.

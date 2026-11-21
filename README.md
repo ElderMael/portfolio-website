@@ -20,8 +20,9 @@ Vite emits the production site to `build/`, preserving the existing deploy
 contract. Netlify builds with Node 24, publishes `build/`, and applies the SPA
 fallback in `netlify.toml`. Docker copies the prebuilt `build/` directory and
 `nginx.conf` into nginx; it does not build the app. The nginx configuration
-includes an SPA fallback, although direct deep links in a running container
-still need verification.
+includes an SPA fallback. A network-isolated container check returned the app
+shell for `/`, `/social`, `/contact-me`, and an unknown path; deployed browser
+behavior still needs verification.
 
 The service worker remains unregistered. Startup only cleans up an existing
 registration left by an older version. Production output targets modern browsers
