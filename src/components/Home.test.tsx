@@ -92,22 +92,51 @@ describe('home experience panels', () => {
     const experience = screen.getByRole('region', {
       name: 'Professional experience, and contributions in the open.',
     });
-    expect(within(experience).getByRole('heading', { name: 'Nextdata' })).toBeInTheDocument();
-    expect(within(experience).getByText(
+    expect(within(experience).getByRole('heading', {
+      level: 2,
+      name: 'Professional experience, and contributions in the open.',
+    })).toBeInTheDocument();
+
+    const nextdata = within(experience).getByRole('heading', {
+      level: 3,
+      name: 'Nextdata',
+    }).closest('article');
+    expect(nextdata).not.toBeNull();
+    expect(within(nextdata!).getByText('Current experience')).toBeInTheDocument();
+    expect(within(nextdata!).getByText(
       'Principal Software Engineer working across Nextdata OS, infrastructure and platform engineering, field engineering, and customer onboarding.',
     )).toBeInTheDocument();
-    expect(within(experience).getByRole('link', { name: 'Nextdata website' })).toHaveAttribute(
+    expect(within(nextdata!).getByRole('link', { name: 'Nextdata website' })).toHaveAttribute(
       'href', 'https://www.nextdata.com/',
     );
-    expect(within(experience).getByRole('link', { name: /Helm chart webhook fix/ })).toHaveAttribute(
-      'href', 'https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391',
-    );
-    expect(within(experience).getByRole('link', { name: /ClickHouse exporter DDL documentation/ }))
-      .toHaveAttribute('href', 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903');
-    expect(within(experience).getByText('Webhook configuration fix for the Helm chart.'))
-      .toBeInTheDocument();
-    expect(within(experience).getByText('Documentation for the ClickHouse exporter’s DDL.'))
-      .toBeInTheDocument();
+    expect(within(nextdata!).queryByRole('link', { name: /OpenTelemetry|PR/i }))
+      .not.toBeInTheDocument();
+
+    const openTelemetry = within(experience).getByRole('heading', {
+      level: 3,
+      name: 'Two project contributions',
+    }).closest('article');
+    expect(openTelemetry).not.toBeNull();
+    expect(within(openTelemetry!).getByText('Open source · OpenTelemetry')).toBeInTheDocument();
+    const contributions = [
+      {
+        linkName: 'Helm chart webhook fix',
+        href: 'https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391',
+        description: 'Webhook configuration fix for the Helm chart.',
+      },
+      {
+        linkName: 'ClickHouse exporter DDL documentation',
+        href: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903',
+        description: 'Documentation for the ClickHouse exporter’s DDL.',
+      },
+    ];
+    const contributionItems = within(openTelemetry!).getAllByRole('listitem');
+    expect(contributionItems).toHaveLength(contributions.length);
+    contributions.forEach(({ linkName, href, description }, index) => {
+      const item = within(contributionItems[index]);
+      expect(item.getByRole('link', { name: linkName })).toHaveAttribute('href', href);
+      expect(item.getByText(description)).toBeInTheDocument();
+    });
 
     const projectNote = within(experience).getByText(/my fork of/);
     expect(projectNote).toHaveTextContent('my fork of djdiptayan’s pi-pokepet');
