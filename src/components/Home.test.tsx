@@ -96,7 +96,7 @@ describe('home experience panels', () => {
     expect(within(experience).getByText(
       'Principal Software Engineer working across Nextdata OS, infrastructure and platform engineering, field engineering, and customer onboarding.',
     )).toBeInTheDocument();
-    expect(within(experience).getByRole('link', { name: /Nextdata/ })).toHaveAttribute(
+    expect(within(experience).getByRole('link', { name: 'Nextdata website' })).toHaveAttribute(
       'href', 'https://www.nextdata.com/',
     );
     expect(within(experience).getByRole('link', { name: /Helm chart webhook fix/ })).toHaveAttribute(

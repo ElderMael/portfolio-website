@@ -156,7 +156,7 @@ export function Home() {
                         <p className="home-eyebrow">Current experience</p>
                         <h3>Nextdata</h3>
                         <p>Principal Software Engineer working across Nextdata OS, infrastructure and platform engineering, field engineering, and customer onboarding.</p>
-                        <a href="https://www.nextdata.com/" target="_blank" rel="noreferrer">Nextdata <span aria-hidden="true">↗</span></a>
+                        <a href="https://www.nextdata.com/" target="_blank" rel="noreferrer">Nextdata website <span aria-hidden="true">↗</span></a>
                     </article>
                     <article className="home-card home-opentelemetry">
                         <span className="home-card-index" aria-hidden="true">02</span>

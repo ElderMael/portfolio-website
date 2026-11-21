@@ -406,6 +406,7 @@
   overflow: hidden;
   border-top-color: var(--accent);
   border-right: 3px solid var(--accent);
+  border-left: 4px solid var(--accent);
   background: linear-gradient(145deg, #1c2a21, var(--surface) 52%);
 }
 .home-opentelemetry .home-card-index {
@@ -437,9 +438,17 @@
   background: var(--page);
   line-height: 1.6;
 }
+.home-opentelemetry .home-link-list li p {
+  margin: 0 .9rem .75rem;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.5;
+}
 .home-opentelemetry .home-link-list a {
   display: flex;
   min-height: 48px;
+  font-weight: 700;
+  text-decoration-thickness: .1em;
   align-items: center;
   justify-content: space-between;
   gap: .6rem;
@@ -478,6 +487,12 @@
   background: var(--surface);
   color: var(--text);
   line-height: 1.75;
+}
+.home-work-grid a:focus-visible,
+.home-project-note a:focus-visible {
+  border-radius: 2px;
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
 }
 .home-community .home-section-heading { margin-bottom: 1.5rem; }
 .home-radio { margin: 0 0 0 1rem; max-width: 680px; }
