@@ -17,8 +17,8 @@ export function Navigation() {
     const isWide = width > 2500;
 
     return (
-        <nav
-            className={(isWide ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
+        <nav aria-label="Main navigation"
+            className={(isWide ? "container" : "") + " navigation navbar navbar-dark"}>
             <a href="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2">
                 <FontAwesomeIcon className="icon-nav icon-user" icon={faHouse} size="2x"/>
                 <span>Home</span>
@@ -31,7 +31,7 @@ export function Navigation() {
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
                 <FontAwesomeIcon className="icon-nav icon-community" icon={faLinkedin} size="2x"/>
-                <span>Resume</span>
+                <span>LinkedIn</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
@@ -44,7 +44,7 @@ export function Navigation() {
                 <span>Social</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://anchor.fm/pirate-dev-radio">
+               target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@piratedevradio">
                 <FontAwesomeIcon className="icon-nav icon-media" icon={faMicrophone} size="2x"/>
                 <span>Podcast</span>
             </a>

@@ -1,6 +1,4 @@
 import React from 'react';
-import {MatrixCodeRain} from "./MatrixCodeRain";
-import {Navigation} from "./Navigation";
 import useWindowDimensions from "../useWindowDimensions";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMicrophone, faMoneyBill, faNewspaper} from "@fortawesome/free-solid-svg-icons";
@@ -21,9 +19,6 @@ export function Social() {
 
     return (
         <div className="container-fluid">
-            <MatrixCodeRain/>
-            <Navigation/>
-
             <main className={isWide ? "container" : "row"}>
                 <div className="about-me card text-center animated fadeIn delay-5s col">
                     <h3 className="card-header">

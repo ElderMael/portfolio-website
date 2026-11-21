@@ -1,122 +1,70 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './MatrixCodeRain.css';
 import useWindowDimensions from "../useWindowDimensions";
 
-const matrix = "ミゲルエンジェルエンリクエスロペス".split("");
-const targetName = "Miguel Enriquez".split("");
+const glyphs = "ミゲルエンジェルエンリクエスロペス0123456789";
 
-export function MatrixCodeRain() {
-
+export function MatrixCodeRain({ paused = false }: { paused?: boolean }) {
     const canvas = useRef<HTMLCanvasElement>(null);
+    const pausedRef = useRef(paused);
+    const { height, width } = useWindowDimensions();
+    const [reducedMotion, setReducedMotion] = useState(() =>
+        window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
 
-    const {height, width} = useWindowDimensions();
-
+    useEffect(() => { pausedRef.current = paused; }, [paused]);
 
     useEffect(() => {
-        const canvasRef = canvas.current!;
+        if (!window.matchMedia) return;
+        const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const update = () => setReducedMotion(query.matches);
+        update();
+        query.addEventListener?.('change', update);
+        return () => query.removeEventListener?.('change', update);
+    }, []);
 
-        canvasRef.height = height;
-        canvasRef.width = width;
+    useEffect(() => {
+        const element = canvas.current;
+        const context = element?.getContext('2d');
+        if (!element || !context) return;
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        element.width = width * pixelRatio;
+        element.height = height * pixelRatio;
+        element.style.width = `${width}px`;
+        element.style.height = `${height}px`;
+        context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        context.clearRect(0, 0, width, height);
+        const fontSize = 16;
+        const columns = Math.ceil(width / fontSize);
+        const drops = Array.from({ length: columns }, () => Math.random() * (height / fontSize));
+        context.font = `${fontSize}px monospace`;
 
-        const context = canvasRef.getContext('2d')!;
-
-        const fontSize = 14;
-        const columns = Math.floor(canvasRef.width / fontSize);
-
-        const drops: Array<number> = [];
-        const activeNameColumn: Array<{index: number, startRow: number} | null> = [];
-        const glitchFrames: Array<number> = []; // Tracks remaining glitch frames per column
-
-        for (let x = 0; x < columns; x++) {
-            drops[x] = Math.random() * -100; // Stagger starts
-            activeNameColumn[x] = null;
-            glitchFrames[x] = 0;
-        }
-
-        const intervalId = setInterval(() => {
-            context.fillStyle = "rgba(0, 0, 0, 0.05)";
-            context.fillRect(0, 0, canvasRef.width, canvasRef.height);
-
-            context.font = fontSize + "px arial";
-
-            for (let i = 0; i < drops.length; i++) {
-                if (drops[i] < 0) {
-                    drops[i]++;
-                    continue;
-                }
-
-                let char = "";
-                
-                // Check if this column should start spelling the name
-                if (activeNameColumn[i] === null && Math.random() > 0.999) {
-                    activeNameColumn[i] = { index: 0, startRow: drops[i] };
-                }
-
-                const isSpelling = activeNameColumn[i] !== null;
-
-                // Probability to start a multi-frame glitch
-                if (glitchFrames[i] === 0 && Math.random() > 0.99) {
-                    glitchFrames[i] = Math.floor(Math.random() * 10) + 5; // Glitch for 5-15 frames
-                }
-
-                const isCurrentlyGlitching = glitchFrames[i] > 0;
-
-                if (isSpelling) {
-                    const nameData = activeNameColumn[i]!;
-                    char = targetName[nameData.index];
-                    
-                    if (isCurrentlyGlitching) {
-                        // Glitchy name: random color and occasionally random character
-                        context.fillStyle = Math.random() > 0.5 ? "#FFF" : "#39ff14";
-                        if (Math.random() > 0.3) {
-                            char = String.fromCharCode(33 + Math.floor(Math.random() * 94));
-                        }
-                    } else {
-                        context.fillStyle = "#39ff14"; // Brighter green for the name
-                    }
-                    
-                    nameData.index++;
-                    
-                    if (nameData.index >= targetName.length) {
-                        activeNameColumn[i] = null;
-                    }
-                } else {
-                    // Standard logic
-                    const text = matrix[Math.floor(Math.random() * matrix.length)];
-                    
-                    if (isCurrentlyGlitching) {
-                        context.fillStyle = Math.random() > 0.8 ? "#FFF" : "#39ff14";
-                        char = String.fromCharCode(33 + Math.floor(Math.random() * 94));
-                    } else {
-                        context.fillStyle = "#0F0"; // Standard green
-                        char = text;
-                    }
-                }
-
-                context.fillText(char, i * fontSize, drops[i] * fontSize);
-
-                if (glitchFrames[i] > 0) {
-                    glitchFrames[i]--;
-                }
-
-                if (drops[i] * fontSize > canvasRef.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                    activeNameColumn[i] = null; // Reset spelling when drop resets
-                    glitchFrames[i] = 0;
-                }
-
-                drops[i]++;
+        const drawFrame = () => {
+            if (pausedRef.current) return;
+            context.globalCompositeOperation = 'destination-out';
+            context.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            context.fillRect(0, 0, width, height);
+            context.globalCompositeOperation = 'source-over';
+            for (let index = 0; index < drops.length; index++) {
+                if (drops[index] < 0) { drops[index]++; continue; }
+                context.fillStyle = 'rgba(122, 156, 111, 0.65)';
+                context.fillText(glyphs[Math.floor(Math.random() * glyphs.length)], index * fontSize, drops[index] * fontSize);
+                drops[index] = drops[index] * fontSize > height && Math.random() > .975 ? 0 : drops[index] + 1;
             }
-        }, 70);
-
-        return () => {
-            clearInterval(intervalId);
+        };
+        if (reducedMotion) {
+            // One subdued frame provides a static alternative without motion.
+            for (let column = 0; column < columns; column++) {
+                context.fillStyle = 'rgba(122, 156, 111, 0.18)';
+                for (let row = 1; row < height / fontSize; row += 4) {
+                    context.fillText(glyphs[Math.floor(Math.random() * glyphs.length)], column * fontSize, row * fontSize);
+                }
+            }
+            return;
         }
+        if (!pausedRef.current) drawFrame();
+        const timer = window.setInterval(drawFrame, 70);
+        return () => window.clearInterval(timer);
+    }, [height, width, reducedMotion]);
 
-    }, [height, width]);
-
-    return (
-        <canvas ref={canvas} className="matrix-rain"/>
-    );
-
+    return <canvas ref={canvas} className="matrix-rain" aria-hidden="true" />;
 }

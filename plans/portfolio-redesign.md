@@ -31,9 +31,13 @@ existing routes working while the information architecture evolves.
   near-black darker theme as the default. Miguel approved the mockup's two
   backgrounds as starting points. Remember the visitor's choice in their
   browser, with a usable fallback if storage is unavailable.
-- **Motion:** content is visible immediately; on each home-page visit, an
-  ambient Matrix reveal lasts about 2–3 seconds, then settles. Respect reduced
-  motion; do not play the reveal on other pages.
+- **Motion:** replace the earlier short reveal with continuous, prominent
+  code rain in the background layer and an old-CRT aesthetic. Use larger,
+  opaque panels layered like material-design paper sheets, with rain behind
+  rather than inside the panels. Miguel approved this direction and requested
+  a later visual-polish pass. Content must remain readable and immediately
+  available; provide a static reduced-motion alternative. Carry this treatment
+  across home, contact, and social.
 - **Scope:** streamline the whole site, redesigning it page by page. Put
   experience and selected-work highlights on home and link out for more detail.
 - **Professional profile:** link to LinkedIn, accurately labeled. Keep the
@@ -80,9 +84,10 @@ existing routes working while the information architecture evolves.
   offer both a professional profile/resume path and a contact path.
 - Use generous spacing, clear typography, strong hierarchy, and concise sections
   rather than reproducing the inspiration site's layout or language.
-- Treat the Matrix as an identifying accent, not a readability obstacle. Keep
-  the reveal brief, non-blocking, and free of flashing; provide a static or
-  reduced-motion alternative. Refine the 2–3 second timing in prototyping.
+- Make continuous Matrix rain a distinctive, non-blocking background without
+  flashing or obstructing reading. Provide a keyboard-accessible pause control
+  at the bottom of every page, a static reduced-motion alternative, and
+  validate performance and contrast over the moving background.
 - Use an ink-dark foundation, restrained greens, and complementary colors
   informed by an actual documented Wada combination. Neon green may remain a
   selective identity accent rather than the entire palette.
@@ -222,15 +227,21 @@ unavailable checks rather than claiming unperformed visual verification.
 
 ### Task 2: Visual direction and shared foundation
 
-- [ ] Explore and document sourced Wada combinations from both volumes. Present
-      a small set of dark, restrained directions with real UI examples; agree
-      on one palette and any deviations needed for contrast.
-- [ ] Prototype typography, spacing, navigation, semantic color tokens, both
-      toggleable themes, and the ambient Matrix reveal. The near-black theme
-      is the default. Approve desktop and mobile direction before rollout.
-- [ ] Implement a reusable, accessible shared shell and tokens incrementally,
-      preserving existing routes and behavior. Ensure the reveal never blocks
-      content and respects reduced-motion settings.
+- [x] Explore and document sourced Wada combinations from both volumes. Agree
+      on combination 200 and record preliminary contrast findings.
+- [x] Prototype typography, spacing, navigation, semantic color tokens, both
+      toggleable themes, and continuous CRT-style rain. Miguel approved the
+      direction; further desktop and mobile polish remains in the page tasks.
+- [x] Implement the shared shell and tokens incrementally, preserving existing
+      routes and behavior. Add a pause control and reduced-motion alternative.
+      Full interaction, contrast, performance, and cross-page visual audits
+      remain release requirements.
+
+The initial shared shell was checked in headless Chrome at desktop and mobile
+sizes; the existing page content remains until its individual redesign. Tests,
+ESLint, and the production build were run. The canvas background is visible
+in the desktop capture, though animation quality and actual mobile performance
+still need a real-browser review.
 
 ## Phase 2: Home page (`/`)
 
@@ -245,8 +256,11 @@ unavailable checks rather than claiming unperformed visual verification.
       using Miguel-approved portraits or project visuals rather than copying
       the reference. Confirm permissions and select assets with Miguel; provide
       appropriate alt text, responsive sizing, and optimized loading.
-- [ ] Integrate the approved ambient reveal without delaying content. Verify
-      responsiveness, motion preferences, navigation, and primary actions.
+- [ ] Polish the approved layered-paper and cyberpunk visual treatment after
+      the page structure is in place. Review details with Miguel at desktop and
+      mobile widths without compromising legibility or accessibility.
+- [ ] Integrate the approved continuous background without delaying content.
+      Verify responsiveness, motion preferences, navigation, and primary actions.
 
 ## Phase 3: Contact page (`/contact-me`)
 
@@ -301,4 +315,4 @@ unavailable checks rather than claiming unperformed visual verification.
 - Exact color roles and approved contrast-safe adjustments in both themes;
   the preferred source is Wada combination 200.
 - Final near-black surface colors and contrast-validated theme tokens.
-- Exact reveal timing within the agreed 2–3 second range.
+- Final visual-polish details, image choices, and contrast over the background.

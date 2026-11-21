@@ -23,12 +23,12 @@
     body { margin: 0; background: var(--ink); color: var(--text);
       font: 16px/1.6 'IBM Plex Sans', system-ui, sans-serif; }
     a { color: inherit; }
-    .notice { padding: .6rem 1rem; text-align: center; background: var(--muted);
-      color: #111a16; font-size: .85rem; }
-    .wrap { max-width: 1150px; margin: auto; padding: 0 1.5rem; }
+    .notice { position: relative; z-index: 2; padding: .6rem 1rem;
+      text-align: center; background: var(--muted); color: #111a16; font-size: .85rem; }
+    .wrap { position: relative; z-index: 1; max-width: 1150px; margin: auto; padding: 0 1.5rem; }
     header { display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem; padding-top: 1.8rem; padding-bottom: 1.8rem;
-      border-bottom: 3px solid var(--green); }
+      gap: 1rem; padding: 1.8rem 1.5rem;
+      background: var(--ink); border-bottom: 3px solid var(--green); }
     header::after { content: ''; width: 56px; height: 5px; background: var(--red);
       transform: skewX(-35deg); }
     .brand { font-family: Orbitron, sans-serif; font-weight: 700;
@@ -40,8 +40,11 @@
       color: var(--muted); padding: .45rem .7rem; font: inherit; cursor: pointer; }
     main section { border-top: 1px solid var(--line); padding: 5rem 0; }
     .hero { border: 0; min-height: 490px; display: grid;
-      grid-template-columns: 1.4fr .6fr; align-items: center; gap: 3rem;
-      background: linear-gradient(115deg, transparent 72%, #7a9c6f12 72%); }
+      grid-template-columns: 1.4fr .6fr; align-items: center; gap: 3rem; }
+    .hero > div:first-child { max-width: 58rem; background: var(--surface);
+      padding: clamp(1.75rem, 4vw, 3.5rem); border-left: 3px solid var(--green);
+      box-shadow: 10px 10px 0 var(--ink), 18px 18px 0 #455849,
+        0 22px 40px #0008; }
     .label { color: var(--muted); text-transform: uppercase;
       letter-spacing: .14em; font: 600 .73rem/1.6 'IBM Plex Mono', monospace; }
     .label::before { content: '// '; color: var(--green); }
@@ -60,21 +63,47 @@
         14px 100%, 0 calc(100% - 14px)); }
     .primary { background: var(--muted); border-color: var(--muted);
       color: var(--ink); }
-    .matrix { color: var(--green); font: 1rem/1.8 'IBM Plex Mono', monospace;
-      opacity: .45; overflow: hidden; max-height: 18rem; word-break: break-all;
-      user-select: none; }
-    .heading { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card { position: relative; background: var(--surface); padding: 1.75rem;
+    .matrix { position: fixed; inset: 0; z-index: 0; display: flex;
+      justify-content: space-around; overflow: hidden; pointer-events: none;
+      color: var(--green); user-select: none; }
+    .matrix::after { content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, #0003 0 1px, transparent 1px 4px),
+        linear-gradient(#090d0b99, #090d0bbb); }
+    .matrix span { flex: 1; min-width: 0; text-align: center;
+      font: 1rem/1.3 'IBM Plex Mono', monospace; writing-mode: vertical-rl;
+      opacity: .75; text-shadow: 0 0 8px #7a9c6fbb;
+      animation: matrix-rain 11s linear infinite; }
+    .matrix span:nth-child(3n) { animation-duration: 13s; animation-delay: -5s; }
+    .matrix span:nth-child(3n + 1) { animation-duration: 9s; animation-delay: -2s; }
+    .matrix span:nth-child(3n + 2) { animation-duration: 15s; animation-delay: -10s; }
+    @keyframes matrix-rain {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(100vh); }
+    }
+    .matrix[data-paused='true'] span { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .matrix span { animation: none; opacity: .25; }
+    }
+    .heading { position: relative; z-index: 1; display: grid;
+      grid-template-columns: 1fr 2fr; gap: 2rem; background: var(--surface);
+      padding: clamp(1.75rem, 4vw, 3rem); margin: 0 1rem -1rem 0;
+      box-shadow: 8px 8px 0 var(--ink), 0 14px 28px #0008; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      padding: 1.75rem 0 0 1rem; }
+    .card { position: relative; background: var(--surface); padding: 2.25rem;
       border-top: 4px solid var(--green);
       clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%,
         24px 100%, 0 calc(100% - 24px)); }
     .card::after { content: ''; display: block; width: 48px; height: 4px;
       margin-top: 1.5rem; background: var(--green); transform: skewX(-35deg); }
     .card p, .subtle { color: #c7d0c5; }
-    .work { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .experience-note { background: var(--surface); padding: 1.75rem;
+      margin-left: 1rem; box-shadow: 6px 6px 0 var(--ink), 0 12px 24px #0008; }
+    .work { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      padding: 1.75rem 0 0 1rem; }
     .work .card:last-child { border-color: var(--red); }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 1.5rem;
+      color: var(--muted); background: var(--ink); }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--muted);
       outline-offset: 4px; }
     @media (max-width: 700px) {
@@ -82,14 +111,17 @@
       header::after { width: 40px; }
       nav { gap: 1rem; }
       .hero { display: block; min-height: 0; padding-top: 3rem; }
-      .matrix { max-height: 5rem; margin-top: 2rem; }
+      .matrix { max-height: none; margin: 0; }
       .heading, .grid, .work { grid-template-columns: 1fr; }
+      .heading { margin-right: .5rem; }
+      .grid, .work { padding-left: .5rem; }
       main section { padding: 3.5rem 0; }
     }
   </style>
 </head>
 <body>
   <div class="notice">Design concept only · draft copy · not the live portfolio</div>
+  <div class="matrix" aria-hidden="true" id="matrix-background"></div>
   <div class="wrap">
     <header>
       <a class="brand" href="#top">miguel<span> / </span>enriquez</a>
@@ -111,10 +143,6 @@
           <div class="actions"><a class="button primary" href="#contact">Get in touch</a>
             <a class="button" href="https://www.linkedin.com/in/eldermael/">LinkedIn ↗</a></div>
         </div>
-        <div class="matrix" aria-hidden="true">ミ ゲ ル エ ン ジ ェ ル エ ン リ ク エ ス<br>
-          01 10 11 00 01 10 01 10 11 00 10 01<br>エ ン ジ ェ ル ミ ゲ ル エ ン リ ク エ ス<br>
-          10 01 00 11 10 01 11 00 10 01 00 11<br>ミ ゲ ル エ ン ジ ェ ル エ ン リ ク エ ス<br>
-          01 10 11 00 01 10 01 10 11 00 10 01<br>エ ン ジ ェ ル ミ ゲ ル エ ン リ ク エ ス</div>
       </section>
       <section id="expertise">
         <div class="heading"><p class="label">01 / Expertise</p>
@@ -137,7 +165,7 @@
             <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391">Helm contribution ↗</a> ·
             <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903">Documentation ↗</a></article>
         </div>
-        <p class="subtle">Earlier experience includes platform and cloud work
+        <p class="subtle experience-note">Earlier experience includes platform and cloud work
           at ThoughtWorks and Greyshore, and mentoring at ThoughtWorks.</p>
       </section>
       <section id="community">
@@ -154,15 +182,40 @@
         <a class="button primary" href="/contact-me">Start a conversation</a>
       </div></div></section>
     </main>
-    <footer>Concept for Miguel Enriquez · Wada #200 accents on an added dark ground</footer>
+    <footer>Concept for Miguel Enriquez · Wada #200 accents on an added dark ground
+      <button class="theme-toggle" id="rain-toggle" type="button" aria-pressed="false">Pause rain</button>
+    </footer>
   </div>
   <script>
+    const rain = document.querySelector('#matrix-background');
+    const glyphs = 'ミゲルエンジェルエンリクエスアイウカキクサシスタチツナニヌ0123456789';
+    for (let column = 0; column < 36; column++) {
+      const stream = document.createElement('span');
+      stream.textContent = Array.from({ length: 55 }, () =>
+        glyphs[Math.floor(Math.random() * glyphs.length)]).join('');
+      rain.appendChild(stream);
+    }
+    const rainToggle = document.querySelector('#rain-toggle');
+    rainToggle.addEventListener('click', () => {
+      const paused = rain.dataset.paused !== 'true';
+      rain.dataset.paused = String(paused);
+      rainToggle.setAttribute('aria-pressed', String(paused));
+      rainToggle.textContent = paused ? 'Resume rain' : 'Pause rain';
+    });
     const toggle = document.querySelector('.theme-toggle');
-    toggle.addEventListener('click', () => {
-      const lighter = document.documentElement.dataset.theme !== 'lighter';
+    const applyTheme = (theme) => {
+      const lighter = theme === 'lighter';
       document.documentElement.dataset.theme = lighter ? 'lighter' : 'dark';
       toggle.setAttribute('aria-pressed', String(lighter));
       toggle.textContent = lighter ? 'Darker theme' : 'Lighter theme';
+    };
+    try { applyTheme(localStorage.getItem('portfolio-concept-theme')); }
+    catch { applyTheme('dark'); }
+    toggle.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'lighter' ? 'dark' : 'lighter';
+      applyTheme(theme);
+      try { localStorage.setItem('portfolio-concept-theme', theme); }
+      catch { /* The toggle still works when storage is unavailable. */ }
     });
   </script>
 </body>

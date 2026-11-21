@@ -1,6 +1,4 @@
 import React from 'react';
-import {MatrixCodeRain} from "./MatrixCodeRain";
-import {Navigation} from "./Navigation";
 import {NameCli} from "./NameCli";
 import {AboutMe} from "./AboutMe";
 import useWindowDimensions from "../useWindowDimensions";
@@ -12,8 +10,6 @@ export function Home() {
 
     return (
         <div className="container-fluid">
-            <MatrixCodeRain/>
-            <Navigation/>
             <main className={isWide ? "container" : "row"}>
                 <NameCli/>
                 <AboutMe/>

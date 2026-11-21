@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {MatrixCodeRain} from "./MatrixCodeRain";
-import {Navigation} from "./Navigation";
 import './ContactMe.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
@@ -18,9 +16,6 @@ export function ContactMe() {
 
     return (
         <div className="container-fluid">
-            <MatrixCodeRain/>
-            <Navigation/>
-
             <main className="container">
                 <div className="row justify-content-center">
                     <div className="about-me card contact-me-card text-center animated fadeIn delay-2s col-lg-6 col-md-8 col-sm-10">
