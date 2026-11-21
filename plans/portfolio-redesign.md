@@ -288,16 +288,16 @@ remains untested and requires permission before sending a test message.
 
 ### Task 5: Streamline community destinations
 
-A first responsive redesign is implemented for review. It follows the agreed
-link priorities and omits Facebook and the old Anchor link. X remains omitted
-until a destination is verified; visual approval is still outstanding.
+Miguel approved the responsive social redesign. Facebook and the old Anchor
+link are omitted; X remains omitted until a destination is verified. Twitch
+and TikTok profile checks remain outstanding before release.
 
-- [ ] Reorganize the existing links around the approved information architecture,
-      prioritizing professional work, PirateDevRadio, and community as agreed.
-- [ ] Verify destinations and retain or remove links only with Miguel's input.
-      If consolidated into another page, preserve `/social` as a working route
-      or redirect and verify direct navigation.
-- [ ] Check responsive layout, accessible link names, and external-link behavior.
+- [x] Reorganize links around the approved priorities for professional work,
+      PirateDevRadio, and community.
+- [x] Retain `/social` as a working route and apply Miguel's link decisions.
+      Production direct navigation and remaining link checks are release tasks.
+- [x] Check responsive layout, accessible link names, and external-link markup;
+      broader real-browser accessibility review remains a release task.
 
 ## Phase 5: Additional approved pages, if needed
 
