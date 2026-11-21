@@ -259,8 +259,10 @@ still need a real-browser review.
       Lead.” The illustration is decorative and responsive, with static
       reduced-motion and shared pause support; no third-party image is used.
 - [ ] Polish the approved layered-paper and cyberpunk visual treatment after
-      the page structure is in place. Review details with Miguel at desktop and
-      mobile widths without compromising legibility or accessibility.
+      the page structure is in place. The first polish draft is checkpointed,
+      but Miguel requested more visual personality, a revised layout, and
+      improved readability for experience panels. Review the revision at desktop
+      and mobile widths without compromising legibility or accessibility.
 - [x] Use the shared continuous background without delaying home content;
       check the desktop and mobile layouts and primary actions. Full browser,
       keyboard, motion, and contrast audits remain release requirements.

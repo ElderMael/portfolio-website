@@ -71,7 +71,7 @@ export function Home() {
                         <p>Principal Software Engineer working across Nextdata OS, infrastructure and platform engineering, field engineering, and customer onboarding.</p>
                         <a href="https://www.nextdata.com/" target="_blank" rel="noreferrer">Nextdata <span aria-hidden="true">↗</span></a>
                     </article>
-                    <article className="home-card">
+                    <article className="home-card home-opentelemetry">
                         <p className="home-eyebrow">Open source · OpenTelemetry</p>
                         <h3>Two project contributions</h3>
                         <ul className="home-link-list">
@@ -81,8 +81,11 @@ export function Home() {
                     </article>
                 </div>
                 <p className="home-earlier paper-panel">
-                    Earlier experience includes platform and cloud work at ThoughtWorks
-                    and Greyshore, along with mentorship at ThoughtWorks.
+                    <span className="home-earlier-label">Earlier experience</span>{' '}
+                    <span className="home-earlier-copy">
+                        includes platform and cloud work at ThoughtWorks and Greyshore,
+                        along with mentorship at ThoughtWorks.
+                    </span>
                 </p>
                 <p className="home-project-note">
                     <a href="https://github.com/ElderMael/neo-pokepet-pi" target="_blank" rel="noreferrer">neo-pokepet-pi</a>:

@@ -1,38 +1,38 @@
 .home-page {
   position: relative;
   z-index: 1;
-  width: min(1120px, calc(100% - 3rem));
+  width: min(1160px, calc(100% - 3rem));
   margin: 0 auto;
-  padding: clamp(1.5rem, 5vw, 4rem) 0 5rem;
+  padding: clamp(1.75rem, 5vw, 4rem) 0 5rem;
 }
 
 .paper-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 8px 8px 0 var(--page), 12px 12px 0 var(--line), 0 20px 38px #0008;
+  box-shadow: 6px 6px 0 var(--page), 10px 10px 0 var(--line), 0 24px 42px #0008;
 }
 
 .home-hero {
-  min-height: 440px;
+  min-height: 430px;
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(220px, .8fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, .8fr);
   align-items: center;
-  gap: 2rem;
-  padding: 1rem 0 3rem;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 1rem 0 3.5rem;
 }
 
 .home-hero-copy {
   position: relative;
   max-width: 850px;
-  padding: clamp(1.5rem, 5vw, 3.5rem);
+  padding: clamp(1.5rem, 4.5vw, 3.25rem);
   border-left: 4px solid var(--accent);
 }
 
 .home-eyebrow {
   color: var(--muted);
   margin: 0 0 .8rem;
-  font: 600 .75rem/1.5 'IBM Plex Mono', monospace;
-  letter-spacing: .12em;
+  font: 600 .72rem/1.55 'IBM Plex Mono', monospace;
+  letter-spacing: .14em;
   text-transform: uppercase;
 }
 
@@ -43,11 +43,13 @@
 }
 
 .home-page h1 {
-  max-width: 14ch;
+  max-width: 16ch;
   margin: 0 0 1.25rem;
-  font-size: clamp(2.4rem, 6.4vw, 5.3rem);
-  line-height: 1.08;
-  letter-spacing: -.055em;
+  font-size: clamp(2.45rem, 5.6vw, 4.65rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.045em;
+  text-wrap: balance;
 }
 
 .home-lede {
@@ -60,15 +62,22 @@
 .home-button {
   display: inline-flex;
   align-items: center;
-  min-height: 46px;
-  padding: .65rem 1.1rem;
+  justify-content: center;
+  min-height: 48px;
+  padding: .65rem 1.15rem;
   border: 1px solid var(--accent);
   color: var(--text) !important;
   font-weight: 700;
   text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
 .home-button-primary { background: var(--muted); border-color: var(--muted); color: var(--page) !important; }
-.home-button:hover { filter: brightness(1.12); }
+.home-button:hover { transform: translateY(-2px); background: var(--accent); color: var(--page) !important; }
+.home-button-primary:hover { background: var(--text); border-color: var(--text); }
+@media (prefers-reduced-motion: reduce) {
+  .home-button { transition: none; }
+  .home-button:hover { transform: none; }
+}
 
 .home-hero-aside {
   width: min(100%, 430px);
@@ -85,7 +94,7 @@
   padding: 2.5%;
   background: #0b100d;
   border: 1px solid var(--line);
-  box-shadow: 8px 8px 0 var(--page), 12px 12px 0 var(--line), 0 20px 38px #0008;
+  box-shadow: 6px 6px 0 var(--page), 10px 10px 0 var(--line), 0 24px 42px #0008;
   clip-path: polygon(7% 0, 94% 0, 100% 6%, 100% 93%, 93% 100%, 0 100%, 0 7%);
 }
 
@@ -277,34 +286,44 @@
   }
 }
 
-.home-section { padding: 3.5rem 0 1.5rem; }
+.home-section { padding: clamp(3rem, 5.5vw, 4.5rem) 0 1.5rem; }
 .home-section-heading {
   display: grid;
-  grid-template-columns: minmax(150px, .6fr) 1.4fr;
-  gap: 2rem;
+  grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
-  padding: clamp(1.4rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
   margin: 0 1rem 1rem 0;
   border-top: 3px solid var(--accent);
+  border-left: 1px solid var(--line);
 }
-.home-page h2 { margin: 0 0 .8rem; font-size: clamp(1.65rem, 3.5vw, 2.65rem); line-height: 1.2; }
-.home-page h3 { margin: 0 0 .8rem; font-size: 1.25rem; line-height: 1.3; }
+.home-page h2 {
+  max-width: 27ch;
+  margin: 0 0 .8rem;
+  font-size: clamp(1.7rem, 3.4vw, 2.55rem);
+  line-height: 1.16;
+  text-wrap: balance;
+}
+.home-page h3 { margin: 0 0 .8rem; font-size: 1.2rem; line-height: 1.35; letter-spacing: .015em; }
 .home-section-heading p:last-child { margin-bottom: 0; }
 .home-expertise-grid, .home-work-grid {
   display: grid;
-  gap: 1rem;
-  padding: 1.3rem 0 1.5rem 1rem;
+  gap: clamp(.85rem, 1.8vw, 1.25rem);
+  padding: 1.4rem 0 1.75rem 1rem;
 }
 .home-expertise-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.home-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-work-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  padding-bottom: .75rem;
+}
 .home-card {
   position: relative;
   min-width: 0;
-  padding: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.4rem, 3vw, 2.1rem);
   border: 1px solid var(--line);
   border-top: 4px solid var(--accent);
   background: var(--surface);
-  box-shadow: 6px 6px 0 var(--page), 9px 9px 0 var(--line), 0 14px 26px #0007;
+  box-shadow: 5px 5px 0 var(--page), 8px 8px 0 var(--line), 0 18px 30px #0007;
 }
 .home-hero-copy::after, .home-card::after {
   position: absolute;
@@ -316,8 +335,9 @@
   content: '';
   pointer-events: none;
 }
-.home-card p { line-height: 1.65; }
+.home-card p { line-height: 1.7; }
 .home-card p:last-child { margin-bottom: 0; }
+.home-card .home-eyebrow { margin-bottom: .9rem; font-size: .72rem; }
 .home-card a, .home-section-heading a, .home-project-note a {
   color: var(--muted);
   text-decoration-thickness: .08em;
@@ -326,20 +346,94 @@
 .home-card a:hover, .home-section-heading a:hover, .home-project-note a:hover { color: var(--text); }
 .home-link-list { display: grid; gap: .8rem; margin: 1rem 0 0; padding-left: 1.2rem; }
 .home-link-list li { padding-left: .2rem; }
-.home-nextdata { border-top-color: var(--muted); }
+.home-nextdata {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.6rem, 3vw, 2.5rem);
+  border-top-color: var(--line);
+  border-left: 4px solid var(--muted);
+}
+.home-nextdata .home-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+.home-nextdata .home-eyebrow::after {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, var(--line), transparent);
+  content: '';
+}
+.home-nextdata h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  line-height: 1.2;
+}
+.home-nextdata > a {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-weight: 600;
+}
+.home-opentelemetry {
+  display: flex;
+  flex-direction: column;
+  border-top-color: var(--accent);
+  border-right: 3px solid var(--accent);
+}
+.home-opentelemetry .home-eyebrow {
+  margin-bottom: .9rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid var(--line);
+  font-size: .8rem;
+  letter-spacing: .1em;
+}
+.home-opentelemetry h3 {
+  margin-bottom: .2rem;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+.home-opentelemetry .home-link-list {
+  display: grid;
+  gap: .7rem;
+  margin: auto 0 0;
+  padding: 1rem 0 0;
+  list-style: none;
+}
+.home-opentelemetry .home-link-list li {
+  padding: .75rem .9rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--page);
+  line-height: 1.55;
+}
 .home-earlier {
-  margin: .5rem 0 1rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(10rem, 15rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: .25rem 0 .75rem 1rem;
   padding: 1.2rem 1.5rem;
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
+  border-top: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+}
+.home-earlier-label {
+  color: var(--muted);
+  font: 600 .72rem/1.5 'IBM Plex Mono', monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 .home-project-note {
   max-width: 82ch;
   margin: 1.5rem 1rem;
   padding: 1.2rem 1.5rem;
+  border-left: 2px solid var(--accent);
   background: var(--surface);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .home-community .home-section-heading { margin-bottom: 1.5rem; }
 .home-radio { margin: 0 0 0 1rem; max-width: 680px; }
@@ -365,6 +459,7 @@
   .home-section-heading { grid-template-columns: 1fr; gap: .5rem; margin-right: .5rem; }
   .home-expertise-grid, .home-work-grid { grid-template-columns: 1fr; padding-left: .5rem; }
   .home-earlier, .home-radio { margin-left: .5rem; }
+  .home-earlier { grid-template-columns: 1fr; gap: .35rem; }
   .home-project-note { margin-left: .5rem; margin-right: .5rem; }
   .home-contact { margin: 3rem .5rem 0 0; }
 }
