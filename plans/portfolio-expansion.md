@@ -87,5 +87,8 @@ presents Miguel's engineering summary and work history.
       tests passed, and a network-isolated Docker container returned the app
       shell for `/`, `/about`, `/social`, `/contact-me`, and `/unknown`.
       Chrome checks confirmed both marquees display a static wrapped list when
-      paused or under reduced motion. Public deployment, assistive-technology,
-      and full-page manual reviews remain outstanding.
+      paused or under reduced motion. After deployment, all routes served the
+      current bundle; Chrome rendered their expected headings and titles, and
+      the live marquees passed the same motion checks. The About top section
+      was inspected at 390 and 1440 pixels. Assistive-technology and full-page
+      manual reviews remain outstanding.
