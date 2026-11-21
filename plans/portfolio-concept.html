@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio direction — concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;600;700&amp;family=Orbitron:wght@500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #090d0b;
+      --surface: #151c17;
+      --text: #f0f1df;
+      --muted: #ced19b;
+      --green: #7a9c6f;
+      --red: #ad242f;
+      --line: #455849;
+    }
+    :root[data-theme='lighter'] { --ink: #111a16; --surface: #19251e; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--ink); color: var(--text);
+      font: 16px/1.6 'IBM Plex Sans', system-ui, sans-serif; }
+    a { color: inherit; }
+    .notice { padding: .6rem 1rem; text-align: center; background: var(--muted);
+      color: #111a16; font-size: .85rem; }
+    .wrap { max-width: 1150px; margin: auto; padding: 0 1.5rem; }
+    header { display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; padding-top: 1.8rem; padding-bottom: 1.8rem;
+      border-bottom: 3px solid var(--green); }
+    header::after { content: ''; width: 56px; height: 5px; background: var(--red);
+      transform: skewX(-35deg); }
+    .brand { font-family: Orbitron, sans-serif; font-weight: 700;
+      letter-spacing: -.04em; text-decoration: none; }
+    .brand span { color: var(--green); }
+    nav { display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: .9rem; }
+    nav a { color: var(--muted); text-decoration: none; }
+    .theme-toggle { background: transparent; border: 1px solid var(--green);
+      color: var(--muted); padding: .45rem .7rem; font: inherit; cursor: pointer; }
+    main section { border-top: 1px solid var(--line); padding: 5rem 0; }
+    .hero { border: 0; min-height: 490px; display: grid;
+      grid-template-columns: 1.4fr .6fr; align-items: center; gap: 3rem;
+      background: linear-gradient(115deg, transparent 72%, #7a9c6f12 72%); }
+    .label { color: var(--muted); text-transform: uppercase;
+      letter-spacing: .14em; font: 600 .73rem/1.6 'IBM Plex Mono', monospace; }
+    .label::before { content: '// '; color: var(--green); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Orbitron, sans-serif; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.8rem); letter-spacing: -.06em;
+      line-height: 1.02; max-width: 13ch; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.045em;
+      line-height: 1.12; }
+    h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+    .lede { font-size: 1.13rem; max-width: 55ch; color: #c7d0c5; }
+    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+    .button { display: inline-block; border: 1px solid var(--green);
+      padding: .75rem 1.3rem; text-decoration: none; font-weight: 650;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%,
+        14px 100%, 0 calc(100% - 14px)); }
+    .primary { background: var(--muted); border-color: var(--muted);
+      color: var(--ink); }
+    .matrix { color: var(--green); font: 1rem/1.8 'IBM Plex Mono', monospace;
+      opacity: .45; overflow: hidden; max-height: 18rem; word-break: break-all;
+      user-select: none; }
+    .heading { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { position: relative; background: var(--surface); padding: 1.75rem;
+      border-top: 4px solid var(--green);
+      clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%,
+        24px 100%, 0 calc(100% - 24px)); }
+    .card::after { content: ''; display: block; width: 48px; height: 4px;
+      margin-top: 1.5rem; background: var(--green); transform: skewX(-35deg); }
+    .card p, .subtle { color: #c7d0c5; }
+    .work { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .work .card:last-child { border-color: var(--red); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--muted);
+      outline-offset: 4px; }
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; }
+      header::after { width: 40px; }
+      nav { gap: 1rem; }
+      .hero { display: block; min-height: 0; padding-top: 3rem; }
+      .matrix { max-height: 5rem; margin-top: 2rem; }
+      .heading, .grid, .work { grid-template-columns: 1fr; }
+      main section { padding: 3.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">Design concept only · draft copy · not the live portfolio</div>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top">miguel<span> / </span>enriquez</a>
+      <button class="theme-toggle" type="button" aria-pressed="false">Lighter theme</button>
+      <nav aria-label="Concept navigation">
+        <a href="#expertise">Expertise</a><a href="#work">Work</a>
+        <a href="#community">Community</a><a href="/social">Social</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="intro">
+        <div>
+          <p class="label">Miguel Enriquez · AI &amp; systems engineering</p>
+          <h1 id="intro">Building systems that help people build.</h1>
+          <p class="lede">I work across AI, DevOps, platform engineering, and
+            data engineering—helping teams turn complex problems into useful,
+            dependable systems.</p>
+          <div class="actions"><a class="button primary" href="#contact">Get in touch</a>
+            <a class="button" href="https://www.linkedin.com/in/eldermael/">LinkedIn ↗</a></div>
+        </div>
+        <div class="matrix" aria-hidden="true">ミ ゲ ル エ ン ジ ェ ル エ ン リ ク エ ス<br>
+          01 10 11 00 01 10 01 10 11 00 10 01<br>エ ン ジ ェ ル ミ ゲ ル エ ン リ ク エ ス<br>
+          10 01 00 11 10 01 11 00 10 01 00 11<br>ミ ゲ ル エ ン ジ ェ ル エ ン リ ク エ ス<br>
+          01 10 11 00 01 10 01 10 11 00 10 01<br>エ ン ジ ェ ル ミ ゲ ル エ ン リ ク エ ス</div>
+      </section>
+      <section id="expertise">
+        <div class="heading"><p class="label">01 / Expertise</p>
+          <h2>From intelligent tools to the platforms beneath them.</h2></div>
+        <div class="grid">
+          <article class="card"><h3>AI &amp; engineering</h3><p>Applying AI to software development and the way teams work.</p></article>
+          <article class="card"><h3>Platforms &amp; DevOps</h3><p>Engineering infrastructure, developer platforms, and reliable systems.</p></article>
+          <article class="card"><h3>Data engineering</h3><p>Working with data platforms, data products, and evolving architectures.</p></article>
+        </div>
+      </section>
+      <section id="work">
+        <div class="heading"><p class="label">02 / Selected work</p>
+          <h2>Experience, built in the open.</h2></div>
+        <div class="work">
+          <article class="card"><p class="label">Current experience</p><h3>Nextdata</h3>
+            <p>Principal Software Engineer working on Nextdata OS, infrastructure and platform engineering, field engineering, and customer implementations.</p>
+            <a href="https://www.nextdata.com/">Explore Nextdata ↗</a></article>
+          <article class="card"><p class="label">Open source</p><h3>OpenTelemetry</h3>
+            <p>A Helm chart webhook configuration fix and ClickHouse exporter schema documentation.</p>
+            <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391">Helm contribution ↗</a> ·
+            <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903">Documentation ↗</a></article>
+        </div>
+        <p class="subtle">Earlier experience includes platform and cloud work
+          at ThoughtWorks and Greyshore, and mentoring at ThoughtWorks.</p>
+      </section>
+      <section id="community">
+        <div class="heading"><p class="label">03 / Community</p><div>
+          <h2>Good engineering grows when we share it.</h2>
+          <p class="subtle">Mentorship, conversations, and a little creative experimentation.</p>
+          <p><a href="https://www.youtube.com/@piratedevradio">PirateDevRadio on YouTube ↗</a> ·
+            <a href="https://github.com/ElderMael/neo-pokepet-pi">neo-pokepet-pi fork ↗</a></p>
+        </div></div>
+      </section>
+      <section id="contact"><div class="heading"><p class="label">04 / Contact</p><div>
+        <h2>Let’s build something useful.</h2>
+        <p class="subtle">For engineering, advisory, and mentorship inquiries.</p>
+        <a class="button primary" href="/contact-me">Start a conversation</a>
+      </div></div></section>
+    </main>
+    <footer>Concept for Miguel Enriquez · Wada #200 accents on an added dark ground</footer>
+  </div>
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    toggle.addEventListener('click', () => {
+      const lighter = document.documentElement.dataset.theme !== 'lighter';
+      document.documentElement.dataset.theme = lighter ? 'lighter' : 'dark';
+      toggle.setAttribute('aria-pressed', String(lighter));
+      toggle.textContent = lighter ? 'Darker theme' : 'Lighter theme';
+    });
+  </script>
+</body>
+</html>
