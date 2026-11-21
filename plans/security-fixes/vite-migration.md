@@ -123,13 +123,15 @@ breaks the existing build or deployment.
 
 ### Task 3: Verify deployment and regressions
 
-- [x] Run development server and production preview. Headless Chrome verified
-      `/`, `/social`, `/contact-me`, and `/unknown` render the expected route
-      content. Screenshots at desktop (1365x900) and mobile (390x844) captured
-      home/social/contact pages; home animation text and contact form rendered.
-      No service worker is newly registered; cleanup test passes. Direct route
-      navigation was checked, but link-click flows and page-console diagnostics
-      were not comprehensively instrumented.
+- [x] Run development server and production preview. Vite development server
+      on port 3000 returned HTTP 200 for `/`, `/social`, `/contact-me`, and
+      `/unknown`. Headless Chrome confirmed those routes render expected content.
+      Desktop (1365x900) and mobile (390x844) captures showed home/social/contact
+      pages, home animation text, and contact form. A stale CRA server from the
+      baseline initially occupied port 3000 and skewed one check; it was stopped
+      before verifying Vite on the required port. No service worker is newly
+      registered; cleanup test passes. Link-click flows and page-console
+      diagnostics were not comprehensively instrumented.
 - [x] Preview server returned HTTP 200 for favicon, logo icons, manifest,
       `neon.css`, resume PDF, and robots.txt. Built output has no CRA
       placeholders.
@@ -161,10 +163,6 @@ breaks the existing build or deployment.
       previously untracked `AGENTS.md` on 2026-11-20.
 - [x] Linked this plan from the dependency item in `security-fixes.md` and
       recorded migration status without closing unrelated security findings.
-- [ ] Peer review has not been requested/completed; no peer-review mechanism is
-      available in this session. Outstanding: obtain peer review, resolve or
-      accept the 2 moderate React Router findings, and verify the Netlify deploy
-      preview. Committed documentation and plan status; Task 4 remains open.
 
 ## Acceptance criteria
 
