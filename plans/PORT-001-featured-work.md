@@ -46,7 +46,10 @@ keyboard, and assistive technology and can identify headings and evidence links.
   and screenshots are Pending; caller judges the demo.
 - **Code checks:** Pending. Run focused home tests, `npm test`, `npm run lint`,
   and `npm run build`; retain command output at the pinned cumulative story
-  revision. Engineering reviewer judges code and test evidence.
+  revision. Tests must preserve neo-pokepet-pi as a small existing project note
+  with its explicit fork, upstream, and sprite credits; do not promote it to a
+  full case study without supported context. Engineering reviewer judges code
+  and test evidence.
 - **Integration / end-to-end:** Pending. Check the home route at desktop and
   mobile widths, link destinations, keyboard access, semantic headings, and
   narrow-screen overflow. Record environment, widths, and visual evidence;
@@ -88,11 +91,15 @@ All tasks touch the home experience and may share `Home.tsx`, `Home.css`, and
   from open-source contributions and do not assert client affiliations or
   unverified results.
   T1: Add the evidence-backed presentation using the existing Nextdata
-  description, OpenTelemetry contribution descriptions/PR links, and other
-  already-present public work links only where context is supported; result is
-  self-contained work context with inspectable destinations; check rendered
-  home content and links in focused tests; status: proposed; ordered commits:
-  Pending.
+  description and OpenTelemetry contribution descriptions/PR links. Keep
+  neo-pokepet-pi as a small existing project note, retaining its explicit
+  attribution as a fork of djdiptayan's pi-pokepet and crediting aryantuntune
+  for the terminal sprites; do not promote it to a full case study without
+  supported context. Add other work links only when repository-backed context
+  supports them. Result is self-contained work context with inspectable
+  destinations; check rendered home content and links, including the project
+  note and all three credits, in focused tests; status: proposed; ordered
+  commits: Pending.
 - S2 (J2): Improve the featured-work hierarchy and responsive and accessible
   presentation across desktop and mobile. T2 depends on T1 content structure.
   Write scope: `src/components/Home.css` and only necessary markup in
