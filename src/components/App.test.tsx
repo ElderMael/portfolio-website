@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 
@@ -51,6 +51,11 @@ describe('application routes', () => {
       expect(document.title).toBe(title);
       expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content');
       expect(screen.getByRole('main')).toHaveAttribute('tabindex', '-1');
+      if (path === '/' || path === '/about' || path === '/social') {
+        const currentLabel = path === '/' ? 'Home' : path === '/about' ? 'About' : 'Social';
+        expect(screen.getByRole('link', { name: currentLabel, current: 'page' }))
+          .toHaveAttribute('href', path);
+      }
       unmount();
     });
   });
@@ -63,10 +68,12 @@ describe('application routes', () => {
     await user.click(screen.getByRole('link', { name: 'Social' }));
     expect(window.location.pathname).toBe('/social');
     expect(document.title).toBe('Social & Community | Miguel Enriquez');
+    expect(screen.getByRole('link', { name: 'Social', current: 'page' })).toHaveAttribute('href', '/social');
 
     await user.click(screen.getByRole('link', { name: 'About' }));
     expect(window.location.pathname).toBe('/about');
     expect(document.title).toBe('About Miguel Enriquez | AI & Systems Engineering');
+    expect(screen.getByRole('link', { name: 'About', current: 'page' })).toHaveAttribute('href', '/about');
     expect(screen.getByRole('heading', { name: 'Founding Principal Software Engineer' })).toBeInTheDocument();
 
     await user.click(screen.getByRole('link', { name: 'Social' }));
@@ -77,6 +84,7 @@ describe('application routes', () => {
     await user.click(screen.getByRole('link', { name: 'Miguel Enriquez home' }));
     expect(window.location.pathname).toBe('/');
     expect(document.title).toBe('Miguel Enriquez | AI & Systems Engineering');
+    expect(screen.getByRole('link', { name: 'Home', current: 'page' })).toHaveAttribute('href', '/');
   });
 
   it('renders the home route and its navigation', () => {
@@ -85,6 +93,18 @@ describe('application routes', () => {
     expect(screen.getByRole('heading', { name: 'Building systems that help people build.' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /social/i })).toHaveAttribute('href', '/social');
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
+    expect(screen.getByRole('link', { name: 'Home', current: 'page' })).toHaveAttribute('href', '/');
+    const codeLink = screen.getByRole('link', { name: 'CODE' });
+    expect(codeLink).toHaveAttribute('href', 'https://github.com/ElderMael/');
+    expect(codeLink).toHaveAttribute('target', '_blank');
+    expect(codeLink).toHaveAttribute('rel', 'noopener noreferrer');
+    const radioLink = screen.getByRole('link', { name: /PIRATE DEV RADIO TUNE IN/ });
+    expect(radioLink).toHaveAttribute('href', 'https://www.youtube.com/@piratedevradio');
+    expect(radioLink).toHaveAttribute('target', '_blank');
+    expect(radioLink).toHaveAttribute('rel', 'noopener noreferrer');
+    const navigation = screen.getByRole('navigation', { name: 'Main navigation' });
+    expect(within(navigation).queryByRole('link', { name: 'LinkedIn' })).not.toBeInTheDocument();
+    expect(within(navigation).queryByRole('link', { name: 'Substack' })).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Nextdata' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Helm chart webhook fix/i })).toHaveAttribute(
       'href', 'https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391');
@@ -108,6 +128,7 @@ describe('application routes', () => {
     expect(screen.getByRole('main')).toHaveAttribute('tabindex', '-1');
     expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
     expect(document.querySelector('a[href="/resume-mael.pdf"]')).toBeNull();
+    expect(screen.getByRole('link', { name: 'About', current: 'page' })).toBeInTheDocument();
   });
 
   it('renders social and contact routes', () => {

@@ -1,34 +1,152 @@
-@media (min-width: 1000px) {
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-width: 0;
+  color: #eef2de;
+}
+
+.navigation-pages,
+.navigation-outbound {
+  display: flex;
+  align-items: stretch;
+  gap: .35rem;
+}
+
+.navigation-pages {
+  border-bottom: 2px solid #b8f34a;
+  padding-bottom: .25rem;
+}
+
+.navigation-tab,
+.navigation-external {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  padding: .65rem .85rem;
+  border: 1px solid #677568;
+  border-radius: 0;
+  background: #171d19;
+  color: #eef2de;
+  font: 600 .75rem/1.2 'IBM Plex Mono', monospace;
+  letter-spacing: .04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navigation-tab:hover,
+.navigation-external:hover {
+  background: #242e27;
+  color: #fff;
+}
+
+.navigation-tab--current {
+  position: relative;
+  border-color: #b8f34a;
+  background: #b8f34a;
+  color: #11180d;
+}
+
+.navigation-tab--current:hover {
+  background: #c9ff61;
+  color: #11180d;
+}
+
+.navigation-tab-marker {
+  margin-right: .45rem;
+  font-size: .65rem;
+}
+
+.navigation-external {
+  gap: .35rem;
+}
+
+.navigation-code {
+  border-color: #677568;
+}
+
+.navigation-radio {
+  justify-content: space-between;
+  gap: .7rem;
+  border-color: #d39a3b;
+  background: #302514;
+  color: #ffe1a5;
+}
+
+.navigation-radio:hover {
+  border-color: #ffd17c;
+  background: #49371d;
+  color: #fff0d0;
+}
+
+.navigation-radio-copy {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.navigation-radio-label {
+  color: #edc77f;
+  font-size: .55rem;
+  letter-spacing: .08em;
+}
+
+.navigation-radio-title {
+  font-size: .75rem;
+}
+
+.navigation-radio-dot {
+  width: .5rem;
+  height: .5rem;
+  flex: 0 0 .5rem;
+  border-radius: 50%;
+  background: #ffbf4a;
+}
+
+.site-shell a.navigation-tab,
+.site-shell a.navigation-external {
+  color: #eef2de;
+}
+
+.site-shell a.navigation-tab:hover,
+.site-shell a.navigation-external:hover {
+  color: #fff;
+}
+
+.site-shell a.navigation-tab--current,
+.site-shell a.navigation-tab--current:hover {
+  color: #11180d;
+}
+
+.site-shell a.navigation-radio {
+  color: #ffe1a5;
+}
+
+.site-shell a.navigation-radio:hover {
+  color: #fff0d0;
+}
+
+@media (max-width: 700px) {
   .navigation {
-    padding-top: 2%;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: .45rem;
   }
-}
 
-.navigation .btn.btn-pill {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7em;
-  background-color: rgba(0, 0, 0, 0.8);
-}
+  .navigation-pages,
+  .navigation-outbound {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
 
-.nav .btn.btn-pill {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7em;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.navigation .btn.btn-pill:before {
-  padding-right: 0px;
-}
-
-.navigation .btn.btn-success.btn-pill span {
-  padding-left: 0px;
-}
-
-.navigation .btn.btn-pill:hover, .nav .btn.btn-pill:hover {
-  background-color: #17b06b;
-  color: #000000;
-}
-
-.icon-nav {
-  margin-right: 10px;
+  .navigation-tab,
+  .navigation-external {
+    min-height: 2.6rem;
+    padding: .55rem .65rem;
+    font-size: .7rem;
+  }
 }

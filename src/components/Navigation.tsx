@@ -1,59 +1,49 @@
-import React from "react";
-import './Navigation.css'
-import useWindowDimensions from "../useWindowDimensions";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import {
-    faCode,
-    faHouse,
-    faMicrophone,
-    faNewspaper,
-    faShareNodes,
-    faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import React from 'react';
+import './Navigation.css';
+import { Link, useLocation } from 'react-router-dom';
+
+const pages = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Social', href: '/social' },
+];
 
 export function Navigation() {
-    const {width} = useWindowDimensions();
-
-    const isWide = width > 2500;
+    const { pathname } = useLocation();
+    const currentPath = pathname.replace(/\/+$/, '') || '/';
 
     return (
-        <nav aria-label="Main navigation"
-            className={(isWide ? "container" : "") + " navigation navbar navbar-dark"}>
-            <Link to="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2">
-                <FontAwesomeIcon className="icon-nav icon-user" icon={faHouse} size="2x"/>
-                <span>Home</span>
-            </Link>
-            <Link className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2" to="/about">
-                <FontAwesomeIcon className="icon-nav icon-user" icon={faUser} size="2x"/>
-                <span>About</span>
-            </Link>
-            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://github.com/ElderMael/">
-                <FontAwesomeIcon className="icon-nav icon-code" icon={faCode} size="2x"/>
-                <span>Code</span>
-            </a>
-            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
-                <FontAwesomeIcon className="icon-nav icon-community" icon={faLinkedin} size="2x"/>
-                <span>LinkedIn</span>
-            </a>
-            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://piratedevradio.substack.com/">
-                <FontAwesomeIcon className="icon-nav fas fa-2x icon-contact" icon={faNewspaper}/>
-                <span>Substack</span>
-            </a>
-            <Link className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2" to="/social">
-                <FontAwesomeIcon className="icon-nav fas fa-2x icon-community" icon={faShareNodes}/>
-                <span>Social</span>
-            </Link>
-            <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
-               target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@piratedevradio">
-                <FontAwesomeIcon className="icon-nav icon-media" icon={faMicrophone} size="2x"/>
-                <span>Podcast</span>
-            </a>
+        <nav aria-label="Main navigation" className="navigation">
+            <div className="navigation-pages">
+                {pages.map(({ label, href }) => {
+                    const current = currentPath === href;
+                    return (
+                        <Link
+                            key={href}
+                            to={href}
+                            className={`navigation-tab${current ? ' navigation-tab--current' : ''}`}
+                            aria-current={current ? 'page' : undefined}
+                        >
+                            {current && <span className="navigation-tab-marker" aria-hidden="true">◆</span>}
+                            <span>{label}</span>
+                        </Link>
+                    );
+                })}
+            </div>
+            <div className="navigation-outbound">
+                <a className="navigation-external navigation-code" href="https://github.com/ElderMael/"
+                   target="_blank" rel="noopener noreferrer">
+                    CODE <span aria-hidden="true">↗</span>
+                </a>
+                <a className="navigation-external navigation-radio" href="https://www.youtube.com/@piratedevradio"
+                   target="_blank" rel="noopener noreferrer">
+                    <span className="navigation-radio-copy">
+                        <span className="navigation-radio-label">PIRATE DEV RADIO</span>
+                        <span className="navigation-radio-title">TUNE IN <span aria-hidden="true">↗</span></span>
+                    </span>
+                    <span className="navigation-radio-dot" aria-hidden="true" />
+                </a>
+            </div>
         </nav>
     );
-
 }
