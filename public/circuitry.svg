@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <title>Orbital circuitry field</title>
+  <defs>
+    <linearGradient id="panel" x1="62" y1="34" x2="542" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#19251e"/>
+      <stop offset=".55" stop-color="#101812"/>
+      <stop offset="1" stop-color="#0b100d"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="244" y1="234" x2="367" y2="373" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ced19b" stop-opacity=".2"/>
+      <stop offset=".48" stop-color="#7a9c6f" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#0b100d" stop-opacity=".92"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientTransform="matrix(0 98 -98 0 300 300)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#26392b"/>
+      <stop offset=".72" stop-color="#121b15"/>
+      <stop offset="1" stop-color="#0a100c"/>
+    </radialGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0v24" stroke="#7a9c6f" stroke-opacity=".1" stroke-width=".7"/>
+    </pattern>
+  </defs>
+
+  <path d="M45 16h474l65 65v438l-65 65H81l-65-65V81l29-65Z" fill="url(#panel)" stroke="#455849" stroke-width="2"/>
+  <path d="M51 23h462l63 63v426l-63 63H84l-63-63V84l30-61Z" stroke="#7a9c6f" stroke-opacity=".28"/>
+  <path d="M48 20h474l62 62v438l-62 62H82l-62-62V82l28-62Z" fill="url(#grid)" opacity=".6"/>
+
+  <g stroke="#ced19b" stroke-opacity=".16" stroke-width="1">
+    <path d="M300 54v80M300 466v80M54 300h80M466 300h80"/>
+    <path d="m127 127 56 56m234 234 56 56M473 127l-56 56M183 417l-56 56"/>
+  </g>
+  <g stroke="#7a9c6f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 112h85l36 36h81" stroke-width="2" stroke-opacity=".72"/>
+    <path d="M21 167h54l43 43h70" stroke-width="1.5" stroke-opacity=".48"/>
+    <path d="M21 420h83l34-34h69" stroke-width="1.5" stroke-opacity=".58"/>
+    <path d="M21 474h59l47-47h77" stroke-width="2" stroke-opacity=".66"/>
+    <path d="M579 111h-75l-40 40h-73" stroke-width="1.5" stroke-opacity=".65"/>
+    <path d="M579 171h-49l-47 47h-93" stroke-width="2" stroke-opacity=".5"/>
+    <path d="M579 425h-81l-37-37h-72" stroke-width="2" stroke-opacity=".72"/>
+    <path d="M579 481h-59l-48-48h-82" stroke-width="1.5" stroke-opacity=".5"/>
+    <path d="M164 20v72l39 39v59M226 20v54l27 27v73M374 20v66l-29 29v58M436 20v74l-37 37v46" stroke-width="1.5" stroke-opacity=".44"/>
+    <path d="M164 580v-71l39-39v-58M226 580v-56l27-27v-57M374 580v-66l-29-29v-73M436 580v-74l-37-37v-46" stroke-width="1.5" stroke-opacity=".48"/>
+  </g>
+  <g fill="#ced19b">
+    <circle cx="106" cy="112" r="3"/><circle cx="75" cy="167" r="2.5"/>
+    <circle cx="104" cy="420" r="2.5"/><circle cx="80" cy="474" r="3"/>
+    <circle cx="504" cy="111" r="2.5"/><circle cx="530" cy="171" r="3"/>
+    <circle cx="498" cy="425" r="3"/><circle cx="520" cy="481" r="2.5"/>
+    <circle cx="164" cy="92" r="2.5"/><circle cx="226" cy="74" r="2.5"/>
+    <circle cx="374" cy="86" r="2.5"/><circle cx="436" cy="94" r="2.5"/>
+    <circle cx="164" cy="509" r="2.5"/><circle cx="226" cy="524" r="2.5"/>
+    <circle cx="374" cy="514" r="2.5"/><circle cx="436" cy="506" r="2.5"/>
+  </g>
+  <circle cx="80" cy="474" r="5" fill="#ad242f" fill-opacity=".8"/>
+
+  <g stroke-linecap="round">
+    <circle cx="300" cy="300" r="199" stroke="#ced19b" stroke-opacity=".12"/>
+    <circle cx="300" cy="300" r="180" stroke="#7a9c6f" stroke-opacity=".35" stroke-dasharray="1 8" stroke-width="2"/>
+    <circle cx="300" cy="300" r="164" stroke="#ced19b" stroke-opacity=".48" stroke-dasharray="52 14 3 14" stroke-width="1.5"/>
+    <circle cx="300" cy="300" r="145" stroke="#7a9c6f" stroke-opacity=".42" stroke-dasharray="100 7 12 7"/>
+    <circle cx="300" cy="300" r="127" stroke="#ced19b" stroke-opacity=".22"/>
+    <circle cx="300" cy="300" r="112" stroke="#7a9c6f" stroke-opacity=".36" stroke-dasharray="2 7" stroke-width="2"/>
+  </g>
+  <g fill="#ced19b">
+    <circle cx="300" cy="101" r="3"/><circle cx="499" cy="300" r="3"/>
+    <circle cx="300" cy="499" r="3"/><circle cx="101" cy="300" r="3"/>
+  </g>
+  <g fill="#7a9c6f">
+    <circle cx="300" cy="120" r="2"/><circle cx="480" cy="300" r="2"/>
+    <circle cx="300" cy="480" r="2"/><circle cx="120" cy="300" r="2"/>
+  </g>
+
+  <ellipse cx="300" cy="300" rx="151" ry="59" transform="rotate(-33 300 300)" stroke="#ced19b" stroke-opacity=".48" stroke-width="1.5"/>
+  <ellipse cx="300" cy="300" rx="151" ry="59" transform="rotate(33 300 300)" stroke="#7a9c6f" stroke-opacity=".56" stroke-width="1.5" stroke-dasharray="2 7"/>
+  <ellipse cx="300" cy="300" rx="80" ry="30" transform="rotate(-33 300 300)" stroke="#ad242f" stroke-opacity=".6" stroke-width="1.5"/>
+
+  <circle cx="300" cy="300" r="93" fill="url(#core)" stroke="#ced19b" stroke-opacity=".72" stroke-width="1.5"/>
+  <circle cx="300" cy="300" r="82" stroke="#7a9c6f" stroke-opacity=".48" stroke-dasharray="20 5 2 5"/>
+  <circle cx="300" cy="300" r="68" stroke="#ced19b" stroke-opacity=".32"/>
+  <path d="m300 239 47 61-47 61-47-61 47-61Z" fill="url(#glass)" stroke="#ced19b" stroke-opacity=".82" stroke-width="1.5"/>
+  <path d="m300 255 31 45-31 45-31-45 31-45Z" fill="#151f18" fill-opacity=".88" stroke="#7a9c6f" stroke-opacity=".85"/>
+  <path d="m300 255 0 90m31-45h-62m31-45-31 45 31 45 31-45-31-45Z" stroke="#ced19b" stroke-opacity=".5" stroke-width="1"/>
+  <circle cx="300" cy="300" r="15" fill="#ced19b" fill-opacity=".18" stroke="#ced19b" stroke-opacity=".86"/>
+  <circle cx="300" cy="300" r="4" fill="#ad242f"/>
+  <path d="M300 277v-10m0 66v-10m-23-23h-10m66 0h-10" stroke="#ced19b" stroke-width="1.5" stroke-linecap="round"/>
+
+  <g fill="#ced19b" font-family="monospace" font-size="8" letter-spacing="1.6">
+    <text x="58" y="62">SIGNAL / 01</text>
+    <text x="432" y="62">FIELD : 04</text>
+    <text x="58" y="548">BUILD · SHARE · LEARN · LEAD</text>
+    <text x="468" y="548">200</text>
+  </g>
+  <g stroke="#ced19b" stroke-opacity=".56">
+    <path d="M58 72h74M468 72h74M58 535h48M490 535h52"/>
+    <path d="M58 80v18m484-18v18M58 504v18m484-18v18"/>
+  </g>
+  <g fill="#7a9c6f" opacity=".9">
+    <path d="M39 39h36v2H39zM39 46h22v2H39zM525 552h36v2h-36zM539 559h22v2h-22z"/>
+  </g>
+</svg>

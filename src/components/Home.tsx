@@ -19,8 +19,17 @@ export function Home() {
                            target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                     </div>
                 </div>
-                <div className="home-hero-aside" aria-hidden="true">
-                    <span>01</span><span>BUILD / SHARE / LEARN</span>
+                <div className="home-hero-aside">
+                    <div className="circuitry-stage" aria-hidden="true">
+                        <img className="circuitry-art" src="/circuitry.svg" alt="" width="600" height="600"
+                             decoding="async" fetchPriority="high" />
+                        <span className="circuitry-wheel circuitry-wheel-outer" />
+                        <span className="circuitry-wheel circuitry-wheel-inner" />
+                        <span className="circuitry-orbit circuitry-orbit-primary" />
+                        <span className="circuitry-orbit circuitry-orbit-secondary" />
+                        <span className="circuitry-scan" />
+                    </div>
+                    <span className="home-hero-caption">01 / BUILD · SHARE · LEARN · LEAD</span>
                 </div>
             </section>
 

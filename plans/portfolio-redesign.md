@@ -254,10 +254,10 @@ still need a real-browser review.
 - [x] Add experience and selected-work content based on the discovery review,
       without invented outcomes or empty case-study cards. Miguel approved the
       Nextdata summary and concise neo-pokepet-pi attribution.
-- [ ] Add imagery inspired by the reference site's editorial use of images,
-      using Miguel-approved portraits or project visuals rather than copying
-      the reference. Confirm permissions and select assets with Miguel; provide
-      appropriate alt text, responsive sizing, and optimized loading.
+- [x] Add original, Miguel-approved abstract circuitry artwork to the home
+      hero, with clockwork-style motion and the motto “Build · Share · Learn ·
+      Lead.” The illustration is decorative and responsive, with static
+      reduced-motion and shared pause support; no third-party image is used.
 - [ ] Polish the approved layered-paper and cyberpunk visual treatment after
       the page structure is in place. Review details with Miguel at desktop and
       mobile widths without compromising legibility or accessibility.
@@ -265,8 +265,8 @@ still need a real-browser review.
       check the desktop and mobile layouts and primary actions. Full browser,
       keyboard, motion, and contrast audits remain release requirements.
 
-The initial home slice includes the approved content structure and retains
-imagery and further visual polish as follow-up work. Headless Chrome captures
+The initial home slice includes the approved content structure and artwork;
+further visual polish remains follow-up work. Headless Chrome captures
 were taken at 1440 × 1000 and 390 × 844; font loading, interactions, and the
 complete design still need review in a real browser.
 

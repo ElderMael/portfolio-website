@@ -33,7 +33,7 @@ export default function App() {
 
     return (
         <BrowserRouter>
-            <div className="site-shell" data-theme={theme}>
+            <div className="site-shell" data-theme={theme} data-motion-paused={paused}>
                 <MatrixCodeRain paused={paused} />
                 <header className="site-header">
                     <a className="site-brand" href="/" aria-label="Miguel Enriquez home">MIGUEL <span>/</span> ENRIQUEZ</a>
@@ -51,8 +51,8 @@ export default function App() {
                 </Routes>
                 <footer className="site-footer">
                     <span>© Miguel Enriquez</span>
-                    <button className="rain-toggle" type="button"
-                            onClick={() => setPaused(value => !value)}>
+                    <button className="rain-toggle" type="button" aria-label="Pause or resume background animation"
+                            aria-pressed={paused} onClick={() => setPaused(value => !value)}>
                         {paused ? 'Resume background animation' : 'Pause background animation'}
                     </button>
                 </footer>

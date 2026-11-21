@@ -63,9 +63,21 @@ describe('application routes', () => {
     expect(window.localStorage.getItem('portfolio-theme')).toBe('lighter');
     expect(themeButton).toHaveAttribute('aria-pressed', 'true');
 
-    const pauseButton = screen.getByRole('button', { name: 'Pause background animation' });
+    const pauseButton = screen.getByRole('button', { name: 'Pause or resume background animation' });
+    const siteShell = document.querySelector('.site-shell');
+    expect(siteShell).toHaveAttribute('data-motion-paused', 'false');
+    expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
     fireEvent.click(pauseButton);
-    expect(screen.getByRole('button', { name: 'Resume background animation' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Pause or resume background animation' }))
+      .toHaveAttribute('aria-pressed', 'true');
+    expect(siteShell).toHaveAttribute('data-motion-paused', 'true');
+    expect(screen.getByAltText('')).toHaveAttribute('src', '/circuitry.svg');
+    expect(document.querySelector('.circuitry-stage')).toHaveAttribute('aria-hidden', 'true');
+    expect(document.querySelectorAll('.circuitry-wheel')).toHaveLength(2);
+    expect(screen.getByText('01 / BUILD · SHARE · LEARN · LEAD')).toBeInTheDocument();
+    fireEvent.click(pauseButton);
+    expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
+    expect(siteShell).toHaveAttribute('data-motion-paused', 'false');
   });
 
   it('keeps theme controls usable when browser storage throws', () => {
