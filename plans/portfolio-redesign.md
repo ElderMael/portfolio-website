@@ -276,6 +276,10 @@ complete design still need review in a real browser.
 
 ### Task 4: Redesign the contact experience
 
+A first responsive redesign is implemented for review. It retains the existing
+form endpoint, field names, validation, and honeypot; visual approval and real
+Formspree delivery testing remain outstanding.
+
 - [ ] Apply the shared visual language and clarify contact paths for employers
       and clients without implying services or availability not confirmed.
 - [ ] Preserve the existing Formspree endpoint, field names, validation, and
