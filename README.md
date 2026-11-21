@@ -25,7 +25,16 @@ The service worker remains unregistered. Startup only cleans up an existing
 registration left by an older version. Production output targets modern browsers
 (ES2020); it no longer targets CRA's broader Browserslist set.
 
-See [the Vite migration plan](plans/security-fixes/vite-migration.md) for
-verification details and open deployment checks. The separate
-[security fixes plan](plans/security-fixes/security-fixes.md) tracks remaining
-security work; this migration does not complete that plan.
+## Security
+
+The site self-hosts its display fonts, bundles icons locally, and uses SRI for
+remaining CDN stylesheets. Netlify sends baseline security headers and a
+report-only CSP. Docker runs nginx as a non-root user; the Kubernetes manifest
+adds read-only root filesystem, dropped capabilities, probes, and resource
+limits. The contact form includes a honeypot field.
+
+See [SECURITY.md](SECURITY.md) for findings and outstanding deployment checks,
+and the [security fixes plan](plans/security-fixes/security-fixes.md) for
+implementation status. See the
+[Vite migration plan](plans/security-fixes/vite-migration.md) for migration
+verification.

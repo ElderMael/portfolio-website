@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('application routes', () => {
@@ -32,6 +32,13 @@ describe('application routes', () => {
     render(<App />);
     expect(screen.getByRole('heading', { name: /contact me/i })).toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'Message' })).toBeInTheDocument();
+
+    const honeypot = screen.getByLabelText('Leave this field blank');
+    expect(honeypot).toHaveAttribute('name', 'bot-field');
+    fireEvent.change(honeypot, { target: { value: 'spam' } });
+    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+    fireEvent(screen.getByRole('button', { name: 'Send Message' }).closest('form')!, submitEvent);
+    expect(submitEvent.defaultPrevented).toBe(true);
   });
 
   it('falls back to home for an unknown route', () => {

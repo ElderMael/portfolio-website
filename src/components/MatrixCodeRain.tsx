@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import './MatrixCodeRain.css';
 import useWindowDimensions from "../useWindowDimensions";
 
@@ -7,7 +7,7 @@ const targetName = "Miguel Enriquez".split("");
 
 export function MatrixCodeRain() {
 
-    const canvas: React.RefObject<HTMLCanvasElement | null> = React.createRef();
+    const canvas = useRef<HTMLCanvasElement>(null);
 
     const {height, width} = useWindowDimensions();
 
@@ -113,7 +113,7 @@ export function MatrixCodeRain() {
             clearInterval(intervalId);
         }
 
-    });
+    }, [height, width]);
 
     return (
         <canvas ref={canvas} className="matrix-rain"/>

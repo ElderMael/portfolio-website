@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './NameCli.css'
 
 export function NameCli() {
     const [glitch, setGlitch] = useState(false);
     const [glitchType, setGlitchType] = useState(0);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         const triggerGlitch = () => {
@@ -11,16 +12,24 @@ export function NameCli() {
             if (Math.random() > 0.95) {
                 setGlitch(true);
                 setGlitchType(Math.floor(Math.random() * 3)); // Different glitch flavors
-                
+
                 // Reset glitch after a short period (100-300ms)
-                setTimeout(() => {
+                if (timeoutRef.current !== null) {
+                    clearTimeout(timeoutRef.current);
+                }
+                timeoutRef.current = setTimeout(() => {
                     setGlitch(false);
                 }, Math.random() * 200 + 100);
             }
         };
 
         const interval = setInterval(triggerGlitch, 500);
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+            if (timeoutRef.current !== null) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
     }, []);
 
     return (

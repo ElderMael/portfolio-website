@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {MatrixCodeRain} from "./MatrixCodeRain";
 import {Navigation} from "./Navigation";
 import './ContactMe.css';
@@ -6,6 +6,16 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
 export function ContactMe() {
+    const [botField, setBotField] = useState('');
+
+    const handleSubmit = (e: React.FormEvent) => {
+        if (botField) {
+            e.preventDefault();
+            return;
+        }
+        // Formspree will handle submission; no action needed here
+    };
+
     return (
         <div className="container-fluid">
             <MatrixCodeRain/>
@@ -18,7 +28,7 @@ export function ContactMe() {
                             <FontAwesomeIcon icon={faEnvelope} className="icon-nav icon-contact"/> Contact Me
                         </h3>
                         <div className="card-body">
-                            <form action="https://formspree.io/f/xknkjwpb" method="POST">
+                            <form action="https://formspree.io/f/xknkjwpb" method="POST" onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input type="text" name="name" id="name" className="form-control" required placeholder="Your Name"/>
@@ -30,6 +40,18 @@ export function ContactMe() {
                                 <div className="form-group">
                                     <label htmlFor="message">Message</label>
                                     <textarea name="message" id="message" rows={5} className="form-control" required placeholder="How can I help you?"></textarea>
+                                </div>
+                                <div className="form-group" style={{display: 'none'}}>
+                                    <label htmlFor="bot-field">Leave this field blank</label>
+                                    <input
+                                        type="text"
+                                        name="bot-field"
+                                        id="bot-field"
+                                        className="form-control"
+                                        value={botField}
+                                        onChange={(e) => setBotField(e.target.value)}
+                                        autoComplete="off"
+                                    />
                                 </div>
                                 <button type="submit" className="btn btn-outline-success btn-block mt-4">
                                     Send Message
