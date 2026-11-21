@@ -9,6 +9,7 @@ import {
     faMicrophone,
     faNewspaper,
     faShareNodes,
+    faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
@@ -23,6 +24,10 @@ export function Navigation() {
             <Link to="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2">
                 <FontAwesomeIcon className="icon-nav icon-user" icon={faHouse} size="2x"/>
                 <span>Home</span>
+            </Link>
+            <Link className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2" to="/about">
+                <FontAwesomeIcon className="icon-nav icon-user" icon={faUser} size="2x"/>
+                <span>About</span>
             </Link>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://github.com/ElderMael/">

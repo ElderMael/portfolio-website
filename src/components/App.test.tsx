@@ -41,6 +41,7 @@ describe('application routes', () => {
       ['/', 'Miguel Enriquez | AI & Systems Engineering'],
       ['/contact-me', 'Contact Miguel Enriquez | Portfolio'],
       ['/social', 'Social & Community | Miguel Enriquez'],
+      ['/about', 'About Miguel Enriquez | AI & Systems Engineering'],
       ['/unknown', 'Miguel Enriquez | AI & Systems Engineering'],
     ];
 
@@ -63,6 +64,12 @@ describe('application routes', () => {
     expect(window.location.pathname).toBe('/social');
     expect(document.title).toBe('Social & Community | Miguel Enriquez');
 
+    await user.click(screen.getByRole('link', { name: 'About' }));
+    expect(window.location.pathname).toBe('/about');
+    expect(document.title).toBe('About Miguel Enriquez | AI & Systems Engineering');
+    expect(screen.getByRole('heading', { name: 'Founding Principal Software Engineer' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('link', { name: 'Social' }));
     await user.click(screen.getByRole('link', { name: 'Contact me' }));
     expect(window.location.pathname).toBe('/contact-me');
     expect(document.title).toBe('Contact Miguel Enriquez | Portfolio');
@@ -77,6 +84,7 @@ describe('application routes', () => {
     render(<App />);
     expect(screen.getByRole('heading', { name: 'Building systems that help people build.' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /social/i })).toHaveAttribute('href', '/social');
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
     expect(screen.getByRole('heading', { name: 'Nextdata' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Helm chart webhook fix/i })).toHaveAttribute(
       'href', 'https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391');
@@ -87,6 +95,19 @@ describe('application routes', () => {
       'href', 'https://www.youtube.com/@piratedevradio');
     expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', '/contact-me');
     expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
+  });
+
+  it('renders /about directly with its title, main target, and no public resume link', () => {
+    window.history.replaceState({}, '', '/about');
+    render(<App />);
+
+    expect(window.location.pathname).toBe('/about');
+    expect(document.title).toBe('About Miguel Enriquez | AI & Systems Engineering');
+    expect(screen.getByRole('heading', { name: 'Engineering across the stack.' })).toBeInTheDocument();
+    expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content');
+    expect(screen.getByRole('main')).toHaveAttribute('tabindex', '-1');
+    expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
+    expect(document.querySelector('a[href="/resume-mael.pdf"]')).toBeNull();
   });
 
   it('renders social and contact routes', () => {

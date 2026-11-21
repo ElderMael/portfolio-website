@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Social } from "./Social";
+import { About } from "./About";
 import { Home } from "./Home";
 import { ContactMe } from "./ContactMe";
 import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
@@ -14,6 +15,7 @@ const routeTitles: Record<string, string> = {
     '/': 'Miguel Enriquez | AI & Systems Engineering',
     '/contact-me': 'Contact Miguel Enriquez | Portfolio',
     '/social': 'Social & Community | Miguel Enriquez',
+    '/about': 'About Miguel Enriquez | AI & Systems Engineering',
 };
 
 function RouteDocumentTitle() {
@@ -71,6 +73,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/social" element={<Social />} />
+                    <Route path="/about" element={<About />} />
                     <Route path="/contact-me" element={<ContactMe />} />
                     <Route path="*" element={<Home />} />
                 </Routes>

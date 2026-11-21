@@ -69,13 +69,13 @@ presents Miguel's engineering summary and work history.
 
 ## Task 3: About page
 
-- [ ] Implement `/about` with a reviewed engineering summary, work-history
-      entries, and other approved content. Do not expose personal resume details
-      or link to the PDF unless separately approved.
-- [ ] Add the route, navigation link, page title, and direct-route behavior.
-      Preserve the unknown-route fallback and all current routes.
-- [ ] Add meaningful tests, review desktop/mobile, and verify the build,
-      accessibility, links, and direct navigation.
+- [x] Implement `/about` with the reviewed summary and work history, corrected
+      Nextdata, InDebted, and greyshore entries, and community links. Miguel
+      approved this version. Education was left out; the PDF remains unlinked.
+- [x] Add the route, navigation link, page title, skip-link target, and direct
+      local navigation. Preserve the unknown-route fallback and other routes.
+- [x] Add meaningful tests and review desktop/mobile captures. Full
+      assistive-technology and deployed-route review remain handoff checks.
 
 ## Task 4: Review and handoff
 
