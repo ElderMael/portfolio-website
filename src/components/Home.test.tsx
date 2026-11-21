@@ -104,6 +104,23 @@ describe('home experience panels', () => {
     );
     expect(within(experience).getByRole('link', { name: /ClickHouse exporter DDL documentation/ }))
       .toHaveAttribute('href', 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903');
+    expect(within(experience).getByText('Webhook configuration fix for the Helm chart.'))
+      .toBeInTheDocument();
+    expect(within(experience).getByText('Documentation for the ClickHouse exporter’s DDL.'))
+      .toBeInTheDocument();
+
+    const projectNote = within(experience).getByText(/my fork of/);
+    expect(projectNote).toHaveTextContent('my fork of djdiptayan’s pi-pokepet');
+    expect(projectNote).toHaveTextContent('terminal sprites by aryantuntune');
+    expect(within(projectNote).getByRole('link', { name: 'neo-pokepet-pi' })).toHaveAttribute(
+      'href', 'https://github.com/ElderMael/neo-pokepet-pi',
+    );
+    expect(within(projectNote).getByRole('link', { name: 'djdiptayan’s pi-pokepet' })).toHaveAttribute(
+      'href', 'https://github.com/djdiptayan1/pi-pokepet',
+    );
+    expect(within(projectNote).getByRole('link', { name: 'aryantuntune' })).toHaveAttribute(
+      'href', 'https://github.com/djdiptayan1/pi-pokepet/pull/15',
+    );
 
     const earlier = within(experience).getByRole('complementary', { name: 'Earlier experience' });
     expect(earlier).toHaveTextContent(

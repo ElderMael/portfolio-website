@@ -163,8 +163,14 @@ export function Home() {
                         <p className="home-eyebrow">Open source · OpenTelemetry</p>
                         <h3>Two project contributions</h3>
                         <ul className="home-link-list">
-                            <li><a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391" target="_blank" rel="noreferrer">Helm chart webhook fix <span aria-hidden="true">↗</span></a></li>
-                            <li><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903" target="_blank" rel="noreferrer">ClickHouse exporter DDL documentation <span aria-hidden="true">↗</span></a></li>
+                            <li>
+                                <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391" target="_blank" rel="noreferrer">Helm chart webhook fix <span aria-hidden="true">↗</span></a>
+                                <p>Webhook configuration fix for the Helm chart.</p>
+                            </li>
+                            <li>
+                                <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903" target="_blank" rel="noreferrer">ClickHouse exporter DDL documentation <span aria-hidden="true">↗</span></a>
+                                <p>Documentation for the ClickHouse exporter’s DDL.</p>
+                            </li>
                         </ul>
                     </article>
                 </div>
