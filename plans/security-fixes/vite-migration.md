@@ -78,7 +78,7 @@ breaks the existing build or deployment.
       - Docker (`Dockerfile`): `FROM nginx:1.17.8-alpine`, copies `./build` into
         nginx html dir, exposes 80. No SPA fallback configured in nginx; direct
         route navigation / refresh on non-root paths is a pre-existing gap on
-        Docker (does not inherit Netlify's redirect). Docker IS available locally.
+        Docker (does not inherit Netlify's redirect). Docker is available.
       - Netlify CLI unavailable locally; Netlify deploy-preview verification
         cannot be performed locally — record as blocker.
       - Browser support baseline from CRA browserslist: production >0.2%, not
@@ -98,12 +98,12 @@ breaks the existing build or deployment.
       is one-shot, `npm run preview` serves production output. Removed eject.
       Selected Vite's modern `es2020` target (matching current Vite browser
       baseline); this narrows CRA's `>0.2%, not dead, not op_mini all` support
-      envelope. User explicitly approved this choice on 2026-11-20. No additional
-      polyfills are configured.
+      envelope. User approved this choice on 2026-11-20. No additional polyfills
+      are configured.
 - [x] Replaced CRA types with Vite client types; TypeScript strict remains on.
       Vitest + Testing Library tests cover home/social/contact/fallback routes
-      and service-worker cleanup (4 tests across 2 files); `npm test` fails on no
-      collected tests (`vitest run`).
+      and service-worker cleanup (4 tests across 2 files); `npm test` fails if
+      no tests are collected (`vitest run`).
 - [x] Preserved service-worker cleanup (`unregister` existing registrations)
       and removed unused CRA registration paths / all `process.env` references.
       Mocked cleanup test passes; no new registration code exists.
@@ -131,16 +131,17 @@ breaks the existing build or deployment.
       navigation was checked, but link-click flows and page-console diagnostics
       were not comprehensively instrumented.
 - [x] Preview server returned HTTP 200 for favicon, logo icons, manifest,
-      `neon.css`, resume PDF, and robots.txt. Built output has no CRA placeholders.
+      `neon.css`, resume PDF, and robots.txt. Built output has no CRA
+      placeholders.
       External CDN resource/network diagnostics are not fully instrumented.
 - [x] Built Docker image `portfolio-vite-migration:local` successfully. Initial
-      bridge networking failed (`operation not supported`); using host networking
+      bridge networking failed (`operation not supported`); host networking
       allowed smoke testing. `/` and public assets returned 200. `/social` and
       `/contact-me` returned 404, confirming the pre-existing nginx SPA fallback
       gap; Dockerfile/nginx routing was not changed.
 - [ ] Netlify deploy preview remains BLOCKED: Netlify CLI is absent and no
       deployment credentials/access are available. Direct route navigation and
-      refresh on the actual deploy preview are unverified; this task remains open.
+      refresh on deploy preview are unverified; the task remains open.
 - [x] Repeated audit (2026-11-20): initially 3 moderate, 0 high, 0 critical.
       Ran non-forced `npm audit fix`, resolving the transitive `@babel/runtime`
       finding. Final count: 2 moderate, 0 high, 0 critical, both reported via
@@ -154,13 +155,16 @@ breaks the existing build or deployment.
 
 ### Task 4: Update documentation and review
 
-- [ ] Update `README.md` and `AGENTS.md` to describe Vite, Node 24, scripts,
-      tests, explicit type/lint checks, `build/`, and deployment behavior.
-      Remove obsolete CRA/eject instructions.
-- [ ] Link this plan from the dependency item in the security plan and record
-      its migration status without marking unrelated security work complete.
-- [ ] Request peer review and record outstanding issues and any deployment
-      blockers. Commit documentation and plan updates together.
+- [x] Updated `README.md` and `AGENTS.md` for Vite, Node 24, scripts, tests,
+      explicit type/lint checks, `build/`, and deployment behavior. Removed
+      obsolete CRA/eject guidance. User authorized updating and committing the
+      previously untracked `AGENTS.md` on 2026-11-20.
+- [x] Linked this plan from the dependency item in `security-fixes.md` and
+      recorded migration status without closing unrelated security findings.
+- [ ] Peer review has not been requested/completed; no peer-review mechanism is
+      available in this session. Outstanding: obtain peer review, resolve or
+      accept the 2 moderate React Router findings, and verify the Netlify deploy
+      preview. Committed documentation and plan status; Task 4 remains open.
 
 ## Acceptance criteria
 

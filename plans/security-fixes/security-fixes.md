@@ -16,7 +16,7 @@ This plan outlines the remediation steps required to address critical, high, and
 
 | # | Area | Tasks | Owner | ETA |
 |---|------|-------|-------|-----|
-| 1 | **Dependencies** | - Upgrade `react-scripts` to latest LTS (or migrate to Vite). <br> - Run `npm audit fix` and address high/critical findings. <br> - Pin exact versions in `package-lock.json`. | Maintainer | 1 week |
+| 1 | **Dependencies** | - Vite migration implemented; verification tracked in [the migration plan](vite-migration.md). <br> - Run `npm audit fix` and address high/critical findings. <br> - Review the 2 remaining moderate React Router findings; a major v7 update needs compatibility testing. <br> - Keep `package-lock.json` committed. | Maintainer | 1 week |
 | 2 | **Subresource Integrity (SRI)** | - Identify all external `<link>` and `<script>` tags in `public/index.html` and `build/index.html`. <br> - Generate SRI hashes for each external asset (fonts, FontAwesome kit, animate.css, devicons, bootstrap theme). <br> - Replace URLs with SRI‑protected versions or self‑host assets. | Frontend Engineer | 2 days |
 | 3 | **Security Headers (Netlify)** | - Add `[[headers]]` block to `netlify.toml` with:<br>  • CSP covering Google Fonts, FontAwesome kit, self‑hosted CSS/JS.<br>  • `X-Content-Type-Options: nosniff`<br>  • `X-Frame-Options: DENY`<br>  • `Referrer-Policy: strict-origin-when-cross-origin`<br>  • `Content-Security-Policy-Report-Only` for monitoring before enforcing. | DevOps | 1 day |
 | 4 | **Build Artifact Consistency** | - Remove stale `build/` folder from repo (git‑ignored). <br> - Ensure `npm run build` produces output that matches `public/index.html` (local CSS, no hackerthemes.com). <br> - Verify that deployed `build/` reflects source before each release. | Maintainer | 1 day |
@@ -25,6 +25,14 @@ This plan outlines the remediation steps required to address critical, high, and
 | 7 | **Contact Form Spam Protection** | - Add hidden honeypot field (`<input type="text" name="bot-field" style="display:none">`). <br> - Enable Formspree spam protection (if not already active). <br> - Optionally integrate Turnstile reCAPTCHA for higher assurance. | Frontend Engineer | 1 day |
 | 8 | **React Component Improvements** | - Add dependency array to `MatrixCodeRain` `useEffect`. <br> - Clear timeout in `NameCli` on component unmount. <br> - Ensure `react-router-dom` is listed in `dependencies` (not only `devDependencies`). | Frontend Engineer | 1 day |
 | 9 | **Documentation & Review** | - Update `README.md` with security hardening notes. <br> - Add a `SECURITY.md` file summarizing audit findings and remediation status. <br> - Conduct a peer review of all PRs implementing these changes. | Maintainer | Ongoing |
+
+## Migration status
+
+The CRA-to-Vite migration is implemented and locally verified. The build and
+Docker contracts are preserved; the remaining two moderate React Router audit
+findings and the Netlify deploy-preview check are not closed. Browser support
+now targets modern ES2020-capable browsers rather than CRA's broader
+Browserslist set. See [the migration plan](vite-migration.md) for evidence and blockers.
 
 ## Acceptance Criteria
 - `npm audit` reports **0 critical** and **0 high** vulnerabilities (or documented acceptable risk with mitigations).
@@ -46,6 +54,3 @@ This plan outlines the remediation steps required to address critical, high, and
 - **Docker/pod security**: Run a scan (e.g., `trivy`) on the built image before deployment.
 
 ---
-
-*Prepared by: Security Review Team*  
-*Date: 2025-11-03*

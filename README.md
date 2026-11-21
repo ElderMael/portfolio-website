@@ -1,44 +1,31 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1190fcc5-aff5-41ce-87ae-7575407b3256/deploy-status)](https://app.netlify.com/sites/admiring-yalow-17107a/deploys)
+# Portfolio website
 
-## Available Scripts
+React and TypeScript portfolio site, built with Vite. Node 24 is required
+(`.tool-versions` specifies 24.9.0); install dependencies with `npm ci`.
 
-In the project directory, you can run:
+## Scripts
 
-### `npm start`
+- `npm start`: run the Vite development server at `http://localhost:3000`.
+- `npm test`: run Vitest once; the command fails if no tests are found.
+- `npm run lint`: run ESLint checks on the application and Vite config.
+- `npm run build`: run strict TypeScript checks, then create a production build.
+- `npm run preview`: preview the production build locally.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The tests use Vitest, jsdom, and Testing Library. Current coverage includes the
+home, social, contact, and fallback routes, plus service-worker cleanup.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Build and deployment
 
-### `npm test`
+Vite emits the production site to `build/`, preserving the existing deploy
+contract. Netlify builds with Node 24, publishes `build/`, and applies the SPA
+fallback in `netlify.toml`. Docker copies the prebuilt `build/` directory into
+nginx; it does not build the app and has no SPA fallback for direct deep links.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The service worker remains unregistered. Startup only cleans up an existing
+registration left by an older version. Production output targets modern browsers
+(ES2020); it no longer targets CRA's broader Browserslist set.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+See [the Vite migration plan](plans/security-fixes/vite-migration.md) for
+verification details and open deployment checks. The separate
+[security fixes plan](plans/security-fixes/security-fixes.md) tracks remaining
+security work; this migration does not complete that plan.
