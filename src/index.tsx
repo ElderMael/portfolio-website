@@ -1,5 +1,7 @@
 import React from 'react';
 import './index.css';
+import '@fontsource/press-start-2p/latin-400.css';
+import '@fontsource/gemunu-libre/latin-400.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {createRoot} from 'react-dom/client';

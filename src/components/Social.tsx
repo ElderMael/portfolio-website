@@ -4,6 +4,15 @@ import {Navigation} from "./Navigation";
 import useWindowDimensions from "../useWindowDimensions";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMicrophone, faMoneyBill, faNewspaper} from "@fortawesome/free-solid-svg-icons";
+import {
+    faFacebook,
+    faInstagram,
+    faLinkedin,
+    faPatreon,
+    faTiktok,
+    faTwitch,
+    faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 export function Social() {
     const {width} = useWindowDimensions();
@@ -25,7 +34,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/eldermael">
-                                <span className="icon-nav fab fa-2x fa-patreon icon-community"/>
+                                <FontAwesomeIcon className="icon-nav icon-community" icon={faPatreon} size="2x"/>
                                 <span>Patreon</span>
                             </a>
                             <span className="social-description">Support my creative journey—no strings attached.</span>
@@ -42,7 +51,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@piratedevradio">
-                                <span className="icon-nav fab fa-2x fa-youtube icon-media"/>
+                                <FontAwesomeIcon className="icon-nav icon-media" icon={faYoutube} size="2x"/>
                                 <span>YouTube</span>
                             </a>
                             <span
@@ -51,7 +60,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.twitch.tv/eldermael">
-                                <span className="icon-nav fab fa-2x fa-twitch icon-media"/>
+                                <FontAwesomeIcon className="icon-nav icon-media" icon={faTwitch} size="2x"/>
                                 <span>Twitch</span>
                             </a>
                             <span className="social-description">Live coding, gaming, and real-time tech talks.</span>
@@ -68,7 +77,7 @@ export function Social() {
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer"
                                href="https://www.facebook.com/profile.php?id=100088523016127">
-                                <span className="icon-nav fab fa-2x fa-facebook icon-community"/>
+                                <FontAwesomeIcon className="icon-nav icon-community" icon={faFacebook} size="2x"/>
                                 <span>Facebook</span>
                             </a>
                             <span
@@ -77,7 +86,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@eldermael">
-                                <span className="icon-nav fab fa-2x fa-tiktok icon-media"/>
+                                <FontAwesomeIcon className="icon-nav icon-media" icon={faTiktok} size="2x"/>
                                 <span>TikTok</span>
                             </a>
                             <span className="social-description">Bite-sized tech tips and behind-the-scenes fun.</span>
@@ -85,7 +94,7 @@ export function Social() {
                         <div className="card-text resume-summary">
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
-                                <span className="icon-nav fab fa-2x fa-linkedin icon-community"/>
+                                <FontAwesomeIcon className="icon-nav icon-community" icon={faLinkedin} size="2x"/>
                                 <span>LinkedIn</span>
                             </a>
                             <span className="social-description">Professional milestones and industry networking.</span>
@@ -94,7 +103,7 @@ export function Social() {
                             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                                target="_blank" rel="noopener noreferrer"
                                href="https://www.instagram.com/piratedevradio/">
-                                <span className="icon-nav fab fa-2x fa-instagram icon-community"/>
+                                <FontAwesomeIcon className="icon-nav icon-community" icon={faInstagram} size="2x"/>
                                 <span>Instagram</span>
                             </a>
                             <span className="social-description">Visual highlights of my daily life and projects.</span>

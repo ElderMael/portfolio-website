@@ -2,7 +2,14 @@ import React from "react";
 import './Navigation.css'
 import useWindowDimensions from "../useWindowDimensions";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faNewspaper, faShareNodes} from "@fortawesome/free-solid-svg-icons";
+import {
+    faCode,
+    faHouse,
+    faMicrophone,
+    faNewspaper,
+    faShareNodes,
+} from "@fortawesome/free-solid-svg-icons";
+import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
 export function Navigation() {
     const {width} = useWindowDimensions();
@@ -13,17 +20,17 @@ export function Navigation() {
         <nav
             className={(isWide ? "container" : "") + " navigation navbar navbar-dark animated fadeIn slow delay-5s"}>
             <a href="/" className="btn btn-success btn-pill col-lg-2 col-md-2 col-sm-2">
-                <span className="icon-nav fas fa-2x fa-home icon-user"/>
+                <FontAwesomeIcon className="icon-nav icon-user" icon={faHouse} size="2x"/>
                 <span>Home</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://github.com/ElderMael/">
-                <span className="icon-nav fas fa-2x fa-code icon-code"/>
+                <FontAwesomeIcon className="icon-nav icon-code" icon={faCode} size="2x"/>
                 <span>Code</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eldermael/">
-                <span className="icon-nav fab fa-2x fa-linkedin icon-community"/>
+                <FontAwesomeIcon className="icon-nav icon-community" icon={faLinkedin} size="2x"/>
                 <span>Resume</span>
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
@@ -38,7 +45,7 @@ export function Navigation() {
             </a>
             <a className="btn btn-outline-success btn-pill col-lg-2 col-md-2 col-sm-2"
                target="_blank" rel="noopener noreferrer" href="https://anchor.fm/pirate-dev-radio">
-                <span className="icon-nav fas fa-2x fa-microphone icon-media"/>
+                <FontAwesomeIcon className="icon-nav icon-media" icon={faMicrophone} size="2x"/>
                 <span>Podcast</span>
             </a>
         </nav>
