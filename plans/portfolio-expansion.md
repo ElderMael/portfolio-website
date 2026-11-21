@@ -95,7 +95,18 @@ presents Miguel's engineering summary and work history.
       traversal found visible focus outlines and tested the skip link and empty
       form validation. Axe found no confirmed WCAG A/AA violations, but flagged
       contrast cases for review; solid gradient endpoint pairs were checked.
-      An actual screen-reader and physical-device accessibility audit remains
+      A follow-up live contrast review at 390 and 1440 pixels examined both
+      themes on all four routes. The darkest gradient endpoint yields at least
+      9.42:1 for muted text and 13.09:1 for primary text; the lowest measured
+      accent-text endpoint is 4.86:1. Contact placeholders at 82% opacity
+      calculate to at least 7.85:1 against the input background. The focused
+      skip link has at least 11.17:1 text contrast, and focus outlines use a
+      contrasting color against adjacent dark surfaces. Social-link card
+      boundaries exceed 3:1; lower-contrast panel trim is decorative rather
+      than needed to identify a control. No actionable contrast failure was
+      found in these sampled states. This CSS/computed-color review is not a
+      pixel-by-pixel visual audit of every animation frame, nor a real
+      screen-reader or physical-device accessibility audit; those remain
       outstanding.
 
 ## Task 5: Approved leadership copy
