@@ -332,7 +332,10 @@ bundle. Headless Chrome rendered the expected titles and headings on the three
 main routes, and top-of-page desktop and mobile captures were inspected. This
 was not a full-page or assistive-technology audit. Miguel subsequently
 reported the live site looks and works well on a physical mobile device; the
-device model and detailed test coverage were not recorded.
+device model and detailed test coverage were not recorded. A subsequent
+full-page headless capture and keyboard traversal check covered all four pages
+at desktop and mobile widths. Automated accessibility results and remaining
+screen-reader limitations are recorded in `plans/portfolio-expansion.md`.
 
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.

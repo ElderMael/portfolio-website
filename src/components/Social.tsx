@@ -162,9 +162,11 @@ export function Social() {
                                     rel="noopener noreferrer"
                                     aria-label={`${link.name} (opens in a new tab)`}
                                 >
-                                    <span className="social-link-icon" aria-hidden="true">
-                                        {link.icon ? <FontAwesomeIcon className="social-fa-icon" icon={link.icon} /> : 'X'}
-                                    </span>
+                                    {link.icon && (
+                                        <span className="social-link-icon" aria-hidden="true">
+                                            <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />
+                                        </span>
+                                    )}
                                     <span>{link.name}</span>
                                     <span className="social-link-arrow" aria-hidden="true">↗</span>
                                 </a>

@@ -37,7 +37,9 @@ describe('Social page', () => {
         ]);
         expect(screen.queryByRole('link', {name: /facebook/i})).not.toBeInTheDocument();
         expect(screen.queryByRole('link', {name: /anchor/i})).not.toBeInTheDocument();
-        expect(screen.getByRole('link', {name: 'X (opens in a new tab)'})).toHaveAttribute('href', 'https://x.com/eldermael');
+        const xLink = screen.getByRole('link', {name: 'X (opens in a new tab)'});
+        expect(xLink).toHaveAttribute('href', 'https://x.com/eldermael');
+        expect(xLink.textContent?.match(/X/g)).toHaveLength(1);
     });
 
     it('gives external links an accessible name and safe new-tab behavior', () => {

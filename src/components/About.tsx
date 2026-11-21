@@ -112,7 +112,7 @@ function HistoryEntry({ entry, index }: { entry: WorkEntry; index: number }) {
 export function About() {
     return (
         <main className="about-page" id="main-content" tabIndex={-1}>
-            <header className="about-intro about-panel" aria-labelledby="about-title">
+            <header className="about-intro about-panel">
                 <p className="about-eyebrow">01 / About</p>
                 <h1 id="about-title">Engineering across the stack.</h1>
                 <p className="about-summary">

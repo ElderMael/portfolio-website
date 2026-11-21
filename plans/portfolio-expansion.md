@@ -90,5 +90,10 @@ presents Miguel's engineering summary and work history.
       paused or under reduced motion. After deployment, all routes served the
       current bundle; Chrome rendered their expected headings and titles, and
       the live marquees passed the same motion checks. The About top section
-      was inspected at 390 and 1440 pixels. Assistive-technology and full-page
-      manual reviews remain outstanding.
+      was inspected at 390 and 1440 pixels. A later full-page headless Chrome
+      capture review covered all four pages at both widths; automated keyboard
+      traversal found visible focus outlines and tested the skip link and empty
+      form validation. Axe found no confirmed WCAG A/AA violations, but flagged
+      contrast cases for review; solid gradient endpoint pairs were checked.
+      An actual screen-reader and physical-device accessibility audit remains
+      outstanding.
