@@ -273,16 +273,16 @@ accessibility checks remain part of the release review.
 
 ### Task 4: Redesign the contact experience
 
-Miguel approved the responsive contact redesign. Real Formspree delivery
-remains untested and requires permission before sending a test message.
+Miguel approved the responsive contact redesign and reports that he tested
+real form delivery successfully.
 
 - [x] Apply the shared visual language and clarify professional and mentorship
       inquiries without implying unconfirmed services or availability.
 - [x] Preserve the existing Formspree endpoint, field names, validation, and
       honeypot.
 - [x] Test labels, validation, keyboard focus, submission configuration, and
-      local direct navigation. Production routing and actual delivery remain
-      release checks.
+      local direct navigation. Miguel reports a successful delivery test;
+      production direct routing remains a release check.
 
 ## Phase 4: Social and community page (`/social`)
 
@@ -319,7 +319,8 @@ findings prompted a skip link, route-specific titles, and stronger social-link
 cues. The integration review identified the stale unused podcast URL and an
 outdated Docker README, both corrected afterward. Miguel supplied the X URL in
 follow-up; it was verified and added. The reviews did not test a deployed site,
-real form delivery, assistive technology, or physical-device performance.
+assistive technology, or physical-device performance. After the reviews,
+Miguel reported a successful real contact-form delivery test.
 
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.
