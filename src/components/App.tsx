@@ -7,15 +7,16 @@ import { ContactMe } from "./ContactMe";
 import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import { Navigation } from "./Navigation";
 import { MatrixCodeRain } from "./MatrixCodeRain";
+import { APP_ROUTE_PATHS } from './routes';
 
 const THEME_KEY = 'portfolio-theme';
 type Theme = 'dark' | 'lighter';
 
 const routeTitles: Record<string, string> = {
-    '/': 'Miguel Enriquez | AI & Systems Engineering',
-    '/contact-me': 'Contact Miguel Enriquez | Portfolio',
-    '/social': 'Social & Community | Miguel Enriquez',
-    '/about': 'About Miguel Enriquez | AI & Systems Engineering',
+    [APP_ROUTE_PATHS.home]: 'Miguel Enriquez | AI & Systems Engineering',
+    [APP_ROUTE_PATHS.contact]: 'Contact Miguel Enriquez | Portfolio',
+    [APP_ROUTE_PATHS.social]: 'Social & Community | Miguel Enriquez',
+    [APP_ROUTE_PATHS.about]: 'About Miguel Enriquez | AI & Systems Engineering',
 };
 
 function RouteDocumentTitle() {
@@ -71,10 +72,10 @@ export default function App() {
                     </button>
                 </header>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/social" element={<Social />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact-me" element={<ContactMe />} />
+                    <Route path={APP_ROUTE_PATHS.home} element={<Home />} />
+                    <Route path={APP_ROUTE_PATHS.social} element={<Social />} />
+                    <Route path={APP_ROUTE_PATHS.about} element={<About />} />
+                    <Route path={APP_ROUTE_PATHS.contact} element={<ContactMe />} />
                     <Route path="*" element={<Home />} />
                 </Routes>
                 <footer className="site-footer">

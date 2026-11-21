@@ -51,10 +51,19 @@ describe('application routes', () => {
       expect(document.title).toBe(title);
       expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content');
       expect(screen.getByRole('main')).toHaveAttribute('tabindex', '-1');
-      if (path === '/' || path === '/about' || path === '/social') {
-        const currentLabel = path === '/' ? 'Home' : path === '/about' ? 'About' : 'Social';
-        expect(screen.getByRole('link', { name: currentLabel, current: 'page' }))
-          .toHaveAttribute('href', path);
+      const navigation = screen.getByRole('navigation', { name: 'Main navigation' });
+      if (path === '/contact-me') {
+        expect(within(navigation).queryByRole('link', { current: 'page' }))
+          .not.toBeInTheDocument();
+      } else {
+        const expectedPath = path === '/unknown' ? '/' : path;
+        const currentLabel = expectedPath === '/' ? 'Home' : expectedPath === '/about' ? 'About' : 'Social';
+        expect(within(navigation).getByRole('link', { name: currentLabel, current: 'page' }))
+          .toHaveAttribute('href', expectedPath);
+      }
+      if (path === '/unknown') {
+        expect(screen.getByRole('heading', { name: 'Building systems that help people build.' }))
+          .toBeInTheDocument();
       }
       unmount();
     });
@@ -140,6 +149,8 @@ describe('application routes', () => {
     window.history.replaceState({}, '', '/contact-me');
     render(<App />);
     expect(screen.getByRole('heading', { name: /contact me/i })).toBeInTheDocument();
+    expect(within(screen.getByRole('navigation', { name: 'Main navigation' }))
+      .queryByRole('link', { current: 'page' })).not.toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'Message' })).toBeInTheDocument();
 
     const honeypot = screen.getByLabelText('Leave this field blank');

@@ -1,16 +1,23 @@
 import React from 'react';
 import './Navigation.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import { APP_ROUTE_PATHS } from './routes';
 
 const pages = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Social', href: '/social' },
+    { label: 'Home', href: APP_ROUTE_PATHS.home },
+    { label: 'About', href: APP_ROUTE_PATHS.about },
+    { label: 'Social', href: APP_ROUTE_PATHS.social },
 ];
 
 export function Navigation() {
     const { pathname } = useLocation();
-    const currentPath = pathname.replace(/\/+$/, '') || '/';
+    const matchedPage = pages.find(({ href }) => matchPath({ path: href, end: true }, pathname));
+    const isKnownNonNavigationRoute = matchPath(
+        { path: APP_ROUTE_PATHS.contact, end: true }, pathname,
+    );
+    const currentPath = matchedPage?.href ?? (
+        isKnownNonNavigationRoute ? undefined : APP_ROUTE_PATHS.home
+    );
 
     return (
         <nav aria-label="Main navigation" className="navigation">
