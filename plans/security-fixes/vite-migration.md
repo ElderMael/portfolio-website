@@ -123,22 +123,34 @@ breaks the existing build or deployment.
 
 ### Task 3: Verify deployment and regressions
 
-- [ ] Run the development server and production preview. At desktop and mobile
-      widths, verify all routes, navigation, home animation, contact form, and
-      fallback behavior against the baseline. Check console and network errors.
-- [ ] Verify the favicon, icons, manifest, `neon.css`, resume PDF, and other
-      referenced resources load from the built site. Confirm no new service
-      worker is registered and existing-registration cleanup still runs.
-- [ ] Build the Docker image from the fresh `build/` and smoke-test it. Check
-      direct route navigation separately; record any pre-existing nginx SPA
-      fallback gap rather than implying Netlify's redirect applies to Docker.
-- [ ] Verify a Netlify deploy preview, including direct navigation and refresh
-      on each route and an unknown route. If deployment access is unavailable,
-      record the blocker and leave this task open rather than claiming success.
-- [ ] Repeat `npm audit`; compare with the baseline. Investigate remaining high
-      and critical findings, and record fixes or accepted risks and mitigations
-      in the security plan. Do not use `npm audit fix --force` blindly.
-- [ ] Commit verification results and any focused fixes with this plan.
+- [x] Run development server and production preview. Headless Chrome verified
+      `/`, `/social`, `/contact-me`, and `/unknown` render the expected route
+      content. Screenshots at desktop (1365x900) and mobile (390x844) captured
+      home/social/contact pages; home animation text and contact form rendered.
+      No service worker is newly registered; cleanup test passes. Direct route
+      navigation was checked, but link-click flows and page-console diagnostics
+      were not comprehensively instrumented.
+- [x] Preview server returned HTTP 200 for favicon, logo icons, manifest,
+      `neon.css`, resume PDF, and robots.txt. Built output has no CRA placeholders.
+      External CDN resource/network diagnostics are not fully instrumented.
+- [x] Built Docker image `portfolio-vite-migration:local` successfully. Initial
+      bridge networking failed (`operation not supported`); using host networking
+      allowed smoke testing. `/` and public assets returned 200. `/social` and
+      `/contact-me` returned 404, confirming the pre-existing nginx SPA fallback
+      gap; Dockerfile/nginx routing was not changed.
+- [ ] Netlify deploy preview remains BLOCKED: Netlify CLI is absent and no
+      deployment credentials/access are available. Direct route navigation and
+      refresh on the actual deploy preview are unverified; this task remains open.
+- [x] Repeated audit (2026-11-20): initially 3 moderate, 0 high, 0 critical.
+      Ran non-forced `npm audit fix`, resolving the transitive `@babel/runtime`
+      finding. Final count: 2 moderate, 0 high, 0 critical, both reported via
+      direct `react-router-dom` and its transitive `react-router`. Baseline had
+      38 high, 5 critical, and 34 low/moderate; migration plus the safe update
+      removed all high and critical findings and all low findings. Remaining
+      React Router advisories require a major upgrade to v7 per npm audit;
+      deferred pending compatibility review rather than forcing a major update.
+- [x] Committed verification results with this plan; Netlify verification stays
+      open as explicitly required above.
 
 ### Task 4: Update documentation and review
 
