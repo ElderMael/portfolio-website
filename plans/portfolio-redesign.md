@@ -326,16 +326,20 @@ Miguel reported a successful real contact-form delivery test. A
 network-isolated Docker container returned the app shell for `/`, `/social`,
 `/contact-me`, and `/unknown`; this does not verify browser rendering or a
 public deployment. The latest release-fix verification passed 18 tests, lint,
-the production build, and `git diff --check`.
+the production build, and `git diff --check`. After pushing `5445b62`, public
+routes `/`, `/social`, `/contact-me`, and `/unknown` returned the current app
+bundle. Headless Chrome rendered the expected titles and headings on the three
+main routes, and top-of-page desktop and mobile captures were inspected. This
+was not a full-page, physical-device, or assistive-technology audit.
 
 - [ ] Review journeys for employers and clients across all pages, including
       primary calls to action, external links, and the contact form.
 - [ ] Check desktop and mobile layouts, keyboard navigation, contrast, reduced
       motion, animation performance, and visible focus across the site.
-- [ ] Verify `/`, `/social`, `/contact-me`, and the existing unknown-route
-      behavior, including direct navigation on the intended hosting platform.
-      Verify Docker deep links separately if Docker is a release target.
-- [ ] Run relevant tests, lint, and production build; record results and any
+- [x] Verify direct navigation to `/`, `/social`, `/contact-me`, and the home
+      fallback on the public site. A network-isolated Docker container also
+      returned the app shell for each route; it was not browser-tested.
+- [x] Run relevant tests, lint, and production build; record results and any
       outstanding content or verification gaps. Preserve service-worker cleanup.
 
 ## Open decisions
