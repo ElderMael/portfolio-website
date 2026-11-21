@@ -273,16 +273,16 @@ accessibility checks remain part of the release review.
 
 ### Task 4: Redesign the contact experience
 
-A first responsive redesign is implemented for review. It retains the existing
-form endpoint, field names, validation, and honeypot; visual approval and real
-Formspree delivery testing remain outstanding.
+Miguel approved the responsive contact redesign. Real Formspree delivery
+remains untested and requires permission before sending a test message.
 
-- [ ] Apply the shared visual language and clarify contact paths for employers
-      and clients without implying services or availability not confirmed.
-- [ ] Preserve the existing Formspree endpoint, field names, validation, and
-      honeypot unless a separately approved change requires otherwise.
-- [ ] Test labels, validation, keyboard use, submission configuration, and
-      direct navigation; avoid sending a real message without permission.
+- [x] Apply the shared visual language and clarify professional and mentorship
+      inquiries without implying unconfirmed services or availability.
+- [x] Preserve the existing Formspree endpoint, field names, validation, and
+      honeypot.
+- [x] Test labels, validation, keyboard focus, submission configuration, and
+      local direct navigation. Production routing and actual delivery remain
+      release checks.
 
 ## Phase 4: Social and community page (`/social`)
 
