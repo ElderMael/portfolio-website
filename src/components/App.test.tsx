@@ -122,11 +122,13 @@ describe('application routes', () => {
     const pauseButton = screen.getByRole('button', { name: 'Pause or resume background animation' });
     const siteShell = document.querySelector('.site-shell');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'false');
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
     expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
     fireEvent.click(pauseButton);
     expect(screen.getByRole('button', { name: 'Pause or resume background animation' }))
       .toHaveAttribute('aria-pressed', 'true');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'true');
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
     expect(screen.getByAltText('')).toHaveAttribute('src', '/circuitry.svg');
     expect(document.querySelector('.circuitry-stage')).toHaveAttribute('aria-hidden', 'true');
     expect(document.querySelectorAll('.circuitry-wheel')).toHaveLength(2);

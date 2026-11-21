@@ -2,6 +2,70 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+type MarqueeItem = { label: string; detail?: string };
+
+const employers: MarqueeItem[] = [
+    { label: 'Nextdata', detail: 'Current employer' },
+    { label: 'InDebted', detail: 'Former employer' },
+    { label: 'greyshore', detail: 'Former employer' },
+    { label: 'Thoughtworks', detail: 'Former employer' },
+];
+
+const technologies: MarqueeItem[] = [
+    { label: 'AWS' },
+    { label: 'Microsoft Azure' },
+    { label: 'Google Cloud (GCP)', detail: 'resume: 4 years' },
+    { label: 'Kubernetes' },
+    { label: 'Terraform' },
+    { label: 'Pulumi' },
+    { label: 'GitHub Actions', detail: 'resume: 2 years' },
+    { label: 'Grafana' },
+    { label: 'Prometheus' },
+    { label: 'OpenTelemetry' },
+    { label: 'ClickHouse' },
+    { label: 'Java', detail: 'resume: 11 years' },
+    { label: 'JavaScript', detail: 'resume: 9 years' },
+    { label: 'Spring Boot', detail: 'resume: 7 years' },
+    { label: 'Go', detail: 'resume: 3 years' },
+    { label: 'Rust', detail: 'resume: 3 years' },
+    { label: 'React' },
+    { label: 'Node.js', detail: 'resume: 4 years' },
+];
+
+function HomeMarquee({
+    items,
+    label,
+    className,
+}: {
+    items: MarqueeItem[];
+    label: string;
+    className: string;
+}) {
+    return (
+        <div className={`home-marquee ${className}`}>
+            <div className="home-marquee-viewport">
+                <div className="home-marquee-track">
+                    {[false, true].map((isDuplicate) => (
+                        <ul
+                            className="home-marquee-items"
+                            key={isDuplicate ? 'duplicate' : 'primary'}
+                            aria-label={isDuplicate ? undefined : label}
+                            aria-hidden={isDuplicate || undefined}
+                        >
+                            {items.map((item) => (
+                                <li className="home-marquee-item" key={item.label}>
+                                    <span className="home-marquee-item-label">{item.label}</span>
+                                    {item.detail && <span className="home-marquee-item-detail">{item.detail}</span>}
+                                </li>
+                            ))}
+                        </ul>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export function Home() {
     return (
         <main className="home-page" id="main-content" tabIndex={-1}>
@@ -58,6 +122,27 @@ export function Home() {
                 </div>
             </section>
 
+            <section className="home-section home-marquee-section" aria-labelledby="employers-title">
+                <div className="home-section-heading paper-panel">
+                    <p className="home-eyebrow">Selected employment</p>
+                    <div>
+                        <h2 id="employers-title">Organizations I have worked for.</h2>
+                        <p>Current and former employment relationships, not client affiliations.</p>
+                    </div>
+                </div>
+                <HomeMarquee items={employers} label="Selected employers" className="home-employer-marquee" />
+            </section>
+
+            <section className="home-section home-marquee-section" aria-labelledby="technologies-title">
+                <div className="home-section-heading paper-panel">
+                    <p className="home-eyebrow">Tools and technologies</p>
+                    <div>
+                        <h2 id="technologies-title">Technologies represented in my experience.</h2>
+                    </div>
+                </div>
+                <HomeMarquee items={technologies} label="Selected technologies" className="home-technology-marquee" />
+            </section>
+
             <section className="home-section" aria-labelledby="work-title">
                 <div className="home-section-heading paper-panel">
                     <p className="home-eyebrow">02 / Experience &amp; selected work</p>
@@ -95,6 +180,34 @@ export function Home() {
                     my fork of <a href="https://github.com/djdiptayan1/pi-pokepet" target="_blank" rel="noreferrer">djdiptayan’s pi-pokepet</a>;
                     terminal sprites by <a href="https://github.com/djdiptayan1/pi-pokepet/pull/15" target="_blank" rel="noreferrer">aryantuntune</a>.
                 </p>
+            </section>
+
+            <section className="home-section home-process" aria-labelledby="process-title">
+                <div className="home-section-heading paper-panel">
+                    <p className="home-eyebrow">Work process · provisional</p>
+                    <div>
+                        <h2 id="process-title">Some themes that inform my work.</h2>
+                        <p>These are draft themes, not a fixed sequence or a promise about every engagement.</p>
+                    </div>
+                </div>
+                <div className="home-process-grid">
+                    <article className="home-card">
+                        <h3>Evolve platforms and architecture</h3>
+                        <p>In response to product and developer needs.</p>
+                    </article>
+                    <article className="home-card">
+                        <h3>Integrate systems</h3>
+                        <p>Work alongside customer engineers where relevant.</p>
+                    </article>
+                    <article className="home-card">
+                        <h3>Consider operational practices</h3>
+                        <p>Include observability, security, and CI/CD as part of engineering work.</p>
+                    </article>
+                    <article className="home-card">
+                        <h3>Share knowledge</h3>
+                        <p>Through mentoring and collaboration.</p>
+                    </article>
+                </div>
             </section>
 
             <section className="home-section home-community" aria-labelledby="community-title">

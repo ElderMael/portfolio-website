@@ -14,8 +14,9 @@ presents Miguel's engineering summary and work history.
 - Miguel selected Nextdata, InDebted, greyshore, and Thoughtworks for the
   organization group. Present their relationship accurately. Use styled text
   when image permissions are unclear; Miguel approved this fallback.
-- Curate a broader set of technologies from the existing resume. Confirm
-  potentially ambiguous expertise or branding rather than inventing claims.
+- Curate a broader set of technologies from the existing resume. Show muted
+  experience durations only where the resume explicitly gives a figure for
+  that technology; label them as resume figures rather than current totals.
 - Draft a work-process section using only themes supported by existing
   material. Mark the wording provisional and request Miguel's review.
 - Add `/about` and a navigation link. Include an engineering summary and
@@ -57,13 +58,14 @@ presents Miguel's engineering summary and work history.
 
 ## Task 2: Home marquee and work process
 
-- [ ] Implement separate responsive organization and technology groups with
-      approved labels and assets. Use restrained, pausable marquee motion;
-      respect reduced motion and prevent content loss with images disabled.
-- [ ] Add the reviewed provisional work-process content. Preserve approved
-      home content, contact actions, and existing behavior.
-- [ ] Add meaningful tests and check desktop, mobile, keyboard, contrast,
-      motion preferences, and image loading.
+- [x] Implement separate responsive organization and technology groups with
+      approved labels. Use styled text until individual image permissions are
+      established; make motion pausable and respect reduced motion.
+- [x] Add provisional work-process themes based on existing material. Miguel
+      approved this first version; future refinement remains welcome.
+- [x] Add meaningful tests and check desktop and mobile captures. The static
+      paused and reduced-motion layouts expose all items; broader physical
+      device, keyboard, and assistive-technology checks remain for handoff.
 
 ## Task 3: About page
 
