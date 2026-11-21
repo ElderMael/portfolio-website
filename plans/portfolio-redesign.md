@@ -258,19 +258,16 @@ still need a real-browser review.
       hero, with clockwork-style motion and the motto “Build · Share · Learn ·
       Lead.” The illustration is decorative and responsive, with static
       reduced-motion and shared pause support; no third-party image is used.
-- [ ] Polish the approved layered-paper and cyberpunk visual treatment after
-      the page structure is in place. The first polish draft is checkpointed,
-      but Miguel requested more visual personality, a revised layout, and
-      improved readability for experience panels. Review the revision at desktop
-      and mobile widths without compromising legibility or accessibility.
+- [x] Polish the layered-paper and cyberpunk treatment, including the revised
+      experience panels. Miguel approved the home page; broader accessibility
+      and device review remain release requirements.
 - [x] Use the shared continuous background without delaying home content;
       check the desktop and mobile layouts and primary actions. Full browser,
       keyboard, motion, and contrast audits remain release requirements.
 
-The initial home slice includes the approved content structure and artwork;
-further visual polish remains follow-up work. Headless Chrome captures
-were taken at 1440 × 1000 and 390 × 844; font loading, interactions, and the
-complete design still need review in a real browser.
+Miguel approved the home-page direction. Headless Chrome captures were taken
+at desktop and mobile widths; broader device, font-loading, interaction, and
+accessibility checks remain part of the release review.
 
 ## Phase 3: Contact page (`/contact-me`)
 
