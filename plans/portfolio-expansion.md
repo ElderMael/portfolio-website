@@ -79,8 +79,13 @@ presents Miguel's engineering summary and work history.
 
 ## Task 4: Review and handoff
 
-- [ ] Review claims, company associations, visual treatment, motion controls,
-      and accessibility with Miguel; resolve or explicitly record gaps.
-- [ ] Run tests, lint, build, and relevant deployment/direct-route checks.
-      Retain remaining assistive-technology and full-page review items from
-      `plans/portfolio-redesign.md`.
+- [x] Review claims, company associations, visual treatment, and motion
+      controls with Miguel. He approved the first home and About versions;
+      older history boundary months and eventual logo permissions remain for
+      future review. Experience durations are explicitly labeled resume figures.
+- [x] Run tests, lint, build, and relevant local direct-route checks. All 23
+      tests passed, and a network-isolated Docker container returned the app
+      shell for `/`, `/about`, `/social`, `/contact-me`, and `/unknown`.
+      Chrome checks confirmed both marquees display a static wrapped list when
+      paused or under reduced motion. Public deployment, assistive-technology,
+      and full-page manual reviews remain outstanding.
