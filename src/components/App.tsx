@@ -66,9 +66,20 @@ export default function App() {
                 <header className="site-header">
                     <Link className="site-brand" to="/" aria-label="Miguel Enriquez home">MIGUEL <span>/</span> ENRIQUEZ</Link>
                     <Navigation />
-                    <button className="theme-toggle" type="button" aria-pressed={theme === 'lighter'}
+                    <button className="theme-toggle" type="button" aria-label="THEME: Enable Low Light"
+                            aria-pressed={theme === 'lighter'}
                             onClick={() => setTheme(theme === 'dark' ? 'lighter' : 'dark')}>
-                        Green-black theme
+                        <span className="theme-toggle-label">THEME</span>
+                        <span className="theme-toggle-rocker" aria-hidden="true">
+                            <span className={`theme-toggle-position${theme === 'dark' ? ' is-selected' : ''}`}>
+                                {theme === 'dark' && <span className="theme-toggle-marker">◆</span>}
+                                NIGHT
+                            </span>
+                            <span className={`theme-toggle-position${theme === 'lighter' ? ' is-selected' : ''}`}>
+                                {theme === 'lighter' && <span className="theme-toggle-marker">◆</span>}
+                                LOW LIGHT
+                            </span>
+                        </span>
                     </button>
                 </header>
                 <Routes>

@@ -161,16 +161,26 @@ describe('application routes', () => {
     expect(submitEvent.defaultPrevented).toBe(true);
   });
 
-  it('defaults to the dark theme, persists theme changes, and provides a pause control', () => {
+  it('defaults to NIGHT, persists theme changes, and provides a pause control', () => {
     window.localStorage.clear();
     window.history.replaceState({}, '', '/');
     render(<App />);
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
-    const themeButton = screen.getByRole('button', { name: /green-black theme/i });
+    const themeButton = screen.getByRole('button', { name: 'THEME: Enable Low Light' });
+    expect(themeButton).toHaveAttribute('aria-pressed', 'false');
+    expect(within(themeButton).getByText('THEME')).toBeInTheDocument();
+    expect(within(themeButton).getByText('NIGHT')).toHaveClass('is-selected');
+    expect(within(themeButton).getByText('LOW LIGHT')).not.toHaveClass('is-selected');
     fireEvent.click(themeButton);
     expect(document.documentElement).toHaveAttribute('data-theme', 'lighter');
     expect(window.localStorage.getItem('portfolio-theme')).toBe('lighter');
     expect(themeButton).toHaveAttribute('aria-pressed', 'true');
+    expect(within(themeButton).getByText('NIGHT')).not.toHaveClass('is-selected');
+    expect(within(themeButton).getByText('LOW LIGHT')).toHaveClass('is-selected');
+    fireEvent.click(themeButton);
+    expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+    expect(window.localStorage.getItem('portfolio-theme')).toBe('dark');
+    expect(themeButton).toHaveAttribute('aria-pressed', 'false');
 
     const pauseButton = screen.getByRole('button', { name: 'Pause or resume background animation' });
     const siteShell = document.querySelector('.site-shell');
@@ -197,7 +207,7 @@ describe('application routes', () => {
     window.history.replaceState({}, '', '/');
     render(<App />);
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
-    fireEvent.click(screen.getByRole('button', { name: /green-black theme/i }));
+    fireEvent.click(screen.getByRole('button', { name: 'THEME: Enable Low Light' }));
     expect(document.documentElement).toHaveAttribute('data-theme', 'lighter');
   });
 
