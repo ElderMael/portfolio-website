@@ -76,10 +76,9 @@ export function Home() {
                     and Greyshore, along with mentorship at ThoughtWorks.
                 </p>
                 <p className="home-project-note">
-                    Also: <a href="https://github.com/ElderMael/neo-pokepet-pi" target="_blank" rel="noreferrer">neo-pokepet-pi</a>,
-                    my fork of <a href="https://github.com/djdiptayan1/pi-pokepet" target="_blank" rel="noreferrer">pi-pokepet</a> by djdiptayan.
-                    The in-terminal sprite functionality comes from a contribution by{' '}
-                    <a href="https://github.com/djdiptayan1/pi-pokepet/pull/15" target="_blank" rel="noreferrer">aryantuntune</a>.
+                    <a href="https://github.com/ElderMael/neo-pokepet-pi" target="_blank" rel="noreferrer">neo-pokepet-pi</a>:
+                    my fork of <a href="https://github.com/djdiptayan1/pi-pokepet" target="_blank" rel="noreferrer">djdiptayan’s pi-pokepet</a>;
+                    terminal sprites by <a href="https://github.com/djdiptayan1/pi-pokepet/pull/15" target="_blank" rel="noreferrer">aryantuntune</a>.
                 </p>
             </section>
 

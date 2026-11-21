@@ -185,9 +185,11 @@ unavailable checks rather than claiming unperformed visual verification.
   confirmed his current title as Principal Software Engineer at Nextdata. The
   resume describes work across Nextdata OS, pilot-client features, field
   engineering, and customer onboarding. Miguel also wants infrastructure and
-  platform engineering included. Confirm specific claims and
-  permissions before publication; company product claims are not personal
-  achievements. Miguel chose a named highlight, with final wording for review.
+  platform engineering included. Miguel approved the implemented summary:
+  “Principal Software Engineer working across Nextdata OS, infrastructure and
+  platform engineering, field engineering, and customer onboarding.” Company
+  product claims are not personal achievements; confirm permissions before
+  publishing any additional details.
 - The resume also describes platform engineering and mentorship at ThoughtWorks,
   platform and cloud work at Greyshore, and PirateDevRadio. Treat its dates,
   metrics, and descriptions as leads for Miguel to review, not verified claims.
@@ -195,8 +197,8 @@ unavailable checks rather than claiming unperformed visual verification.
   as a potential public-project highlight. He created the fork to make sprite
   functionality work; the sprite contribution itself came from another person.
   Credit the original pi-pokepet project and avoid attributing the sprite
-  contribution to Miguel. Present it as a secondary link and confirm final
-  wording with him. He also chose to highlight
+  contribution to Miguel. Miguel approved the concise secondary-link wording
+  crediting djdiptayan and aryantuntune. He also chose to highlight
   both merged OpenTelemetry contributions: a
   [Helm chart webhook fix](https://github.com/open-telemetry/opentelemetry-helm-charts/pull/1391)
   and [ClickHouse exporter DDL documentation](https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/35903).
@@ -250,8 +252,8 @@ still need a real-browser review.
 - [x] Create the approved introduction, audience-appropriate calls to action,
       and concise expertise sections; use Miguel's own positioning and voice.
 - [x] Add experience and selected-work content based on the discovery review,
-      without invented outcomes or empty case-study cards. Miguel's final review
-      of the exact Nextdata and neo-pokepet-pi wording remains outstanding.
+      without invented outcomes or empty case-study cards. Miguel approved the
+      Nextdata summary and concise neo-pokepet-pi attribution.
 - [ ] Add imagery inspired by the reference site's editorial use of images,
       using Miguel-approved portraits or project visuals rather than copying
       the reference. Confirm permissions and select assets with Miguel; provide
