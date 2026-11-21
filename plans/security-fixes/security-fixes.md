@@ -51,12 +51,6 @@ migration evidence and blockers.
   protection enabled).
 - All code changes are covered by at least one unit test or functional test.
 
-## Timeline
-- **Week 1**: Dependency upgrades, SRI implementation, Netlify headers.
-- **Week 2**: Docker/K8s hardening, build consistency, spam protection, and
-  component fixes.
-- **Week 3**: Documentation, final audit, peer review, merge to main.
-
 ## Risks & Mitigations
 - **Dependency lock-in**: Use semantic versioning; test upgrades in a
   separate branch before merging.
