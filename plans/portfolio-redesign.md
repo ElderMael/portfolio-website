@@ -289,8 +289,9 @@ remains untested and requires permission before sending a test message.
 ### Task 5: Streamline community destinations
 
 Miguel approved the responsive social redesign. Facebook and the old Anchor
-link are omitted; X remains omitted until a destination is verified. Twitch
-and TikTok profile checks remain outstanding before release.
+link are omitted. Miguel supplied [his X profile](https://x.com/eldermael),
+which was verified and added as a secondary link. Twitch and TikTok profile
+checks remain outstanding before release.
 
 - [x] Reorganize links around the approved priorities for professional work,
       PirateDevRadio, and community.

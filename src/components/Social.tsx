@@ -80,13 +80,18 @@ const secondaryLinks = [
         icon: faNewspaper,
         style: 'substack',
     },
+    {
+        name: 'X',
+        href: 'https://x.com/eldermael',
+        style: 'x',
+    },
 ];
 
 type SocialLink = {
     name: string;
     href: string;
     description?: string;
-    icon: IconDefinition;
+    icon?: IconDefinition;
     style: string;
 };
 
@@ -100,7 +105,7 @@ function ProfileCard({link, featured = false}: {link: SocialLink; featured?: boo
             aria-label={`${link.name} (opens in a new tab)`}
         >
             <span className="social-link-icon" aria-hidden="true">
-                <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />
+                {link.icon && <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />}
             </span>
             <span className="social-link-copy">
                 <span className="social-link-name">{link.name}</span>
@@ -144,7 +149,7 @@ export function Social() {
                 <div className="social-panel social-secondary-panel">
                     <div className="social-section-heading">
                         <p className="social-eyebrow">03 / More</p>
-                        <h2 id="social-secondary-title">Support and newsletter.</h2>
+                        <h2 id="social-secondary-title">More ways to connect.</h2>
                     </div>
                     <ul className="social-secondary-list">
                         {secondaryLinks.map(link => (
@@ -157,7 +162,7 @@ export function Social() {
                                     aria-label={`${link.name} (opens in a new tab)`}
                                 >
                                     <span className="social-link-icon" aria-hidden="true">
-                                        <FontAwesomeIcon className="social-fa-icon" icon={link.icon} />
+                                        {link.icon ? <FontAwesomeIcon className="social-fa-icon" icon={link.icon} /> : 'X'}
                                     </span>
                                     <span>{link.name}</span>
                                     <span className="social-link-arrow" aria-hidden="true">↗</span>

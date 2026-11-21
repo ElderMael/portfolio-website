@@ -27,22 +27,23 @@ describe('Social page', () => {
     it('keeps verified secondary links and excludes retired or unverified destinations', () => {
         render(<Social />);
 
-        const secondarySection = screen.getByRole('region', {name: 'Support and newsletter.'});
+        const secondarySection = screen.getByRole('region', {name: 'More ways to connect.'});
         expect(within(secondarySection).getAllByRole('link').map(link => link.getAttribute('href'))).toEqual([
             'https://www.patreon.com/eldermael',
             'https://ko-fi.com/eldermael',
             'https://piratedevradio.substack.com/',
+            'https://x.com/eldermael',
         ]);
         expect(screen.queryByRole('link', {name: /facebook/i})).not.toBeInTheDocument();
         expect(screen.queryByRole('link', {name: /anchor/i})).not.toBeInTheDocument();
-        expect(screen.queryByRole('link', {name: /x\s*\(/i})).not.toBeInTheDocument();
+        expect(screen.getByRole('link', {name: 'X (opens in a new tab)'})).toHaveAttribute('href', 'https://x.com/eldermael');
     });
 
     it('gives external links an accessible name and safe new-tab behavior', () => {
         render(<Social />);
 
         const links = screen.getAllByRole('link').filter(link => link.hasAttribute('target'));
-        expect(links).toHaveLength(9);
+        expect(links).toHaveLength(10);
         links.forEach(link => {
             expect(link).toHaveAttribute('target', '_blank');
             expect(link).toHaveAttribute('rel', 'noopener noreferrer');
