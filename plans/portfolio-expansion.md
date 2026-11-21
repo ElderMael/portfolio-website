@@ -97,3 +97,9 @@ presents Miguel's engineering summary and work history.
       contrast cases for review; solid gradient endpoint pairs were checked.
       An actual screen-reader and physical-device accessibility audit remains
       outstanding.
+
+## Task 5: Approved leadership copy
+
+- [x] Replace the provisional home work-process wording with Miguel-approved
+      leadership-focused copy, retaining the existing structure and classes.
+- [x] Cover the section heading and all four cards in the home tests.

@@ -60,18 +60,30 @@ describe('home experience panels', () => {
     });
   });
 
-  it('presents work-process themes as provisional rather than a promised sequence', () => {
+  it('presents the approved leadership section and its four cards', () => {
     render(<MemoryRouter><Home /></MemoryRouter>);
 
-    const process = screen.getByRole('region', { name: 'Some themes that inform my work.' });
-    expect(process).toHaveTextContent('Work process · provisional');
-    expect(process).toHaveTextContent('not a fixed sequence or a promise about every engagement');
-    expect(within(process).getByRole('heading', { name: 'Evolve platforms and architecture' }))
-      .toBeInTheDocument();
-    expect(within(process).getByRole('heading', { name: 'Integrate systems' })).toBeInTheDocument();
-    expect(within(process).getByRole('heading', { name: 'Consider operational practices' }))
-      .toBeInTheDocument();
-    expect(within(process).getByRole('heading', { name: 'Share knowledge' })).toBeInTheDocument();
+    const process = screen.getByRole('region', { name: 'Leading through the work.' });
+    expect(within(process).getByText('How I lead')).toBeInTheDocument();
+    expect(within(process).getByText(
+      'I stay hands-on, guiding technical work through collaboration, practical engineering, and shared learning.',
+    )).toBeInTheDocument();
+    const cards = [
+      ['Platforms & architecture',
+        'I help shape and evolve platforms and architecture around product and developer needs.'],
+      ['Integration & collaboration',
+        'I work on systems integration alongside engineers, including customer engineers where relevant.'],
+      ['Engineering & operations',
+        'I bring observability, security, and CI/CD into technical conversations and engineering work.'],
+      ['Mentoring & leadership',
+        'I mentor engineers, support their growth, and help them develop the skills and confidence to lead.'],
+    ];
+    expect(within(process).getAllByRole('article')).toHaveLength(4);
+    cards.forEach(([heading, description]) => {
+      const card = within(process).getByRole('heading', { name: heading }).closest('article');
+      expect(card).not.toBeNull();
+      expect(within(card!).getByText(description)).toBeInTheDocument();
+    });
   });
 
   it('keeps the approved experience copy and links accessible', () => {

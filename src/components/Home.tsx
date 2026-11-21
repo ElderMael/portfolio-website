@@ -184,28 +184,28 @@ export function Home() {
 
             <section className="home-section home-process" aria-labelledby="process-title">
                 <div className="home-section-heading paper-panel">
-                    <p className="home-eyebrow">Work process · provisional</p>
+                    <p className="home-eyebrow">How I lead</p>
                     <div>
-                        <h2 id="process-title">Some themes that inform my work.</h2>
-                        <p>These are draft themes, not a fixed sequence or a promise about every engagement.</p>
+                        <h2 id="process-title">Leading through the work.</h2>
+                        <p>I stay hands-on, guiding technical work through collaboration, practical engineering, and shared learning.</p>
                     </div>
                 </div>
                 <div className="home-process-grid">
                     <article className="home-card">
-                        <h3>Evolve platforms and architecture</h3>
-                        <p>In response to product and developer needs.</p>
+                        <h3>Platforms &amp; architecture</h3>
+                        <p>I help shape and evolve platforms and architecture around product and developer needs.</p>
                     </article>
                     <article className="home-card">
-                        <h3>Integrate systems</h3>
-                        <p>Work alongside customer engineers where relevant.</p>
+                        <h3>Integration &amp; collaboration</h3>
+                        <p>I work on systems integration alongside engineers, including customer engineers where relevant.</p>
                     </article>
                     <article className="home-card">
-                        <h3>Consider operational practices</h3>
-                        <p>Include observability, security, and CI/CD as part of engineering work.</p>
+                        <h3>Engineering &amp; operations</h3>
+                        <p>I bring observability, security, and CI/CD into technical conversations and engineering work.</p>
                     </article>
                     <article className="home-card">
-                        <h3>Share knowledge</h3>
-                        <p>Through mentoring and collaboration.</p>
+                        <h3>Mentoring &amp; leadership</h3>
+                        <p>I mentor engineers, support their growth, and help them develop the skills and confidence to lead.</p>
                     </article>
                 </div>
             </section>
