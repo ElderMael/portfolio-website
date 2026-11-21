@@ -306,8 +306,8 @@ and TikTok profile checks remain outstanding before release.
 - [ ] If discovery approves a separate page, create one phase per page, with
       its own content, implementation, and verification tasks before work
       begins. Use only approved, verifiable material and working destinations.
-- [ ] If no additional page is needed, record that decision and close this task
-      without creating a placeholder page.
+- [x] No additional page is currently approved or needed; close this task
+      without creating a placeholder page. Selected work remains on home.
 
 ## Phase 6: Cross-site release review
 
