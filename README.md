@@ -28,6 +28,15 @@ The service worker remains unregistered. Startup only cleans up an existing
 registration left by an older version. Production output targets modern browsers
 (ES2020); it no longer targets CRA's broader Browserslist set.
 
+## Netlify CLI
+
+The Netlify CLI is pinned as a project-scoped mise tool, not an app dependency.
+Install project tools with `mise install`, then authenticate interactively with
+`mise exec -- netlify login`. Never paste credentials or tokens into chat,
+commands, or project files. To connect this folder to an existing Netlify site,
+run `mise exec -- netlify link --name <existing-site-name>` and inspect it with
+`mise exec -- netlify status`. Do not use `netlify init` or `netlify deploy`.
+
 ## Security
 
 The site loads the redesign fonts from Google Fonts, bundles icons locally,
