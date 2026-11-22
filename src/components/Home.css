@@ -238,6 +238,18 @@
   text-align: right;
 }
 
+.home-portrait {
+  display: block;
+  width: min(100%, 250px);
+  height: auto;
+  margin: 1.25rem 0 0 auto;
+  border: 1px solid var(--line);
+  outline: 1px solid rgb(206 209 155 / 22%);
+  outline-offset: 4px;
+  background: #111a16;
+  box-shadow: 5px 5px 0 var(--page), 8px 8px 0 var(--line), 0 18px 30px #0007;
+}
+
 @keyframes circuitry-wheel-clockwise {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -669,6 +681,7 @@ a.home-marquee-item-label:focus-visible,
 }
 
 @media (max-width: 700px) {
+  .home-portrait { width: min(100%, 210px); }
   .home-marquee-viewport { margin-right: .5rem; margin-left: .5rem; }
   .home-technology-marquee .home-marquee-item { width: 10rem; }
   .home-process-grid { grid-template-columns: 1fr; padding-left: .5rem; }

@@ -7,6 +7,26 @@ import { Home } from './Home';
 afterEach(cleanup);
 
 describe('home experience panels', () => {
+  it('shows a restrained local portrait below the circuitry caption', () => {
+    render(<MemoryRouter><Home /></MemoryRouter>);
+
+    const aside = document.querySelector('.home-hero-aside');
+    const circuitry = aside?.querySelector('.circuitry-stage');
+    const caption = within(aside as HTMLElement).getByText('01 / BUILD · SHARE · LEARN · LEAD');
+    const portrait = within(aside as HTMLElement).getByRole('img', {
+      name: 'Miguel Enriquez at his workstation',
+    });
+
+    expect(portrait).toHaveAttribute('src', '/miguel-workstation.webp');
+    expect(portrait).toHaveAttribute('width', '600');
+    expect(portrait).toHaveAttribute('height', '528');
+    expect(portrait).toHaveAttribute('loading', 'lazy');
+    expect(portrait).toHaveClass('home-portrait');
+    expect(circuitry).not.toBeNull();
+    expect(circuitry!.compareDocumentPosition(caption) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(caption.compareDocumentPosition(portrait) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(aside?.querySelector('.circuitry-stage')).toBeInTheDocument();
+  });
   it('presents selected employers and technologies once to assistive technology', () => {
     render(<MemoryRouter><Home /></MemoryRouter>);
 

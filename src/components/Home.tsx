@@ -131,6 +131,9 @@ export function Home() {
                         <span className="circuitry-scan" />
                     </div>
                     <span className="home-hero-caption">01 / BUILD · SHARE · LEARN · LEAD</span>
+                    <img className="home-portrait" src="/miguel-workstation.webp"
+                         alt="Miguel Enriquez at his workstation"
+                         width="600" height="528" loading="lazy" decoding="async" />
                 </div>
             </section>
 
