@@ -186,12 +186,15 @@ describe('application routes', () => {
     const pauseButton = screen.getByRole('button', { name: 'Pause or resume background animation' });
     const siteShell = document.querySelector('.site-shell');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'false');
-    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(1);
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
     const employerList = within(screen.getByRole('region', {
       name: 'Organizations I have worked for.',
     })).getByRole('list', { name: 'Selected employers' });
-    expect(within(employerList).getAllByRole('link')).toHaveLength(4);
-    expect(employerList.closest('.home-marquee-track')).toBeNull();
+    expect(within(employerList).getAllByRole('link')).toHaveLength(6);
+    expect(within(employerList).getByText('4F Systems')).toBeInTheDocument();
+    expect(employerList.closest('.home-marquee-track')).toBeInTheDocument();
+    expect(employerList.closest('.home-employer-marquee'))
+      ?.toHaveClass('home-employer-marquee');
     expect(siteShell?.querySelector('.home-technology-marquee .home-marquee-track'))
       .toBeInTheDocument();
     expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
@@ -199,8 +202,11 @@ describe('application routes', () => {
     expect(screen.getByRole('button', { name: 'Pause or resume background animation' }))
       .toHaveAttribute('aria-pressed', 'true');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'true');
-    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(1);
-    expect(within(employerList).getAllByRole('link')).toHaveLength(4);
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
+    expect(within(employerList).getAllByRole('link')).toHaveLength(6);
+    expect(within(employerList).getAllByRole('listitem')).toHaveLength(7);
+    expect(siteShell?.querySelector('.home-employer-marquee-duplicate'))
+      ?.toHaveAttribute('aria-hidden', 'true');
     expect(siteShell?.querySelector('.home-technology-marquee .home-marquee-track'))
       .toBeInTheDocument();
     expect(screen.getByAltText('')).toHaveAttribute('src', '/circuitry.svg');

@@ -10,6 +10,9 @@ const employers: MarqueeItem[] = [
     { label: 'InDebted', detail: 'Former employer' },
     { label: 'greyshore', detail: 'Former employer' },
     { label: 'Thoughtworks', detail: 'Former employer' },
+    { label: 'Softtek', detail: 'Former employer' },
+    { label: 'Accenture', detail: 'Former employer' },
+    { label: '4F Systems', detail: 'Former employer' },
 ];
 
 const technologies: MarqueeItem[] = [
@@ -32,6 +35,38 @@ const technologies: MarqueeItem[] = [
     { label: 'React' },
     { label: 'Node.js', detail: 'resume: 4 years' },
 ];
+
+function EmployerMarquee() {
+    const renderItems = (decorative = false) => employers.map((employer) => {
+        const website = decorative ? undefined : getEmployerWebsite(employer.label);
+        return (
+            <li className="home-marquee-item" key={employer.label}>
+                {website ? (
+                    <a className="home-marquee-item-label" href={website} target="_blank" rel="noopener noreferrer">
+                        {employer.label}<span aria-hidden="true"> ↗</span>
+                    </a>
+                ) : (
+                    <span className="home-marquee-item-label">{employer.label}</span>
+                )}
+                {employer.detail && <span className="home-marquee-item-detail">{employer.detail}</span>}
+            </li>
+        );
+    });
+
+    return (
+        <div className="home-employer-marquee home-marquee-viewport">
+            <div className="home-marquee-track">
+                <ul className="home-marquee-items home-employer-marquee-items" aria-label="Selected employers" role="list">
+                    {renderItems()}
+                </ul>
+                <ul className="home-marquee-items home-employer-marquee-items home-employer-marquee-duplicate"
+                    aria-hidden="true">
+                    {renderItems(true)}
+                </ul>
+            </div>
+        </div>
+    );
+}
 
 function HomeMarquee({
     items,
@@ -131,23 +166,7 @@ export function Home() {
                         <p>Current and former employment relationships, not client affiliations.</p>
                     </div>
                 </div>
-                <ul className="home-employer-list" aria-label="Selected employers" role="list">
-                    {employers.map((employer) => {
-                        const website = getEmployerWebsite(employer.label);
-                        return (
-                            <li className="home-marquee-item" key={employer.label}>
-                                {website ? (
-                                    <a className="home-marquee-item-label" href={website} target="_blank" rel="noopener noreferrer">
-                                        {employer.label}<span aria-hidden="true"> ↗</span>
-                                    </a>
-                                ) : (
-                                    <span className="home-marquee-item-label">{employer.label}</span>
-                                )}
-                                {employer.detail && <span className="home-marquee-item-detail">{employer.detail}</span>}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <EmployerMarquee />
             </section>
 
             <section className="home-section home-marquee-section" aria-labelledby="technologies-title">

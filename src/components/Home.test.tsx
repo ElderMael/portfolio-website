@@ -1,4 +1,5 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Home } from './Home';
@@ -13,29 +14,44 @@ describe('home experience panels', () => {
       name: 'Organizations I have worked for.',
     });
     const employerList = within(employersSection).getByRole('list', { name: 'Selected employers' });
-    expect(within(employerList).getAllByRole('listitem')).toHaveLength(4);
-    const employerLinks = [
+    expect(within(employerList).getAllByRole('listitem')).toHaveLength(7);
+    const employerLinks: [string, string | undefined][] = [
       ['Nextdata', 'https://www.nextdata.com/'],
       ['InDebted', 'https://www.indebted.co/en-us/'],
       ['greyshore', 'https://greyshore.com/'],
       ['Thoughtworks', 'https://www.thoughtworks.com/'],
+      ['Softtek', 'https://www.softtek.com/'],
+      ['Accenture', 'https://www.accenture.com/en/about/company-index'],
+      ['4F Systems', undefined],
     ];
     employerLinks.forEach(([name, href]) => {
-      const link = within(employerList).getByRole('link', { name: new RegExp(name) });
-      expect(link).toHaveAttribute('href', href);
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      if (href) {
+        const link = within(employerList).getByRole('link', { name: new RegExp(name) });
+        expect(link).toHaveAttribute('href', href);
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      } else {
+        expect(within(employerList).getByText(name)).toBeInTheDocument();
+        expect(within(employerList).queryByRole('link', { name: new RegExp(name) })).toBeNull();
+      }
     });
-    expect(employersSection.querySelectorAll('.home-employer-list a')).toHaveLength(4);
-    expect(employersSection.querySelector('.home-employer-list[aria-hidden="true"]')).toBeNull();
+    expect(employersSection.querySelectorAll('.home-employer-marquee-items[aria-hidden="true"] a'))
+      .toHaveLength(0);
+    expect(employersSection.querySelectorAll('.home-employer-marquee-duplicate span.home-marquee-item-label'))
+      .toHaveLength(7);
+    expect(employersSection.querySelector('.home-employer-marquee-duplicate'))
+      .toHaveAttribute('aria-hidden', 'true');
+    expect(employersSection.querySelector('.home-marquee-track')).toBeInTheDocument();
     expect(within(employerList).getByText('Nextdata')).toBeInTheDocument();
     expect(within(employerList).getByText('Current employer')).toBeInTheDocument();
     expect(within(employerList).getByText('InDebted')).toBeInTheDocument();
     expect(within(employerList).getByText('greyshore')).toBeInTheDocument();
     expect(within(employerList).getByText('Thoughtworks')).toBeInTheDocument();
+    expect(within(employerList).getByText('Softtek')).toBeInTheDocument();
+    expect(within(employerList).getByText('Accenture')).toBeInTheDocument();
+    expect(within(employerList).getByText('4F Systems')).toBeInTheDocument();
     expect(employersSection).toHaveTextContent('not client affiliations');
     expect(employersSection.querySelector('img')).toBeNull();
-    expect(employersSection.querySelector('.home-marquee-track')).toBeNull();
 
     const technologiesSection = screen.getByRole('region', {
       name: 'Technologies represented in my experience.',
@@ -73,6 +89,23 @@ describe('home experience panels', () => {
       const item = within(technologyList).getByText(technology).closest('li');
       expect(item?.querySelector('.home-marquee-item-detail')).toBeNull();
     });
+  });
+
+  it('keeps all employer links reachable in order by keyboard', async () => {
+    render(<MemoryRouter><Home /></MemoryRouter>);
+    const user = userEvent.setup();
+    const list = screen.getByRole('list', { name: 'Selected employers' });
+    const names = ['Nextdata', 'InDebted', 'greyshore', 'Thoughtworks', 'Softtek', 'Accenture'];
+    const links = within(list).getAllByRole('link');
+    expect(links).toHaveLength(names.length);
+    links[0].focus();
+    for (const [index, name] of names.entries()) {
+      if (index > 0) await user.tab();
+      expect(links[index]).toHaveFocus();
+      expect(links[index]).toHaveTextContent(name);
+    }
+    expect(list.parentElement).toHaveClass('home-marquee-track');
+    expect(list.parentElement?.parentElement).toHaveClass('home-employer-marquee');
   });
 
   it('presents the approved leadership section and its four cards', () => {

@@ -574,18 +574,24 @@
   background: var(--page);
 }
 .home-technology-marquee .home-marquee-item { width: 11.5rem; }
-.home-employer-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .85rem;
-  margin: 0 1rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--accent);
-  background: var(--surface);
-  list-style: none;
+.home-employer-marquee .home-marquee-track { animation-duration: 38s; }
+.home-employer-marquee-items .home-marquee-item { min-width: 11rem; }
+.home-employer-marquee:focus-within { overflow: visible; }
+.home-employer-marquee:focus-within .home-marquee-track {
+  display: block;
+  width: 100%;
+  animation: none;
+  transform: none;
+  will-change: auto;
 }
-.home-employer-list .home-marquee-item { flex: 1 1 13.5rem; min-width: 0; }
+.home-employer-marquee:focus-within .home-employer-marquee-items {
+  width: 100%;
+  flex-wrap: wrap;
+  padding: .75rem;
+}
+.home-employer-marquee:focus-within .home-marquee-item { flex: 1 1 11rem; min-width: 0; }
+.home-employer-marquee:focus-within .home-employer-marquee-duplicate { display: none; }
+.home-employer-marquee:hover .home-marquee-track { animation-play-state: paused; }
 .home-marquee-item-label {
   color: var(--text);
   font: 600 1rem/1.35 'IBM Plex Mono', monospace;
@@ -619,6 +625,10 @@ a.home-marquee-item-label:focus-visible,
 }
 .site-shell[data-motion-paused='true'] .home-marquee-items[aria-hidden='true'] {
   display: none;
+}
+.site-shell[data-motion-paused='true'] .home-employer-marquee-items .home-marquee-item {
+  flex: 1 1 11rem;
+  min-width: 0;
 }
 .home-process-grid {
   display: grid;
@@ -660,7 +670,6 @@ a.home-marquee-item-label:focus-visible,
 
 @media (max-width: 700px) {
   .home-marquee-viewport { margin-right: .5rem; margin-left: .5rem; }
-  .home-employer-list { margin-right: .5rem; margin-left: .5rem; padding: .75rem; }
   .home-technology-marquee .home-marquee-item { width: 10rem; }
   .home-process-grid { grid-template-columns: 1fr; padding-left: .5rem; }
   .home-principles-list { padding-left: .5rem; }
@@ -681,4 +690,5 @@ a.home-marquee-item-label:focus-visible,
     padding: .5rem;
   }
   .home-marquee-items[aria-hidden='true'] { display: none; }
+  .home-employer-marquee-items .home-marquee-item { flex: 1 1 11rem; min-width: 0; }
 }
