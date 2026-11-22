@@ -132,8 +132,8 @@ export function Home() {
                     </div>
                     <span className="home-hero-caption">01 / BUILD · SHARE · LEARN · LEAD</span>
                     <img className="home-portrait" src="/miguel-workstation.webp"
-                         alt="Miguel Enriquez at his workstation"
-                         width="600" height="528" loading="lazy" decoding="async" />
+                         alt="Miguel Enriquez at his workstation with monitors and audio gear"
+                         width="1400" height="776" loading="lazy" decoding="async" />
                 </div>
             </section>
 

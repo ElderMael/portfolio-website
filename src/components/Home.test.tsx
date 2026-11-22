@@ -14,12 +14,12 @@ describe('home experience panels', () => {
     const circuitry = aside?.querySelector('.circuitry-stage');
     const caption = within(aside as HTMLElement).getByText('01 / BUILD · SHARE · LEARN · LEAD');
     const portrait = within(aside as HTMLElement).getByRole('img', {
-      name: 'Miguel Enriquez at his workstation',
+      name: 'Miguel Enriquez at his workstation with monitors and audio gear',
     });
 
     expect(portrait).toHaveAttribute('src', '/miguel-workstation.webp');
-    expect(portrait).toHaveAttribute('width', '600');
-    expect(portrait).toHaveAttribute('height', '528');
+    expect(portrait).toHaveAttribute('width', '1400');
+    expect(portrait).toHaveAttribute('height', '776');
     expect(portrait).toHaveAttribute('loading', 'lazy');
     expect(portrait).toHaveClass('home-portrait');
     expect(circuitry).not.toBeNull();

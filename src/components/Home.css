@@ -240,7 +240,7 @@
 
 .home-portrait {
   display: block;
-  width: min(100%, 250px);
+  width: min(100%, 430px);
   height: auto;
   margin: 1.25rem 0 0 auto;
   border: 1px solid var(--line);
@@ -681,7 +681,7 @@ a.home-marquee-item-label:focus-visible,
 }
 
 @media (max-width: 700px) {
-  .home-portrait { width: min(100%, 210px); }
+  .home-portrait { width: 100%; }
   .home-marquee-viewport { margin-right: .5rem; margin-left: .5rem; }
   .home-technology-marquee .home-marquee-item { width: 10rem; }
   .home-process-grid { grid-template-columns: 1fr; padding-left: .5rem; }
