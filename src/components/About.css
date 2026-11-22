@@ -134,6 +134,8 @@
   letter-spacing: .08em;
   text-transform: uppercase;
 }
+.about-employer a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+.about-employer a:hover { color: var(--text); }
 
 .about-history-card h3 {
   margin: 0;

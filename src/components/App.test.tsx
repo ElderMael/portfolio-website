@@ -186,13 +186,23 @@ describe('application routes', () => {
     const pauseButton = screen.getByRole('button', { name: 'Pause or resume background animation' });
     const siteShell = document.querySelector('.site-shell');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'false');
-    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(1);
+    const employerList = within(screen.getByRole('region', {
+      name: 'Organizations I have worked for.',
+    })).getByRole('list', { name: 'Selected employers' });
+    expect(within(employerList).getAllByRole('link')).toHaveLength(4);
+    expect(employerList.closest('.home-marquee-track')).toBeNull();
+    expect(siteShell?.querySelector('.home-technology-marquee .home-marquee-track'))
+      .toBeInTheDocument();
     expect(pauseButton).toHaveAttribute('aria-pressed', 'false');
     fireEvent.click(pauseButton);
     expect(screen.getByRole('button', { name: 'Pause or resume background animation' }))
       .toHaveAttribute('aria-pressed', 'true');
     expect(siteShell).toHaveAttribute('data-motion-paused', 'true');
-    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(2);
+    expect(siteShell?.querySelectorAll('.home-marquee-track')).toHaveLength(1);
+    expect(within(employerList).getAllByRole('link')).toHaveLength(4);
+    expect(siteShell?.querySelector('.home-technology-marquee .home-marquee-track'))
+      .toBeInTheDocument();
     expect(screen.getByAltText('')).toHaveAttribute('src', '/circuitry.svg');
     expect(document.querySelector('.circuitry-stage')).toHaveAttribute('aria-hidden', 'true');
     expect(document.querySelectorAll('.circuitry-wheel')).toHaveLength(2);

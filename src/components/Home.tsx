@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getEmployerWebsite } from './employerLinks';
 import './Home.css';
 
 type MarqueeItem = { label: string; detail?: string };
@@ -130,7 +131,23 @@ export function Home() {
                         <p>Current and former employment relationships, not client affiliations.</p>
                     </div>
                 </div>
-                <HomeMarquee items={employers} label="Selected employers" className="home-employer-marquee" />
+                <ul className="home-employer-list" aria-label="Selected employers" role="list">
+                    {employers.map((employer) => {
+                        const website = getEmployerWebsite(employer.label);
+                        return (
+                            <li className="home-marquee-item" key={employer.label}>
+                                {website ? (
+                                    <a className="home-marquee-item-label" href={website} target="_blank" rel="noopener noreferrer">
+                                        {employer.label}<span aria-hidden="true"> ↗</span>
+                                    </a>
+                                ) : (
+                                    <span className="home-marquee-item-label">{employer.label}</span>
+                                )}
+                                {employer.detail && <span className="home-marquee-item-detail">{employer.detail}</span>}
+                            </li>
+                        );
+                    })}
+                </ul>
             </section>
 
             <section className="home-section home-marquee-section" aria-labelledby="technologies-title">

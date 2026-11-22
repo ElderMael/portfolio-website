@@ -1,4 +1,5 @@
 import React from 'react';
+import { getEmployerWebsite } from './employerLinks';
 import './About.css';
 
 type WorkEntry = {
@@ -92,6 +93,7 @@ const workHistory: WorkEntry[] = [
 ];
 
 function HistoryEntry({ entry, index }: { entry: WorkEntry; index: number }) {
+    const website = getEmployerWebsite(entry.employer);
     return (
         <li className="about-history-item">
             <p className="about-history-date">
@@ -101,7 +103,13 @@ function HistoryEntry({ entry, index }: { entry: WorkEntry; index: number }) {
             </p>
             <article className="about-card about-history-card">
                 <span className="about-card-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <p className="about-employer">{entry.employer}</p>
+                <p className="about-employer">
+                    {website ? (
+                        <a href={website} target="_blank" rel="noopener noreferrer">
+                            {entry.employer} <span aria-hidden="true">↗</span>
+                        </a>
+                    ) : entry.employer}
+                </p>
                 <h3>{entry.role}</h3>
                 {entry.description && <p className="about-history-description">{entry.description}</p>}
             </article>

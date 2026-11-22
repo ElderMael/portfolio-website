@@ -14,6 +14,20 @@ describe('home experience panels', () => {
     });
     const employerList = within(employersSection).getByRole('list', { name: 'Selected employers' });
     expect(within(employerList).getAllByRole('listitem')).toHaveLength(4);
+    const employerLinks = [
+      ['Nextdata', 'https://www.nextdata.com/'],
+      ['InDebted', 'https://www.indebted.co/en-us/'],
+      ['greyshore', 'https://greyshore.com/'],
+      ['Thoughtworks', 'https://www.thoughtworks.com/'],
+    ];
+    employerLinks.forEach(([name, href]) => {
+      const link = within(employerList).getByRole('link', { name: new RegExp(name) });
+      expect(link).toHaveAttribute('href', href);
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+    expect(employersSection.querySelectorAll('.home-employer-list a')).toHaveLength(4);
+    expect(employersSection.querySelector('.home-employer-list[aria-hidden="true"]')).toBeNull();
     expect(within(employerList).getByText('Nextdata')).toBeInTheDocument();
     expect(within(employerList).getByText('Current employer')).toBeInTheDocument();
     expect(within(employerList).getByText('InDebted')).toBeInTheDocument();
@@ -21,8 +35,7 @@ describe('home experience panels', () => {
     expect(within(employerList).getByText('Thoughtworks')).toBeInTheDocument();
     expect(employersSection).toHaveTextContent('not client affiliations');
     expect(employersSection.querySelector('img')).toBeNull();
-    expect(employersSection.querySelector('.home-marquee-items[aria-hidden="true"]'))
-      .toBeInTheDocument();
+    expect(employersSection.querySelector('.home-marquee-track')).toBeNull();
 
     const technologiesSection = screen.getByRole('region', {
       name: 'Technologies represented in my experience.',
@@ -30,6 +43,8 @@ describe('home experience panels', () => {
     const technologyList = within(technologiesSection).getByRole('list', {
       name: 'Selected technologies',
     });
+    expect(technologiesSection.querySelector('.home-marquee-items[aria-hidden="true"]'))
+      .toBeInTheDocument();
     expect(within(technologyList).getAllByRole('listitem')).toHaveLength(18);
     [
       'AWS', 'Microsoft Azure', 'Google Cloud (GCP)', 'Kubernetes', 'Terraform', 'Pulumi',

@@ -550,7 +550,6 @@
   animation: home-marquee-scroll 44s linear infinite;
   will-change: transform;
 }
-.home-employer-marquee .home-marquee-track { animation-duration: 36s; }
 .home-technology-marquee .home-marquee-track { animation-duration: 52s; }
 .home-marquee-items {
   display: flex;
@@ -574,13 +573,27 @@
   border-left: 3px solid var(--accent);
   background: var(--page);
 }
-.home-employer-marquee .home-marquee-item { width: 13.5rem; }
 .home-technology-marquee .home-marquee-item { width: 11.5rem; }
+.home-employer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  background: var(--surface);
+  list-style: none;
+}
+.home-employer-list .home-marquee-item { flex: 1 1 13.5rem; min-width: 0; }
 .home-marquee-item-label {
   color: var(--text);
   font: 600 1rem/1.35 'IBM Plex Mono', monospace;
   overflow-wrap: anywhere;
 }
+a.home-marquee-item-label:hover { color: var(--accent); }
+a.home-marquee-item-label:focus-visible,
+.about-employer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .home-marquee-item-detail {
   color: var(--muted);
   font: 500 .7rem/1.4 'IBM Plex Mono', monospace;
@@ -647,7 +660,7 @@
 
 @media (max-width: 700px) {
   .home-marquee-viewport { margin-right: .5rem; margin-left: .5rem; }
-  .home-employer-marquee .home-marquee-item { width: 11rem; }
+  .home-employer-list { margin-right: .5rem; margin-left: .5rem; padding: .75rem; }
   .home-technology-marquee .home-marquee-item { width: 10rem; }
   .home-process-grid { grid-template-columns: 1fr; padding-left: .5rem; }
   .home-principles-list { padding-left: .5rem; }

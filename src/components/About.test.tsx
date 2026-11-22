@@ -23,6 +23,28 @@ describe('About page', () => {
     expect(screen.getByText('greyshore')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Senior Consultant' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Programmer' })).toBeInTheDocument();
+
+    const verifiedEmployers = [
+      ['Nextdata', 'https://www.nextdata.com/', 2],
+      ['InDebted', 'https://www.indebted.co/en-us/', 1],
+      ['greyshore', 'https://greyshore.com/', 1],
+      ['ThoughtWorks', 'https://www.thoughtworks.com/', 1],
+      ['Softtek', 'https://www.softtek.com/', 2],
+      ['Accenture', 'https://www.accenture.com/en/about/company-index', 1],
+    ] as const;
+    verifiedEmployers.forEach(([name, href, count]) => {
+      const links = within(history).getAllByRole('link', { name: new RegExp(name, 'i') });
+      expect(links).toHaveLength(count);
+      links.forEach((link) => {
+        expect(link).toHaveAttribute('href', href);
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      });
+    });
+    const fourFEntry = entries.find((entry) => within(entry).queryByText('4F Systems'));
+    expect(fourFEntry).toBeDefined();
+    expect(within(fourFEntry!).queryByRole('link')).not.toBeInTheDocument();
+    expect(within(fourFEntry!).getByText('4F Systems')).toBeInTheDocument();
   });
 
   it('includes approved community and contribution links without a resume link', () => {
