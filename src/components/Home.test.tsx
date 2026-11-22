@@ -86,6 +86,32 @@ describe('home experience panels', () => {
     });
   });
 
+  it('presents three draft decision principles after the unchanged leadership cards', () => {
+    render(<MemoryRouter><Home /></MemoryRouter>);
+
+    const process = screen.getByRole('region', { name: 'Leading through the work.' });
+    const principles = screen.getByRole('region', { name: 'Principles behind the practice.' });
+    expect(process.compareDocumentPosition(principles) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(within(principles).getByText('Working principles · draft')).toBeInTheDocument();
+    expect(within(principles).getByRole('heading', { level: 2 })).toBeInTheDocument();
+    const orderedList = within(principles).getByRole('list');
+    const items = within(orderedList).getAllByRole('listitem');
+    expect(items).toHaveLength(3);
+    [
+      ['Start with product and developer needs.',
+        'Shape platforms and architecture around the people building and using them.'],
+      ['Bring operational concerns into the work.',
+        'Consider observability, security, and CI/CD as part of engineering work.'],
+      ['Make learning collaborative.',
+        'Work alongside engineers and share knowledge through mentoring.'],
+    ].forEach(([heading, description], index) => {
+      expect(within(items[index]).getByRole('heading', { level: 3, name: heading })).toBeInTheDocument();
+      expect(within(items[index]).getByText(description)).toBeInTheDocument();
+    });
+    expect(within(process).getAllByRole('article')).toHaveLength(4);
+    expect(within(process).getByRole('heading', { name: 'Platforms & architecture' })).toBeInTheDocument();
+  });
+
   it('keeps the approved experience copy and links accessible', () => {
     render(<MemoryRouter><Home /></MemoryRouter>);
 

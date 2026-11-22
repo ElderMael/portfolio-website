@@ -216,6 +216,30 @@ export function Home() {
                 </div>
             </section>
 
+            <section className="home-section home-principles" aria-labelledby="principles-title">
+                <div className="home-section-heading paper-panel">
+                    <p className="home-eyebrow">Working principles · draft</p>
+                    <div>
+                        <h2 id="principles-title">Principles behind the practice.</h2>
+                        <p>Decision heuristics for shaping engineering work with teams.</p>
+                    </div>
+                </div>
+                <ol className="home-principles-list" role="list">
+                    <li className="home-card">
+                        <h3>Start with product and developer needs.</h3>
+                        <p>Shape platforms and architecture around the people building and using them.</p>
+                    </li>
+                    <li className="home-card">
+                        <h3>Bring operational concerns into the work.</h3>
+                        <p>Consider observability, security, and CI/CD as part of engineering work.</p>
+                    </li>
+                    <li className="home-card">
+                        <h3>Make learning collaborative.</h3>
+                        <p>Work alongside engineers and share knowledge through mentoring.</p>
+                    </li>
+                </ol>
+            </section>
+
             <section className="home-section home-community" aria-labelledby="community-title">
                 <div className="home-section-heading paper-panel">
                     <p className="home-eyebrow">03 / Community</p>
