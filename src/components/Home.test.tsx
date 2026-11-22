@@ -19,7 +19,7 @@ describe('home experience panels', () => {
 
     expect(portrait).toHaveAttribute('src', '/miguel-workstation.webp');
     expect(portrait).toHaveAttribute('width', '1448');
-    expect(portrait).toHaveAttribute('height', '1086');
+    expect(portrait).toHaveAttribute('height', '940');
     expect(portrait).toHaveAttribute('loading', 'lazy');
     expect(portrait).toHaveClass('home-portrait');
     expect(circuitry).not.toBeNull();
