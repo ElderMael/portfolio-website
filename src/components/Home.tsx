@@ -257,24 +257,24 @@ export function Home() {
 
             <section className="home-section home-principles" aria-labelledby="principles-title">
                 <div className="home-section-heading paper-panel">
-                    <p className="home-eyebrow">Working principles · draft</p>
+                    <p className="home-eyebrow">Working principles</p>
                     <div>
-                        <h2 id="principles-title">Principles behind the practice.</h2>
+                        <h2 id="principles-title">Setting systems up to succeed.</h2>
                         <p>Decision heuristics for shaping engineering work with teams.</p>
                     </div>
                 </div>
                 <ol className="home-principles-list" role="list">
                     <li className="home-card">
-                        <h3>Start with product and developer needs.</h3>
-                        <p>Shape platforms and architecture around the people building and using them.</p>
+                        <h3>Lead with the people the system serves.</h3>
+                        <p>Understand product and developer needs before choosing platforms or architecture.</p>
                     </li>
                     <li className="home-card">
-                        <h3>Bring operational concerns into the work.</h3>
-                        <p>Consider observability, security, and CI/CD as part of engineering work.</p>
+                        <h3>Set systems up to last.</h3>
+                        <p>Bring observability, security, and delivery into the work so teams can run and evolve what they build.</p>
                     </li>
                     <li className="home-card">
-                        <h3>Make learning collaborative.</h3>
-                        <p>Work alongside engineers and share knowledge through mentoring.</p>
+                        <h3>Build shared ownership.</h3>
+                        <p>Work through decisions with engineers and share the reasoning as part of mentoring and collaboration.</p>
                     </li>
                 </ol>
             </section>

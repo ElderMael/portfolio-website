@@ -154,24 +154,24 @@ describe('home experience panels', () => {
     });
   });
 
-  it('presents three draft decision principles after the unchanged leadership cards', () => {
+  it('presents three leadership principles after the unchanged leadership cards', () => {
     render(<MemoryRouter><Home /></MemoryRouter>);
 
     const process = screen.getByRole('region', { name: 'Leading through the work.' });
-    const principles = screen.getByRole('region', { name: 'Principles behind the practice.' });
+    const principles = screen.getByRole('region', { name: 'Setting systems up to succeed.' });
     expect(process.compareDocumentPosition(principles) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(within(principles).getByText('Working principles · draft')).toBeInTheDocument();
+    expect(within(principles).getByText('Working principles')).toBeInTheDocument();
     expect(within(principles).getByRole('heading', { level: 2 })).toBeInTheDocument();
     const orderedList = within(principles).getByRole('list');
     const items = within(orderedList).getAllByRole('listitem');
     expect(items).toHaveLength(3);
     [
-      ['Start with product and developer needs.',
-        'Shape platforms and architecture around the people building and using them.'],
-      ['Bring operational concerns into the work.',
-        'Consider observability, security, and CI/CD as part of engineering work.'],
-      ['Make learning collaborative.',
-        'Work alongside engineers and share knowledge through mentoring.'],
+      ['Lead with the people the system serves.',
+        'Understand product and developer needs before choosing platforms or architecture.'],
+      ['Set systems up to last.',
+        'Bring observability, security, and delivery into the work so teams can run and evolve what they build.'],
+      ['Build shared ownership.',
+        'Work through decisions with engineers and share the reasoning as part of mentoring and collaboration.'],
     ].forEach(([heading, description], index) => {
       expect(within(items[index]).getByRole('heading', { level: 3, name: heading })).toBeInTheDocument();
       expect(within(items[index]).getByText(description)).toBeInTheDocument();
