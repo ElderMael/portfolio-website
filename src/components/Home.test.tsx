@@ -7,7 +7,7 @@ import { Home } from './Home';
 afterEach(cleanup);
 
 describe('home experience panels', () => {
-  it('shows a restrained local portrait below the circuitry caption', () => {
+  it('shows the local workstation portrait below the circuitry caption', () => {
     render(<MemoryRouter><Home /></MemoryRouter>);
 
     const aside = document.querySelector('.home-hero-aside');
@@ -18,8 +18,8 @@ describe('home experience panels', () => {
     });
 
     expect(portrait).toHaveAttribute('src', '/miguel-workstation.webp');
-    expect(portrait).toHaveAttribute('width', '1400');
-    expect(portrait).toHaveAttribute('height', '776');
+    expect(portrait).toHaveAttribute('width', '1448');
+    expect(portrait).toHaveAttribute('height', '1086');
     expect(portrait).toHaveAttribute('loading', 'lazy');
     expect(portrait).toHaveClass('home-portrait');
     expect(circuitry).not.toBeNull();
